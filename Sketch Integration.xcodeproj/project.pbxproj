@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A3CBBC7152EF55E00B29756 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3CBBC6152EF55E00B29756 /* UIKit.framework */; };
+		0A3CBBC9152EF55E00B29756 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3CBBC8152EF55E00B29756 /* Foundation.framework */; };
+		0A3CBBCB152EF55E00B29756 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3CBBCA152EF55E00B29756 /* CoreGraphics.framework */; };
+		0A3CBBD1152EF55E00B29756 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBBCF152EF55E00B29756 /* InfoPlist.strings */; };
+		0A3CBC21152EF65400B29756 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBBEF152EF65300B29756 /* AppDelegate.m */; };
+		0A3CBC22152EF65400B29756 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBBF2152EF65300B29756 /* RootViewController.m */; };
+		0A3CBC23152EF65400B29756 /* SWPasterWonderlandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBBF4152EF65300B29756 /* SWPasterWonderlandViewController.m */; };
+		0A3CBC25152EF65400B29756 /* PKGeometryImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBBFB152EF65300B29756 /* PKGeometryImageView.m */; };
+		0A3CBC26152EF65400B29756 /* PKGeometryPaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBBFD152EF65300B29756 /* PKGeometryPaster.m */; };
+		0A3CBC27152EF65400B29756 /* PKGeometryPasterLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBBFF152EF65300B29756 /* PKGeometryPasterLibrary.m */; };
+		0A3CBC28152EF65400B29756 /* PKGeometryPasterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBC01152EF65300B29756 /* PKGeometryPasterTemplate.m */; };
+		0A3CBC29152EF65400B29756 /* PKPasterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBC03152EF65300B29756 /* PKPasterTemplate.m */; };
+		0A3CBC2A152EF65400B29756 /* PKPasterTemplateLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBC05152EF65300B29756 /* PKPasterTemplateLibrary.m */; };
+		0A3CBC2B152EF65400B29756 /* PKPasterWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBC07152EF65300B29756 /* PKPasterWork.m */; };
+		0A3CBC3B152EF65400B29756 /* SWDrawAlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1C152EF65300B29756 /* SWDrawAlbumViewController.xib */; };
+		0A3CBC3C152EF65400B29756 /* SWDrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1D152EF65300B29756 /* SWDrawViewController.xib */; };
+		0A3CBC3D152EF65400B29756 /* SWHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1E152EF65300B29756 /* SWHelpViewController.xib */; };
+		0A3CBC3E152EF65400B29756 /* SWNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1F152EF65300B29756 /* SWNavigationViewController.xib */; };
+		0A3CBC3F152EF65400B29756 /* SWPasterWonderlandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */; };
+		0A3CBC49152EF77000B29756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBC48152EF77000B29756 /* main.m */; };
+		0A3CBC4D152EF7E100B29756 /* backgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC4A152EF7E100B29756 /* backgroundImage.png */; };
+		0A3CBC4E152EF7E100B29756 /* returnButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC4C152EF7E100B29756 /* returnButton.png */; };
+		0A3CBC5B152EF80900B29756 /* pasterTemplate0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC4F152EF80900B29756 /* pasterTemplate0.png */; };
+		0A3CBC5C152EF80900B29756 /* pasterTemplate1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC50152EF80900B29756 /* pasterTemplate1.png */; };
+		0A3CBC5D152EF80900B29756 /* pasterTemplate2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC51152EF80900B29756 /* pasterTemplate2.png */; };
+		0A3CBC5E152EF80900B29756 /* pasterTemplate3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC52152EF80900B29756 /* pasterTemplate3.png */; };
+		0A3CBC5F152EF80900B29756 /* pasterTemplate4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC53152EF80900B29756 /* pasterTemplate4.png */; };
+		0A3CBC60152EF80900B29756 /* pasterTemplate5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC54152EF80900B29756 /* pasterTemplate5.png */; };
+		0A3CBC61152EF80900B29756 /* pasterTemplate6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC55152EF80900B29756 /* pasterTemplate6.png */; };
+		0A3CBC62152EF80900B29756 /* pasterTemplate7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC56152EF80900B29756 /* pasterTemplate7.png */; };
+		0A3CBC63152EF80900B29756 /* pasterTemplate8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC57152EF80900B29756 /* pasterTemplate8.png */; };
+		0A3CBC64152EF80900B29756 /* pasterTemplate9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC58152EF80900B29756 /* pasterTemplate9.png */; };
+		0A3CBC65152EF80900B29756 /* pasterTemplate10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC59152EF80900B29756 /* pasterTemplate10.png */; };
+		0A3CBC66152EF80900B29756 /* pasterTemplate11.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC5A152EF80900B29756 /* pasterTemplate11.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A3CBBC2152EF55E00B29756 /* Sketch Integration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sketch Integration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A3CBBC6152EF55E00B29756 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0A3CBBC8152EF55E00B29756 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0A3CBBCA152EF55E00B29756 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0A3CBBCE152EF55E00B29756 /* Sketch Integration-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sketch Integration-Info.plist"; sourceTree = "<group>"; };
+		0A3CBBD0152EF55E00B29756 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A3CBBD4152EF55E00B29756 /* Sketch Integration-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sketch Integration-Prefix.pch"; sourceTree = "<group>"; };
+		0A3CBBEE152EF65300B29756 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0A3CBBEF152EF65300B29756 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0A3CBBF1152EF65300B29756 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		0A3CBBF2152EF65300B29756 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		0A3CBBF3152EF65300B29756 /* SWPasterWonderlandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPasterWonderlandViewController.h; sourceTree = "<group>"; };
+		0A3CBBF4152EF65300B29756 /* SWPasterWonderlandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPasterWonderlandViewController.m; sourceTree = "<group>"; };
+		0A3CBBF5152EF65300B29756 /* EnumClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumClass.h; sourceTree = "<group>"; };
+		0A3CBBFA152EF65300B29756 /* PKGeometryImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGeometryImageView.h; sourceTree = "<group>"; };
+		0A3CBBFB152EF65300B29756 /* PKGeometryImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGeometryImageView.m; sourceTree = "<group>"; };
+		0A3CBBFC152EF65300B29756 /* PKGeometryPaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGeometryPaster.h; sourceTree = "<group>"; };
+		0A3CBBFD152EF65300B29756 /* PKGeometryPaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGeometryPaster.m; sourceTree = "<group>"; };
+		0A3CBBFE152EF65300B29756 /* PKGeometryPasterLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGeometryPasterLibrary.h; sourceTree = "<group>"; };
+		0A3CBBFF152EF65300B29756 /* PKGeometryPasterLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGeometryPasterLibrary.m; sourceTree = "<group>"; };
+		0A3CBC00152EF65300B29756 /* PKGeometryPasterTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGeometryPasterTemplate.h; sourceTree = "<group>"; };
+		0A3CBC01152EF65300B29756 /* PKGeometryPasterTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGeometryPasterTemplate.m; sourceTree = "<group>"; };
+		0A3CBC02152EF65300B29756 /* PKPasterTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPasterTemplate.h; sourceTree = "<group>"; };
+		0A3CBC03152EF65300B29756 /* PKPasterTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPasterTemplate.m; sourceTree = "<group>"; };
+		0A3CBC04152EF65300B29756 /* PKPasterTemplateLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPasterTemplateLibrary.h; sourceTree = "<group>"; };
+		0A3CBC05152EF65300B29756 /* PKPasterTemplateLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPasterTemplateLibrary.m; sourceTree = "<group>"; };
+		0A3CBC06152EF65300B29756 /* PKPasterWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPasterWork.h; sourceTree = "<group>"; };
+		0A3CBC07152EF65300B29756 /* PKPasterWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPasterWork.m; sourceTree = "<group>"; };
+		0A3CBC1C152EF65300B29756 /* SWDrawAlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawAlbumViewController.xib; sourceTree = "<group>"; };
+		0A3CBC1D152EF65300B29756 /* SWDrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawViewController.xib; sourceTree = "<group>"; };
+		0A3CBC1E152EF65300B29756 /* SWHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHelpViewController.xib; sourceTree = "<group>"; };
+		0A3CBC1F152EF65300B29756 /* SWNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWNavigationViewController.xib; sourceTree = "<group>"; };
+		0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWPasterWonderlandView.xib; sourceTree = "<group>"; };
+		0A3CBC48152EF77000B29756 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0A3CBC4A152EF7E100B29756 /* backgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundImage.png; sourceTree = "<group>"; };
+		0A3CBC4C152EF7E100B29756 /* returnButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = returnButton.png; sourceTree = "<group>"; };
+		0A3CBC4F152EF80900B29756 /* pasterTemplate0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate0.png; sourceTree = "<group>"; };
+		0A3CBC50152EF80900B29756 /* pasterTemplate1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate1.png; sourceTree = "<group>"; };
+		0A3CBC51152EF80900B29756 /* pasterTemplate2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate2.png; sourceTree = "<group>"; };
+		0A3CBC52152EF80900B29756 /* pasterTemplate3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate3.png; sourceTree = "<group>"; };
+		0A3CBC53152EF80900B29756 /* pasterTemplate4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate4.png; sourceTree = "<group>"; };
+		0A3CBC54152EF80900B29756 /* pasterTemplate5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate5.png; sourceTree = "<group>"; };
+		0A3CBC55152EF80900B29756 /* pasterTemplate6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate6.png; sourceTree = "<group>"; };
+		0A3CBC56152EF80900B29756 /* pasterTemplate7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate7.png; sourceTree = "<group>"; };
+		0A3CBC57152EF80900B29756 /* pasterTemplate8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate8.png; sourceTree = "<group>"; };
+		0A3CBC58152EF80900B29756 /* pasterTemplate9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate9.png; sourceTree = "<group>"; };
+		0A3CBC59152EF80900B29756 /* pasterTemplate10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate10.png; sourceTree = "<group>"; };
+		0A3CBC5A152EF80900B29756 /* pasterTemplate11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterTemplate11.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A3CBBBF152EF55E00B29756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3CBBC7152EF55E00B29756 /* UIKit.framework in Frameworks */,
+				0A3CBBC9152EF55E00B29756 /* Foundation.framework in Frameworks */,
+				0A3CBBCB152EF55E00B29756 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A3CBBB7152EF55E00B29756 = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBCC152EF55E00B29756 /* Sketch Integration */,
+				0A3CBBC5152EF55E00B29756 /* Frameworks */,
+				0A3CBBC3152EF55E00B29756 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0A3CBBC3152EF55E00B29756 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBC2152EF55E00B29756 /* Sketch Integration.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A3CBBC5152EF55E00B29756 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBC6152EF55E00B29756 /* UIKit.framework */,
+				0A3CBBC8152EF55E00B29756 /* Foundation.framework */,
+				0A3CBBCA152EF55E00B29756 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A3CBBCC152EF55E00B29756 /* Sketch Integration */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBEE152EF65300B29756 /* AppDelegate.h */,
+				0A3CBBEF152EF65300B29756 /* AppDelegate.m */,
+				0A3CBBF0152EF65300B29756 /* Controllers */,
+				0A3CBBF5152EF65300B29756 /* EnumClass.h */,
+				0A3CBBF7152EF65300B29756 /* Models */,
+				0A3CBC1B152EF65300B29756 /* Views */,
+				0A3CBBCD152EF55E00B29756 /* Supporting Files */,
+			);
+			path = "Sketch Integration";
+			sourceTree = "<group>";
+		};
+		0A3CBBCD152EF55E00B29756 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBC44152EF6C300B29756 /* Resources */,
+				0A3CBBCE152EF55E00B29756 /* Sketch Integration-Info.plist */,
+				0A3CBBCF152EF55E00B29756 /* InfoPlist.strings */,
+				0A3CBC48152EF77000B29756 /* main.m */,
+				0A3CBBD4152EF55E00B29756 /* Sketch Integration-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A3CBBF0152EF65300B29756 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBF1152EF65300B29756 /* RootViewController.h */,
+				0A3CBBF2152EF65300B29756 /* RootViewController.m */,
+				0A3CBBF3152EF65300B29756 /* SWPasterWonderlandViewController.h */,
+				0A3CBBF4152EF65300B29756 /* SWPasterWonderlandViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0A3CBBF7152EF65300B29756 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBF8152EF65300B29756 /* DrawKit */,
+				0A3CBBF9152EF65300B29756 /* PasterKit */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0A3CBBF8152EF65300B29756 /* DrawKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DrawKit;
+			sourceTree = "<group>";
+		};
+		0A3CBBF9152EF65300B29756 /* PasterKit */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBBFA152EF65300B29756 /* PKGeometryImageView.h */,
+				0A3CBBFB152EF65300B29756 /* PKGeometryImageView.m */,
+				0A3CBBFC152EF65300B29756 /* PKGeometryPaster.h */,
+				0A3CBBFD152EF65300B29756 /* PKGeometryPaster.m */,
+				0A3CBBFE152EF65300B29756 /* PKGeometryPasterLibrary.h */,
+				0A3CBBFF152EF65300B29756 /* PKGeometryPasterLibrary.m */,
+				0A3CBC00152EF65300B29756 /* PKGeometryPasterTemplate.h */,
+				0A3CBC01152EF65300B29756 /* PKGeometryPasterTemplate.m */,
+				0A3CBC02152EF65300B29756 /* PKPasterTemplate.h */,
+				0A3CBC03152EF65300B29756 /* PKPasterTemplate.m */,
+				0A3CBC04152EF65300B29756 /* PKPasterTemplateLibrary.h */,
+				0A3CBC05152EF65300B29756 /* PKPasterTemplateLibrary.m */,
+				0A3CBC06152EF65300B29756 /* PKPasterWork.h */,
+				0A3CBC07152EF65300B29756 /* PKPasterWork.m */,
+			);
+			path = PasterKit;
+			sourceTree = "<group>";
+		};
+		0A3CBC1B152EF65300B29756 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBC1C152EF65300B29756 /* SWDrawAlbumViewController.xib */,
+				0A3CBC1D152EF65300B29756 /* SWDrawViewController.xib */,
+				0A3CBC1E152EF65300B29756 /* SWHelpViewController.xib */,
+				0A3CBC1F152EF65300B29756 /* SWNavigationViewController.xib */,
+				0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0A3CBC44152EF6C300B29756 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBC45152EF6C300B29756 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0A3CBC45152EF6C300B29756 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBC46152EF6C300B29756 /* SWPasterWonderlandView */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0A3CBC46152EF6C300B29756 /* SWPasterWonderlandView */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBC4A152EF7E100B29756 /* backgroundImage.png */,
+				0A3CBC4C152EF7E100B29756 /* returnButton.png */,
+				0A3CBC4B152EF7E100B29756 /* pasterTemplates */,
+			);
+			path = SWPasterWonderlandView;
+			sourceTree = "<group>";
+		};
+		0A3CBC4B152EF7E100B29756 /* pasterTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				0A3CBC4F152EF80900B29756 /* pasterTemplate0.png */,
+				0A3CBC50152EF80900B29756 /* pasterTemplate1.png */,
+				0A3CBC51152EF80900B29756 /* pasterTemplate2.png */,
+				0A3CBC52152EF80900B29756 /* pasterTemplate3.png */,
+				0A3CBC53152EF80900B29756 /* pasterTemplate4.png */,
+				0A3CBC54152EF80900B29756 /* pasterTemplate5.png */,
+				0A3CBC55152EF80900B29756 /* pasterTemplate6.png */,
+				0A3CBC56152EF80900B29756 /* pasterTemplate7.png */,
+				0A3CBC57152EF80900B29756 /* pasterTemplate8.png */,
+				0A3CBC58152EF80900B29756 /* pasterTemplate9.png */,
+				0A3CBC59152EF80900B29756 /* pasterTemplate10.png */,
+				0A3CBC5A152EF80900B29756 /* pasterTemplate11.png */,
+			);
+			path = pasterTemplates;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0A3CBBC1152EF55E00B29756 /* Sketch Integration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A3CBBE3152EF55F00B29756 /* Build configuration list for PBXNativeTarget "Sketch Integration" */;
+			buildPhases = (
+				0A3CBBBE152EF55E00B29756 /* Sources */,
+				0A3CBBBF152EF55E00B29756 /* Frameworks */,
+				0A3CBBC0152EF55E00B29756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sketch Integration";
+			productName = "Sketch Integration";
+			productReference = 0A3CBBC2152EF55E00B29756 /* Sketch Integration.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0A3CBBB9152EF55E00B29756 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
+			buildConfigurationList = 0A3CBBBC152EF55E00B29756 /* Build configuration list for PBXProject "Sketch Integration" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0A3CBBB7152EF55E00B29756;
+			productRefGroup = 0A3CBBC3152EF55E00B29756 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A3CBBC1152EF55E00B29756 /* Sketch Integration */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A3CBBC0152EF55E00B29756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3CBBD1152EF55E00B29756 /* InfoPlist.strings in Resources */,
+				0A3CBC3B152EF65400B29756 /* SWDrawAlbumViewController.xib in Resources */,
+				0A3CBC3C152EF65400B29756 /* SWDrawViewController.xib in Resources */,
+				0A3CBC3D152EF65400B29756 /* SWHelpViewController.xib in Resources */,
+				0A3CBC3E152EF65400B29756 /* SWNavigationViewController.xib in Resources */,
+				0A3CBC3F152EF65400B29756 /* SWPasterWonderlandView.xib in Resources */,
+				0A3CBC4D152EF7E100B29756 /* backgroundImage.png in Resources */,
+				0A3CBC4E152EF7E100B29756 /* returnButton.png in Resources */,
+				0A3CBC5B152EF80900B29756 /* pasterTemplate0.png in Resources */,
+				0A3CBC5C152EF80900B29756 /* pasterTemplate1.png in Resources */,
+				0A3CBC5D152EF80900B29756 /* pasterTemplate2.png in Resources */,
+				0A3CBC5E152EF80900B29756 /* pasterTemplate3.png in Resources */,
+				0A3CBC5F152EF80900B29756 /* pasterTemplate4.png in Resources */,
+				0A3CBC60152EF80900B29756 /* pasterTemplate5.png in Resources */,
+				0A3CBC61152EF80900B29756 /* pasterTemplate6.png in Resources */,
+				0A3CBC62152EF80900B29756 /* pasterTemplate7.png in Resources */,
+				0A3CBC63152EF80900B29756 /* pasterTemplate8.png in Resources */,
+				0A3CBC64152EF80900B29756 /* pasterTemplate9.png in Resources */,
+				0A3CBC65152EF80900B29756 /* pasterTemplate10.png in Resources */,
+				0A3CBC66152EF80900B29756 /* pasterTemplate11.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A3CBBBE152EF55E00B29756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3CBC21152EF65400B29756 /* AppDelegate.m in Sources */,
+				0A3CBC22152EF65400B29756 /* RootViewController.m in Sources */,
+				0A3CBC23152EF65400B29756 /* SWPasterWonderlandViewController.m in Sources */,
+				0A3CBC25152EF65400B29756 /* PKGeometryImageView.m in Sources */,
+				0A3CBC26152EF65400B29756 /* PKGeometryPaster.m in Sources */,
+				0A3CBC27152EF65400B29756 /* PKGeometryPasterLibrary.m in Sources */,
+				0A3CBC28152EF65400B29756 /* PKGeometryPasterTemplate.m in Sources */,
+				0A3CBC29152EF65400B29756 /* PKPasterTemplate.m in Sources */,
+				0A3CBC2A152EF65400B29756 /* PKPasterTemplateLibrary.m in Sources */,
+				0A3CBC2B152EF65400B29756 /* PKPasterWork.m in Sources */,
+				0A3CBC49152EF77000B29756 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0A3CBBCF152EF55E00B29756 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A3CBBD0152EF55E00B29756 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0A3CBBE1152EF55F00B29756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		0A3CBBE2152EF55F00B29756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0A3CBBE4152EF55F00B29756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sketch Integration/Sketch Integration-Prefix.pch";
+				INFOPLIST_FILE = "Sketch Integration/Sketch Integration-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0A3CBBE5152EF55F00B29756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sketch Integration/Sketch Integration-Prefix.pch";
+				INFOPLIST_FILE = "Sketch Integration/Sketch Integration-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A3CBBBC152EF55E00B29756 /* Build configuration list for PBXProject "Sketch Integration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3CBBE1152EF55F00B29756 /* Debug */,
+				0A3CBBE2152EF55F00B29756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A3CBBE3152EF55F00B29756 /* Build configuration list for PBXNativeTarget "Sketch Integration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3CBBE4152EF55F00B29756 /* Debug */,
+				0A3CBBE5152EF55F00B29756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0A3CBBB9152EF55E00B29756 /* Project object */;
+}
