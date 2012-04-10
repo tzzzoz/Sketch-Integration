@@ -47,7 +47,6 @@
 
 @property (nonatomic, retain)  NSMutableArray *array;
 
-
 @property (nonatomic, retain) IBOutlet PKPasterTemplateLibrary *pasterTemplateLibrary;
 
 @end

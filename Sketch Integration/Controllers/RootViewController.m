@@ -12,6 +12,20 @@
 
 @synthesize pasterWonderlandViewController;
 
+static  RootViewController *_sharedRootViewController = nil;
+
++ (RootViewController *) sharedRootViewController {
+    if (!_sharedRootViewController) {
+        _sharedRootViewController = [[self alloc] init];
+    }
+    return _sharedRootViewController;
+}
+
++(id)alloc {
+    NSAssert(_sharedRootViewController == nil, @"Attempted to allocate a second instance of a singleton.");
+    return [super alloc];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

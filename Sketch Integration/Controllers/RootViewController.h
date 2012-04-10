@@ -11,7 +11,10 @@
 
 @interface RootViewController : UIViewController {
     SWPasterWonderlandViewController *pasterWonderlandViewController;
+    
 }
+
++(RootViewController *)sharedRootViewController;
 
 @property (retain, nonatomic) SWPasterWonderlandViewController *pasterWonderlandViewController;
 

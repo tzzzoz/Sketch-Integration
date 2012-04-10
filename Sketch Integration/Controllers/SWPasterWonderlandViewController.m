@@ -7,7 +7,7 @@
 //
 
 #import "SWPasterWonderlandViewController.h"
-
+#import "RootViewController.h"
 @implementation SWPasterWonderlandViewController
 @synthesize backgroundImageView;
 @synthesize pasterTemplate0;
@@ -32,7 +32,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
 //        pasterTemplateLibrary = [[PKPasterTemplateLibrary alloc] initWithDataOfPlist];
 //        for (PKPasterTemplate *pasterTemplate in pasterTemplateLibrary.pasterTemplates) {
 //            if (pasterTemplate.isModified) {
