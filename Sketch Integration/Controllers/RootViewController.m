@@ -10,7 +10,11 @@
 
 @implementation RootViewController
 
+@synthesize navigationViewController;
 @synthesize pasterWonderlandViewController;
+@synthesize drawViewController;
+@synthesize drawAlbumViewController;
+@synthesize helpViewController;
 
 static  RootViewController *_sharedRootViewController = nil;
 
@@ -31,8 +35,12 @@ static  RootViewController *_sharedRootViewController = nil;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        navigationViewController = [[SWNavigationViewController alloc] initWithNibName:@"SWNavigationView" bundle:nil];
         pasterWonderlandViewController = [[SWPasterWonderlandViewController alloc] initWithNibName:@"SWPasterWonderlandView" bundle:nil];
-        self.view = pasterWonderlandViewController.view;
+        drawViewController = [[SWDrawViewController alloc] initWithNibName:@"SWDrawView" bundle:nil];
+        drawAlbumViewController = [[SWDrawAlbumViewController alloc] initWithNibName:@"SWDrawAlbumView" bundle:nil];
+        helpViewController = [[SWHelpViewController alloc] initWithNibName:@"SWHelpView" bundle:nil];
+        
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"]; 
         NSLog(@"%@", plistPath);
     }
@@ -56,19 +64,25 @@ static  RootViewController *_sharedRootViewController = nil;
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view = navigationViewController.view;
 }
-*/
+
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [navigationViewController release];
+    [pasterWonderlandViewController release];
+    [drawViewController release];
+    [drawAlbumViewController release];
+    [helpViewController release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
