@@ -24,7 +24,7 @@
 @synthesize pasterTemplate11;
 @synthesize returnButton;
 
-@synthesize array;
+@synthesize pasterTemplates;
 
 @synthesize pasterTemplateLibrary;
 
@@ -56,6 +56,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    pasterTemplates =  [[NSMutableArray alloc] init];
+    [pasterTemplates addObject:pasterTemplate0];
+    [pasterTemplates addObject:pasterTemplate1];
+    [pasterTemplates addObject:pasterTemplate2];
+    [pasterTemplates addObject:pasterTemplate3];
+    [pasterTemplates addObject:pasterTemplate4];
+    [pasterTemplates addObject:pasterTemplate5];
+    [pasterTemplates addObject:pasterTemplate6];
+    [pasterTemplates addObject:pasterTemplate7];
+    [pasterTemplates addObject:pasterTemplate8];
+    [pasterTemplates addObject:pasterTemplate9];
+    [pasterTemplates addObject:pasterTemplate10];
+    [pasterTemplates addObject:pasterTemplate11];
+    for (int i = 0; i < 12; i++) {
+        UIImageView *imageView = [pasterTemplates objectAtIndex:i];
+        NSString *fileName = [[NSString alloc] initWithFormat:@"pasterTemplate%d.png", i];
+        [imageView setImage:[UIImage imageNamed:fileName]];
+        [fileName release];
+    }
     // Do any additional setup after loading the view from its nib.
 }
 

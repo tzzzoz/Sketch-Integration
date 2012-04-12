@@ -10,11 +10,14 @@
 
 @implementation RootViewController
 
+@synthesize viewControllersStack;
 @synthesize navigationViewController;
 @synthesize pasterWonderlandViewController;
 @synthesize drawViewController;
 @synthesize drawAlbumViewController;
 @synthesize helpViewController;
+@synthesize currentViewController;
+@synthesize nextViewController;
 
 static  RootViewController *_sharedRootViewController = nil;
 
@@ -30,21 +33,68 @@ static  RootViewController *_sharedRootViewController = nil;
     return [super alloc];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // 从xib文件中读取视图资源，对试图控制器进行初始化
         navigationViewController = [[SWNavigationViewController alloc] initWithNibName:@"SWNavigationView" bundle:nil];
+        //NSLog(@"1retainCount is %d", [currentViewController retainCount]);
         pasterWonderlandViewController = [[SWPasterWonderlandViewController alloc] initWithNibName:@"SWPasterWonderlandView" bundle:nil];
         drawViewController = [[SWDrawViewController alloc] initWithNibName:@"SWDrawView" bundle:nil];
         drawAlbumViewController = [[SWDrawAlbumViewController alloc] initWithNibName:@"SWDrawAlbumView" bundle:nil];
         helpViewController = [[SWHelpViewController alloc] initWithNibName:@"SWHelpView" bundle:nil];
         
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"]; 
-        NSLog(@"%@", plistPath);
+        //当前
+        currentViewController = nil;
+        nextViewController = nil;
+        //NSLog(@"2retainCount is %d", [currentViewController retainCount]);        
+        [self runWithViewController:pasterWonderlandViewController];
+        //NSLog(@"3retainCount is %d", [currentViewController retainCount]);
+
+        //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"]; 
+        //NSLog(@"%@", plistPath);
     }
     return self;
+}
+
+-(void)display {
+    NSAssert(nextViewController != nil, @"nextViewController can't be nil");
+    currentViewController = nextViewController;
+    self.view = currentViewController.view;
+}
+
+
+-(void)runWithViewController:(UIViewController*) viewController {
+    NSAssert(viewController != nil, @"Argument must be not nil");
+    NSAssert(currentViewController == nil, @"You can't run a viewController when the other viewController is running, please use push or replace");
+    
+    [self pushViewController:viewController];
+    [self display];
+}
+
+
+-(void)pushViewController:(UIViewController*) viewController {
+    NSAssert(viewController != nil, @"Argument must be not nil");
+    
+    [viewControllersStack addObject:viewController];
+    nextViewController = viewController;
+    [self display];
+}
+
+-(void)popViewController {
+    NSAssert(currentViewController != nil, @"currentViewController is needed");
+    
+    [viewControllersStack removeLastObject];
+    
+    NSInteger count = [viewControllersStack count];
+    
+    if (count == 0) {
+        [self viewDidUnload];
+    } else {
+        nextViewController = [viewControllersStack lastObject];
+        [self display];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,7 +119,7 @@ static  RootViewController *_sharedRootViewController = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view = navigationViewController.view;
+    [self display];
 }
 
 
@@ -78,6 +128,15 @@ static  RootViewController *_sharedRootViewController = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    navigationViewController = nil;
+    pasterWonderlandViewController = nil;
+    drawViewController = nil;
+    drawAlbumViewController = nil;
+    helpViewController = nil;
+}
+
+-(void)dealloc {
+    [super dealloc];
     [navigationViewController release];
     [pasterWonderlandViewController release];
     [drawViewController release];

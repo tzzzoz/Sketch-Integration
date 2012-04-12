@@ -25,7 +25,7 @@
     UIImageView *pasterTemplate11;
     UIButton *returnButton;
     
-    NSMutableArray *array;
+    NSMutableArray *pasterTemplates;
     
     PKPasterTemplateLibrary *pasterTemplateLibrary;
 }
@@ -45,7 +45,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate11;
 @property (nonatomic, retain) IBOutlet UIButton *returnButton;
 
-@property (nonatomic, retain)  NSMutableArray *array;
+@property (nonatomic, retain)  NSMutableArray *pasterTemplates;
 
 @property (nonatomic, retain) IBOutlet PKPasterTemplateLibrary *pasterTemplateLibrary;
 

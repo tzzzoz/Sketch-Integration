@@ -109,10 +109,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate0.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="100525810">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -124,10 +120,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate1.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="705087374">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -139,10 +131,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate2.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="1013733438">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -154,10 +142,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate3.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="954323662">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -169,10 +153,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate4.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="1067894420">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -184,10 +164,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate5.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="907311142">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -199,10 +175,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate6.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="676722268">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -214,10 +186,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate7.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="659100695">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -229,10 +197,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate8.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="886695300">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -244,10 +208,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate9.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="205039029">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -259,10 +219,6 @@
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate10.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="6060819">
 								<reference key="NSNextResponder" ref="231844940"/>
@@ -270,13 +226,10 @@
 								<string key="NSFrame">{{722, 474}, {155, 110}}</string>
 								<reference key="NSSuperview" ref="231844940"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:569</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pasterTemplate11.png</string>
-								</object>
 							</object>
 						</object>
 						<string key="NSFrameSize">{1024, 768}</string>
@@ -325,6 +278,102 @@
 						<reference key="destination" ref="81411699"/>
 					</object>
 					<int key="connectionID">14</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate0</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="395226487"/>
+					</object>
+					<int key="connectionID">61</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate1</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="100525810"/>
+					</object>
+					<int key="connectionID">62</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="705087374"/>
+					</object>
+					<int key="connectionID">63</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1013733438"/>
+					</object>
+					<int key="connectionID">64</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate4</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="954323662"/>
+					</object>
+					<int key="connectionID">65</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate5</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1067894420"/>
+					</object>
+					<int key="connectionID">66</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate6</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="907311142"/>
+					</object>
+					<int key="connectionID">67</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate7</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="676722268"/>
+					</object>
+					<int key="connectionID">68</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate8</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="659100695"/>
+					</object>
+					<int key="connectionID">69</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate9</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="886695300"/>
+					</object>
+					<int key="connectionID">70</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate10</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="205039029"/>
+					</object>
+					<int key="connectionID">71</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pasterTemplate11</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="6060819"/>
+					</object>
+					<int key="connectionID">72</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -511,7 +560,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">59</int>
+			<int key="maxID">72</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -670,35 +719,11 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>backgroundImage.png</string>
-				<string>pasterTemplate0.png</string>
-				<string>pasterTemplate1.png</string>
-				<string>pasterTemplate10.png</string>
-				<string>pasterTemplate11.png</string>
-				<string>pasterTemplate2.png</string>
-				<string>pasterTemplate3.png</string>
-				<string>pasterTemplate4.png</string>
-				<string>pasterTemplate5.png</string>
-				<string>pasterTemplate6.png</string>
-				<string>pasterTemplate7.png</string>
-				<string>pasterTemplate8.png</string>
-				<string>pasterTemplate9.png</string>
 				<string>returnButton.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{1024, 768}</string>
-				<string>{115, 185}</string>
-				<string>{115, 160}</string>
-				<string>{85, 200}</string>
-				<string>{155, 100}</string>
-				<string>{85, 200}</string>
-				<string>{145, 115}</string>
-				<string>{200, 200}</string>
-				<string>{170, 110}</string>
-				<string>{200, 200}</string>
-				<string>{200, 200}</string>
-				<string>{115, 140}</string>
-				<string>{120, 180}</string>
 				<string>{75, 60}</string>
 			</object>
 		</object>

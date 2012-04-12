@@ -374,11 +374,11 @@
 		0A3CBC1B152EF65300B29756 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */,
-				0A3CBC1D152EF65300B29756 /* SWDrawView.xib */,
-				0A3CBC1E152EF65300B29756 /* SWHelpView.xib */,
 				0A3CBC1F152EF65300B29756 /* SWNavigationView.xib */,
 				0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */,
+				0A3CBC1D152EF65300B29756 /* SWDrawView.xib */,
+				0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */,
+				0A3CBC1E152EF65300B29756 /* SWHelpView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
