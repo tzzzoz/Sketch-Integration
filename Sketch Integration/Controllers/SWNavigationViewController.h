@@ -11,4 +11,7 @@
 
 @interface SWNavigationViewController : UIViewController
 
+-(IBAction)pressPasterWonderlandButton:(id)sender;
+-(IBAction)pressDrawAlbumButton:(id)sender;
+-(IBAction)pressHelpButton:(id)sender;
 @end

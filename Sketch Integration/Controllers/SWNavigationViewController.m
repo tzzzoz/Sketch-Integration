@@ -27,15 +27,21 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
+-(void)pressPasterWonderlandButton:(id)sender {
+    RootViewController * rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController pushViewController:[rootViewController pasterWonderlandViewController]];
 }
-*/
 
+-(void)pressDrawAlbumButton:(id)sender {
+    RootViewController * rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
+}
+
+-(void)pressHelpButton:(id)sender {
+    RootViewController * rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController pushViewController:[rootViewController helpViewController]];
+}
+#pragma mark - View lifecycle
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad

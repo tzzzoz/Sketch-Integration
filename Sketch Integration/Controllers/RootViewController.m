@@ -49,7 +49,7 @@ static  RootViewController *_sharedRootViewController = nil;
         currentViewController = nil;
         nextViewController = nil;
         //NSLog(@"2retainCount is %d", [currentViewController retainCount]);        
-        [self runWithViewController:pasterWonderlandViewController];
+        [self runWithViewController:navigationViewController];
         //NSLog(@"3retainCount is %d", [currentViewController retainCount]);
 
         //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"]; 
@@ -61,6 +61,8 @@ static  RootViewController *_sharedRootViewController = nil;
 -(void)display {
     NSAssert(nextViewController != nil, @"nextViewController can't be nil");
     currentViewController = nextViewController;
+    nextViewController = nil;
+    [currentViewController willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0.5];
     self.view = currentViewController.view;
 }
 
@@ -70,7 +72,6 @@ static  RootViewController *_sharedRootViewController = nil;
     NSAssert(currentViewController == nil, @"You can't run a viewController when the other viewController is running, please use push or replace");
     
     [self pushViewController:viewController];
-    [self display];
 }
 
 
