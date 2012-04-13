@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
 
 @interface SWDrawAlbumViewController : UIViewController
+
+
+-(IBAction)returnBack:(id)sender;
 
 @end

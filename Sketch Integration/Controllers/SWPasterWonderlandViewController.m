@@ -7,8 +7,8 @@
 //
 
 #import "SWPasterWonderlandViewController.h"
-#import "RootViewController.h"
 #define degreesToRadians(x) (M_PI*(x)/180.0)
+
 @implementation SWPasterWonderlandViewController
 @synthesize backgroundImageView;
 @synthesize pasterTemplate0;
@@ -50,6 +50,12 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+
+-(void)returnBack:(id)sender {
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController popViewController];
 }
 
 #pragma mark - View lifecycle

@@ -28,17 +28,22 @@
 }
 
 -(void)pressPasterWonderlandButton:(id)sender {
-    RootViewController * rootViewController = [RootViewController sharedRootViewController];
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController pasterWonderlandViewController]];
 }
 
+-(void)pressDrawViewButton:(id)sender {
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController pushViewController:[rootViewController drawViewController]];
+}
+
 -(void)pressDrawAlbumButton:(id)sender {
-    RootViewController * rootViewController = [RootViewController sharedRootViewController];
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
 }
 
 -(void)pressHelpButton:(id)sender {
-    RootViewController * rootViewController = [RootViewController sharedRootViewController];
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController helpViewController]];
 }
 #pragma mark - View lifecycle

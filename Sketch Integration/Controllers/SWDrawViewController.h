@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
 
 @interface SWDrawViewController : UIViewController
 
+
+-(IBAction)returnBack:(id)sender;
+-(IBAction)pressDrawAlbumButton:(id)sender;
 @end

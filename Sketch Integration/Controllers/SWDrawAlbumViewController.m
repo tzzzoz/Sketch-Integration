@@ -7,6 +7,7 @@
 //
 
 #import "SWDrawAlbumViewController.h"
+#define degreesToRadians(x) (M_PI*(x)/180.0)
 
 @implementation SWDrawAlbumViewController
 
@@ -25,6 +26,11 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+-(void)returnBack:(id)sender {
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController popViewController];
 }
 
 #pragma mark - View lifecycle
@@ -55,6 +61,20 @@
 {
     // Return YES for supported orientations
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        
+        self.view.transform = CGAffineTransformIdentity;
+        self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(-90));
+        self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
+    } else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        
+        self.view.transform = CGAffineTransformIdentity;
+        self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(90));
+        self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
+    }
 }
 
 @end

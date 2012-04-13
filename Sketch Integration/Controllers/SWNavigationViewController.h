@@ -13,5 +13,6 @@
 
 -(IBAction)pressPasterWonderlandButton:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
+-(IBAction)pressDrawViewButton:(id)sender;
 -(IBAction)pressHelpButton:(id)sender;
 @end

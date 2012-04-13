@@ -48,6 +48,6 @@
 -(void)display;
 -(void)runWithViewController:(UIViewController*) viewController;
 -(void)pushViewController:(UIViewController*) viewController;
-
+-(void)popViewController;
 
 @end

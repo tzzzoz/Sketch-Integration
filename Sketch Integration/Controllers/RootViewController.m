@@ -38,6 +38,7 @@ static  RootViewController *_sharedRootViewController = nil;
     self = [super init];
     if (self) {
         // 从xib文件中读取视图资源，对试图控制器进行初始化
+        viewControllersStack = [[NSMutableArray alloc] init];
         navigationViewController = [[SWNavigationViewController alloc] initWithNibName:@"SWNavigationView" bundle:nil];
         //NSLog(@"1retainCount is %d", [currentViewController retainCount]);
         pasterWonderlandViewController = [[SWPasterWonderlandViewController alloc] initWithNibName:@"SWPasterWonderlandView" bundle:nil];
@@ -52,7 +53,7 @@ static  RootViewController *_sharedRootViewController = nil;
         [self runWithViewController:navigationViewController];
         //NSLog(@"3retainCount is %d", [currentViewController retainCount]);
 
-        //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"]; 
+        //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"];
         //NSLog(@"%@", plistPath);
     }
     return self;

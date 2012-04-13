@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
 
 @interface SWHelpViewController : UIViewController
 
+
+-(IBAction)returnBack:(id)sender;
 @end

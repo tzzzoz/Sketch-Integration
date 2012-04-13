@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PKPasterTemplateLibrary.h"
+#import "RootViewController.h"
 
 @interface SWPasterWonderlandViewController : UIViewController{
     UIImageView *backgroundImageView;
@@ -48,5 +49,8 @@
 @property (nonatomic, retain)  NSMutableArray *pasterTemplates;
 
 @property (nonatomic, retain) IBOutlet PKPasterTemplateLibrary *pasterTemplateLibrary;
+
+
+-(IBAction)returnBack:(id)sender;
 
 @end
