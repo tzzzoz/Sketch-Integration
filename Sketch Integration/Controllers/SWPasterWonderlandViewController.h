@@ -30,6 +30,8 @@
     PKPasterTemplateLibrary *pasterTemplateLibrary;
 }
 
+- (IBAction)return:(id)sender;
+
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate0;
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate1;

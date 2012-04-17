@@ -11,11 +11,16 @@
 @implementation RootViewController
 
 @synthesize pasterWonderlandViewController;
+@synthesize currentViewController;
+@synthesize viewControllerStack;
+
+static RootViewController* _sharedInstance = nil;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
         pasterWonderlandViewController = [[SWPasterWonderlandViewController alloc] initWithNibName:@"SWPasterWonderlandView" bundle:nil];
         self.view = pasterWonderlandViewController.view;
@@ -24,6 +29,34 @@
     }
     return self;
 }
+
+#pragma mark RootViewController - complement Singleton
+
++(RootViewController*)sharedInstance
+{
+    @synchronized([RootViewController class])
+    {
+        if(!_sharedInstance)
+            [[self alloc]init];
+        return _sharedInstance;
+    }
+    return nil;
+}
+
++(id)alloc
+{
+    @synchronized([RootViewController class])
+    {
+        _sharedInstance = [super alloc];
+        return _sharedInstance;
+    }
+    return nil;
+}
+
+#pragma mark RootViewControlloer - controller Management
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

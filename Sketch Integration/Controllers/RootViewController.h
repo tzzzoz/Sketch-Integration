@@ -9,10 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "SWPasterWonderlandViewController.h"
 
-@interface RootViewController : UIViewController {
+@interface RootViewController : UIViewController 
+{
     SWPasterWonderlandViewController *pasterWonderlandViewController;
+    //当前的currentViewController
+    UIViewController* currentViewController; 
+    //存储viewController的堆栈
+    NSMutableArray* viewControllerStack;
 }
 
 @property (retain, nonatomic) SWPasterWonderlandViewController *pasterWonderlandViewController;
+@property (retain, nonatomic) UIViewController* currentViewController;
+@property (retain, nonatomic) NSMutableArray* viewControllerStack;
+
++(RootViewController*)sharedInstance;
+
+
 
 @end
