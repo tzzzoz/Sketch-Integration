@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PKPasterTemplate.h"
+#import "PKPasterWork.h"
 
 @interface PKPasterTemplateLibrary : NSObject {
     NSMutableArray *pasterTemplates;

@@ -15,11 +15,10 @@
 {
     // Override point for customization after application launch.
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    rootViewController = [RootViewController sharedInstance];
+    rootViewController = [RootViewController sharedRootViewController];
     rootViewController.wantsFullScreenLayout = YES;
     window.rootViewController = rootViewController;
     [window makeKeyAndVisible];
-    
     return YES;
 }
 

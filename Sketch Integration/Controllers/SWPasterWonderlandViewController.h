@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PKPasterTemplateLibrary.h"
+#import "RootViewController.h"
 
 @interface SWPasterWonderlandViewController : UIViewController{
     UIImageView *backgroundImageView;
@@ -25,12 +26,10 @@
     UIImageView *pasterTemplate11;
     UIButton *returnButton;
     
-    NSMutableArray *array;
+    NSMutableArray *pasterTemplateViews;
     
     PKPasterTemplateLibrary *pasterTemplateLibrary;
 }
-
-- (IBAction)return:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate0;
@@ -47,9 +46,11 @@
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate11;
 @property (nonatomic, retain) IBOutlet UIButton *returnButton;
 
-@property (nonatomic, retain)  NSMutableArray *array;
-
+@property (nonatomic, retain)  NSMutableArray *pasterTemplateViews;
 
 @property (nonatomic, retain) IBOutlet PKPasterTemplateLibrary *pasterTemplateLibrary;
 
+
+-(IBAction)returnBack:(id)sender;
+-(void)tapPasterImageView:(id)sender;
 @end
