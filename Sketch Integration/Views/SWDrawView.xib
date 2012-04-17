@@ -387,7 +387,7 @@
 								<string key="NSFrame">{{974, 299}, {45, 45}}</string>
 								<reference key="NSSuperview" ref="440797145"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="16697488"/>
+								<reference key="NSNextKeyView" ref="742039774"/>
 								<string key="NSReuseIdentifierKey">_NS:237</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -405,7 +405,7 @@
 									<string key="NSResourceName">redoButton.png</string>
 								</object>
 							</object>
-							<object class="IBUIButton" id="16697488">
+							<object class="IBUIButton" id="742039774">
 								<reference key="NSNextResponder" ref="440797145"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{51, 531}, {61, 90}}</string>
@@ -423,12 +423,12 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-								<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="40852554">
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="78018141">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">enterAlumButton.png</string>
 								</object>
 							</object>
-							<object class="IBUIButton" id="1049367870">
+							<object class="IBUIButton" id="972201704">
 								<reference key="NSNextResponder" ref="440797145"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{24, 531}, {61, 90}}</string>
@@ -445,9 +445,9 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-								<reference key="IBUINormalBackgroundImage" ref="40852554"/>
+								<reference key="IBUINormalBackgroundImage" ref="78018141"/>
 							</object>
-							<object class="IBUIButton" id="437113349">
+							<object class="IBUIButton" id="599960784">
 								<reference key="NSNextResponder" ref="440797145"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{-5, 531}, {61, 90}}</string>
@@ -464,7 +464,7 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-								<reference key="IBUINormalBackgroundImage" ref="40852554"/>
+								<reference key="IBUINormalBackgroundImage" ref="78018141"/>
 							</object>
 						</object>
 						<string key="NSFrameSize">{1024, 768}</string>
@@ -518,7 +518,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">pressDrawAlbumButton:</string>
-						<reference key="source" ref="437113349"/>
+						<reference key="source" ref="599960784"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -527,7 +527,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">pressDrawAlbumButton:</string>
-						<reference key="source" ref="1049367870"/>
+						<reference key="source" ref="972201704"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -536,7 +536,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">pressDrawAlbumButton:</string>
-						<reference key="source" ref="16697488"/>
+						<reference key="source" ref="742039774"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -584,9 +584,9 @@
 							<reference ref="165560803"/>
 							<reference ref="131802759"/>
 							<reference ref="210683022"/>
-							<reference ref="16697488"/>
-							<reference ref="1049367870"/>
-							<reference ref="437113349"/>
+							<reference ref="742039774"/>
+							<reference ref="972201704"/>
+							<reference ref="599960784"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -680,17 +680,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">164</int>
-						<reference key="object" ref="16697488"/>
+						<reference key="object" ref="742039774"/>
 						<reference key="parent" ref="440797145"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">165</int>
-						<reference key="object" ref="437113349"/>
+						<reference key="object" ref="599960784"/>
 						<reference key="parent" ref="440797145"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">166</int>
-						<reference key="object" ref="1049367870"/>
+						<reference key="object" ref="972201704"/>
 						<reference key="parent" ref="440797145"/>
 					</object>
 				</object>

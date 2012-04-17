@@ -25,7 +25,7 @@
 @synthesize pasterTemplate11;
 @synthesize returnButton;
 
-@synthesize pasterTemplates;
+@synthesize pasterTemplateViews;
 
 @synthesize pasterTemplateLibrary;
 
@@ -33,13 +33,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-//        pasterTemplateLibrary = [[PKPasterTemplateLibrary alloc] initWithDataOfPlist];
-//        for (PKPasterTemplate *pasterTemplate in pasterTemplateLibrary.pasterTemplates) {
-//            if (pasterTemplate.isModified) {
-//                [self.view addSubview:pasterTemplate.pasterView];
-//                NSLog(@"Can you see me?");
-//            }
-//        }
+        
     }
     return self;
 }
@@ -58,30 +52,57 @@
     [rootViewController popViewController];
 }
 
+-(void)tapPasterImageView:(UIGestureRecognizer *) gestureRecognizer {
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
+    
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    pasterTemplates =  [[NSMutableArray alloc] init];
-    [pasterTemplates addObject:pasterTemplate0];
-    [pasterTemplates addObject:pasterTemplate1];
-    [pasterTemplates addObject:pasterTemplate2];
-    [pasterTemplates addObject:pasterTemplate3];
-    [pasterTemplates addObject:pasterTemplate4];
-    [pasterTemplates addObject:pasterTemplate5];
-    [pasterTemplates addObject:pasterTemplate6];
-    [pasterTemplates addObject:pasterTemplate7];
-    [pasterTemplates addObject:pasterTemplate8];
-    [pasterTemplates addObject:pasterTemplate9];
-    [pasterTemplates addObject:pasterTemplate10];
-    [pasterTemplates addObject:pasterTemplate11];
-    for (int i = 0; i < 12; i++) {
-        UIImageView *imageView = [pasterTemplates objectAtIndex:i];
-        NSString *fileName = [[NSString alloc] initWithFormat:@"pasterTemplate%d.png", i];
-        [imageView setImage:[UIImage imageNamed:fileName]];
-        [fileName release];
+    //初始化视图对象
+    pasterTemplateViews =  [[NSMutableArray alloc] init];
+    [pasterTemplateViews addObject:pasterTemplate0];
+    [pasterTemplateViews addObject:pasterTemplate1];
+    [pasterTemplateViews addObject:pasterTemplate2];
+    [pasterTemplateViews addObject:pasterTemplate3];
+    [pasterTemplateViews addObject:pasterTemplate4];
+    [pasterTemplateViews addObject:pasterTemplate5];
+    [pasterTemplateViews addObject:pasterTemplate6];
+    [pasterTemplateViews addObject:pasterTemplate7];
+    [pasterTemplateViews addObject:pasterTemplate8];
+    [pasterTemplateViews addObject:pasterTemplate9];
+    [pasterTemplateViews addObject:pasterTemplate10];
+    [pasterTemplateViews addObject:pasterTemplate11];
+    
+    pasterTemplateLibrary = [[PKPasterTemplateLibrary alloc] initWithDataOfPlist];
+    
+    UIImageView *imageView;
+    NSUInteger index = 0;
+    for (PKPasterTemplate *pasterTemplate in pasterTemplateLibrary.pasterTemplates) {
+        if (pasterTemplate.isModified) {
+            PKPasterWork *pasterWork = [pasterTemplateLibrary.pasterWorks objectAtIndex:index];
+            [[pasterTemplateViews objectAtIndex:index] addSubview:pasterWork.pasterView];
+        } else {
+            [[pasterTemplateViews objectAtIndex:index] addSubview:pasterTemplate.pasterView];
+        }
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPasterImageView:)];
+        imageView = [pasterTemplateViews objectAtIndex:index];
+        [imageView setUserInteractionEnabled:YES];
+        [imageView addGestureRecognizer:singleTap];
+        index++;
+        [singleTap release];
     }
+    
+
+//    for (int i = 0; i < 12; i++) {
+//        UIImageView *imageView = [pasterTemplates objectAtIndex:i];
+//        NSString *fileName = [[NSString alloc] initWithFormat:@"pasterTemplate%d.png", i];
+//        [imageView setImage:[UIImage imageNamed:fileName]];
+//        [fileName release];
+//    }
     // Do any additional setup after loading the view from its nib.
 }
 

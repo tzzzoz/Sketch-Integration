@@ -11,6 +11,9 @@
 
 @implementation SWDrawViewController
 
+@synthesize pasterView;
+@synthesize pasterTemplate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

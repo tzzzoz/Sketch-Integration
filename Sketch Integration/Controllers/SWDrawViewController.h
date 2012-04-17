@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKPasterTemplate.h"
 #import "RootViewController.h"
 
-@interface SWDrawViewController : UIViewController
+@interface SWDrawViewController : UIViewController {
+    //视图对象
+    UIImageView *pasterView;
+    
+    //模型对象
+    PKPasterTemplate *pasterTemplate;
+}
 
+@property (retain, nonatomic) UIImageView *pasterView;
+@property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
 
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
