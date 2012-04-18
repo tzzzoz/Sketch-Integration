@@ -134,7 +134,7 @@
 		0A3CBBF2152EF65300B29756 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		0A3CBBF3152EF65300B29756 /* SWPasterWonderlandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPasterWonderlandViewController.h; sourceTree = "<group>"; };
 		0A3CBBF4152EF65300B29756 /* SWPasterWonderlandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPasterWonderlandViewController.m; sourceTree = "<group>"; };
-		0A3CBBF5152EF65300B29756 /* EnumClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumClass.h; sourceTree = "<group>"; };
+		0A3CBBF5152EF65300B29756 /* EnumClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnumClass.h; path = ../EnumClass.h; sourceTree = "<group>"; };
 		0A3CBBFA152EF65300B29756 /* PKGeometryImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGeometryImageView.h; sourceTree = "<group>"; };
 		0A3CBBFB152EF65300B29756 /* PKGeometryImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKGeometryImageView.m; sourceTree = "<group>"; };
 		0A3CBBFC152EF65300B29756 /* PKGeometryPaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKGeometryPaster.h; sourceTree = "<group>"; };
@@ -301,7 +301,6 @@
 				0A3CBBEE152EF65300B29756 /* AppDelegate.h */,
 				0A3CBBEF152EF65300B29756 /* AppDelegate.m */,
 				0A3CBBF0152EF65300B29756 /* Controllers */,
-				0A3CBBF5152EF65300B29756 /* EnumClass.h */,
 				0A3CBBF7152EF65300B29756 /* Models */,
 				0A3CBC1B152EF65300B29756 /* Views */,
 				0A3CBBCD152EF55E00B29756 /* Supporting Files */,
@@ -343,6 +342,7 @@
 		0A3CBBF7152EF65300B29756 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A3CBBF5152EF65300B29756 /* EnumClass.h */,
 				0A3CBBF8152EF65300B29756 /* DrawKit */,
 				0A3CBBF9152EF65300B29756 /* PasterKit */,
 			);
