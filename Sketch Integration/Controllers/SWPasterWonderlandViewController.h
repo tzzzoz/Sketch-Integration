@@ -11,6 +11,7 @@
 #import "RootViewController.h"
 
 @interface SWPasterWonderlandViewController : UIViewController{
+    //视图对象
     UIImageView *backgroundImageView;
     UIImageView *pasterTemplate0;
     UIImageView *pasterTemplate1;
@@ -26,8 +27,9 @@
     UIImageView *pasterTemplate11;
     UIButton *returnButton;
     
-    NSMutableArray *pasterTemplateViews;
+    NSMutableArray *pasterViews;
     
+    //模型对象
     PKPasterTemplateLibrary *pasterTemplateLibrary;
 }
 
@@ -46,7 +48,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate11;
 @property (nonatomic, retain) IBOutlet UIButton *returnButton;
 
-@property (nonatomic, retain)  NSMutableArray *pasterTemplateViews;
+@property (nonatomic, retain)  NSMutableArray *pasterViews;
 
 @property (nonatomic, retain) IBOutlet PKPasterTemplateLibrary *pasterTemplateLibrary;
 

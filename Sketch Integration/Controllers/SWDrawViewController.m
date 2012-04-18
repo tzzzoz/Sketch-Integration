@@ -13,12 +13,14 @@
 
 @synthesize pasterView;
 @synthesize pasterTemplate;
+@synthesize pasterWork;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        pasterView = [[UIImageView alloc] init];
     }
     return self;
 }
@@ -31,16 +33,36 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork {
+    self.pasterTemplate = tmpPasterTemplate;
+    self.pasterWork = tmpPasterWork;
+//    CGRect rect = pasterWork.pasterView.frame;
+    CGRect rect = CGRectMake(250, 300, 400, 400);
+    pasterView.frame = rect;
+    [pasterView addSubview:pasterWork.pasterView];
+    [self.view addSubview:pasterView];
+//    [pasterView release];
+    NSLog(@"%d", [pasterView retainCount]);
+}
+
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [self cleanDrawView];
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
+    [self cleanDrawView];
 }
 
+-(void)cleanDrawView {
+    for (UIView *view in pasterView.subviews) {
+        [view removeFromSuperview];
+    }
+    NSLog(@"%d", [pasterView retainCount]);
+}
 #pragma mark - View lifecycle
 
 /*
@@ -50,13 +72,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
-*/
+
 
 - (void)viewDidUnload
 {

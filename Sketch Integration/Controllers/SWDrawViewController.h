@@ -16,11 +16,15 @@
     
     //模型对象
     PKPasterTemplate *pasterTemplate;
+    PKPasterWork *pasterWork;
 }
 
 @property (retain, nonatomic) UIImageView *pasterView;
 @property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
+@property (retain, nonatomic) PKPasterWork *pasterWork;
 
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork;
+-(void)cleanDrawView;
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
 @end
