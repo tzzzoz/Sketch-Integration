@@ -11,6 +11,8 @@
 @interface PKGeometryPasterLibrary : NSObject {
     NSMutableArray *geometryPasterTemplates;
     NSMutableArray *geometryPasters;
+    
+    
 }
 
 @property (retain, nonatomic) NSMutableArray *geometryPasterTemplates;

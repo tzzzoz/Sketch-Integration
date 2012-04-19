@@ -11,6 +11,7 @@
 
 @implementation SWDrawViewController
 
+@synthesize templateImageView;
 @synthesize pasterView;
 @synthesize pasterTemplate;
 
@@ -34,6 +35,8 @@
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [rootViewController skipWithImageView:templateImageView Destination:rootViewController.pasterWonderlandViewController.pasterTemplateLibrary.selectedPosition Animation:EaseOut];
+    templateImageView = nil;
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
@@ -60,6 +63,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTemplateImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -85,4 +89,8 @@
     }
 }
 
+- (void)dealloc {
+    [templateImageView release];
+    [super dealloc];
+}
 @end

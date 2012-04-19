@@ -28,4 +28,10 @@ typedef enum
     Nothing     = 3
 }OperationType;
 
+typedef enum
+{
+    EaseIn = 0,
+    EaseOut = 1
+}SkipAnimationType;
+
 #endif

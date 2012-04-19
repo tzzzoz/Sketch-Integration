@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
+		<string key="IBDocument.SystemVersion">11D50d</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
@@ -387,7 +387,7 @@
 								<string key="NSFrame">{{974, 299}, {45, 45}}</string>
 								<reference key="NSSuperview" ref="440797145"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="742039774"/>
+								<reference key="NSNextKeyView" ref="599960784"/>
 								<string key="NSReuseIdentifierKey">_NS:237</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -411,7 +411,7 @@
 								<string key="NSFrame">{{51, 531}, {61, 90}}</string>
 								<reference key="NSSuperview" ref="440797145"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="210683022"/>
 								<string key="NSReuseIdentifierKey">_NS:237</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -434,6 +434,7 @@
 								<string key="NSFrame">{{24, 531}, {61, 90}}</string>
 								<reference key="NSSuperview" ref="440797145"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="742039774"/>
 								<string key="NSReuseIdentifierKey">_NS:237</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -453,6 +454,7 @@
 								<string key="NSFrame">{{-5, 531}, {61, 90}}</string>
 								<reference key="NSSuperview" ref="440797145"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="972201704"/>
 								<string key="NSReuseIdentifierKey">_NS:237</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -465,6 +467,16 @@
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
 								<reference key="IBUINormalBackgroundImage" ref="78018141"/>
+							</object>
+							<object class="IBUIImageView" id="648232323">
+								<reference key="NSNextResponder" ref="440797145"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{241, 109}, {618, 505}}</string>
+								<reference key="NSSuperview" ref="440797145"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:544</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
 						</object>
 						<string key="NSFrameSize">{1024, 768}</string>
@@ -542,6 +554,14 @@
 					</object>
 					<int key="connectionID">169</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">templateImageView</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="648232323"/>
+					</object>
+					<int key="connectionID">172</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -587,6 +607,7 @@
 							<reference ref="742039774"/>
 							<reference ref="972201704"/>
 							<reference ref="599960784"/>
+							<reference ref="648232323"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -693,6 +714,11 @@
 						<reference key="object" ref="972201704"/>
 						<reference key="parent" ref="440797145"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">171</int>
+						<reference key="object" ref="648232323"/>
+						<reference key="parent" ref="440797145"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -714,6 +740,7 @@
 					<string>166.IBPluginDependency</string>
 					<string>166.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>17.IBPluginDependency</string>
+					<string>171.IBPluginDependency</string>
 					<string>18.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
@@ -754,6 +781,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -768,7 +796,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">169</int>
+			<int key="maxID">172</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -806,6 +834,17 @@
 								<string key="name">returnBack:</string>
 								<string key="candidateClassName">id</string>
 							</object>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">templateImageView</string>
+						<string key="NS.object.0">UIImageView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">templateImageView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">templateImageView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

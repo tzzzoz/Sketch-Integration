@@ -24,9 +24,7 @@
 @synthesize pasterTemplate10;
 @synthesize pasterTemplate11;
 @synthesize returnButton;
-
 @synthesize pasterTemplateViews;
-
 @synthesize pasterTemplateLibrary;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,11 +48,17 @@
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [rootViewController skipWithAnimation:EaseOut];
 }
 
 -(void)tapPasterImageView:(UIGestureRecognizer *) gestureRecognizer {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
-    
+    [rootViewController pushViewController:rootViewController.drawViewController];
+    UIImageView* skipImageView = (UIImageView*)gestureRecognizer.view;
+    pasterTemplateLibrary->selectedPosition = skipImageView.center;
+    pasterTemplateLibrary->selectedImageView = skipImageView;
+    [rootViewController skipWithImageView:skipImageView Destination:ScreenCenterPoint Animation:EaseIn];
+    rootViewController.drawViewController->templateImageView = skipImageView;
 }
 
 #pragma mark - View lifecycle
@@ -95,7 +99,6 @@
         index++;
         [singleTap release];
     }
-    
 
 //    for (int i = 0; i < 12; i++) {
 //        UIImageView *imageView = [pasterTemplates objectAtIndex:i];
@@ -105,7 +108,7 @@
 //    }
     // Do any additional setup after loading the view from its nib.
 }
-
+                             
 - (void)viewDidUnload
 {
     [super viewDidUnload];

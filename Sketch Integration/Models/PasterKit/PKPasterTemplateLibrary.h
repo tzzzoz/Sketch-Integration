@@ -13,11 +13,15 @@
 @interface PKPasterTemplateLibrary : NSObject {
     NSMutableArray *pasterTemplates;
     NSMutableArray *pasterWorks;
+    @public CGPoint selectedPosition;
+    @public UIImageView *selectedImageView;
 }
 
 -(id)initWithDataOfPlist;
 
 @property (retain, nonatomic) NSMutableArray *pasterTemplates;
 @property (retain, nonatomic) NSMutableArray *pasterWorks;
+@property (assign, nonatomic) CGPoint selectedPosition;
+@property (retain, nonatomic) UIImageView *selectedImageView;
 
 @end

@@ -13,14 +13,16 @@
 @interface SWDrawViewController : UIViewController {
     //视图对象
     UIImageView *pasterView;
-    
+    //贴纸模版对象
+    @public UIImageView *templateImageView;
     //模型对象
     PKPasterTemplate *pasterTemplate;
 }
-
+@property (nonatomic, retain) IBOutlet UIImageView *templateImageView;
 @property (retain, nonatomic) UIImageView *pasterView;
 @property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
 
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
+
 @end
