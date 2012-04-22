@@ -41,8 +41,11 @@
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
+    NSLog(@"%@", self.view.superview);
     [super didReceiveMemoryWarning];
-    
+    NSLog(@"%@", self.view.superview);
+//    [self.view removeFromSuperview];
+    NSLog(@"ss");
     // Release any cached data, images, etc that aren't in use.
 }
 

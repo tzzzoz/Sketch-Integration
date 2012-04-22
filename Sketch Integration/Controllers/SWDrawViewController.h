@@ -9,19 +9,28 @@
 #import <UIKit/UIKit.h>
 #import "PKPasterTemplate.h"
 #import "RootViewController.h"
+#import "PKGeometryPasterLibrary.h"
 
 @interface SWDrawViewController : UIViewController {
     //视图对象
     UIImageView *pasterView;
+    IBOutlet UIView *geoPasterBox;
+    UIButton *createPasterButton;
+    NSMutableArray *geoPasters;
     
     //模型对象
     PKPasterTemplate *pasterTemplate;
     PKPasterWork *pasterWork;
+    PKGeometryPasterLibrary *geoPasterLibrary;
 }
 
 @property (retain, nonatomic) UIImageView *pasterView;
+@property (retain, nonatomic) IBOutlet UIView *geoPasterBox;
+@property (retain, nonatomic) UIButton *createPasterButton;
+@property (retain, nonatomic) NSMutableArray *geoPasters;
 @property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
 @property (retain, nonatomic) PKPasterWork *pasterWork;
+@property (retain, nonatomic) PKGeometryPasterLibrary *geoPasterLibrary;
 
 -(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork;
 -(void)cleanDrawView;

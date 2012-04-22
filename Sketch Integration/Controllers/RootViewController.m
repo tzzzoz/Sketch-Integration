@@ -130,11 +130,6 @@ static  RootViewController *_sharedRootViewController = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    navigationViewController = nil;
-    pasterWonderlandViewController = nil;
-    drawViewController = nil;
-    drawAlbumViewController = nil;
-    helpViewController = nil;
 }
 
 -(void)dealloc {

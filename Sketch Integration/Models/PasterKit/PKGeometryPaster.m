@@ -14,38 +14,35 @@
 @synthesize geoPasterColor;
 @synthesize geoPasterType;
 
--(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate Color:(UIColor *)color Type:(GeometryType)type
-{
+-(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate Color:(UIColor *)color {
     self = [super init];
     if (self && color) 
     {
-        self.geoPasterImageView = [[PKGeometryImageView alloc]initWithImage:geometryPasterTemplate.geoTemplateImageView.image];
+        geoPasterImageView = [[PKGeometryImageView alloc]initWithImage:geometryPasterTemplate.geoTemplateImageView.image];
         self.geoPasterColor = color;
-        self.geoPasterType  = type;
-        return self;
+        self.geoPasterType  = geometryPasterTemplate.geoTemplateType;
     } 
-    else 
-    {
-        //参数color为空，异常处理
-        return nil;
-    }
+    return self;
 }
 
--(id)initWithGeometryImageView:(PKGeometryImageView *)imageView Color:(UIColor *)color Type:(GeometryType)type
-{
+-(id)initWithGeometryImageView:(PKGeometryImageView *)imageView Color:(UIColor *)color {
     self = [super init];
     if(self && color && imageView)
     {
         self.geoPasterImageView = imageView;
         self.geoPasterColor = color;
-        self.geoPasterType  = type;
-        return self;
     }
-    else
-    {
-        //参数color为空，异常处理
-        return nil; 
+    return self;
+}
+
+-(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate {
+    self = [super init];
+    if (self) {
+        self.geoPasterImageView = (PKGeometryImageView *)[geometryPasterTemplate.geoTemplateImageView deepCopy];
+        self.geoPasterType = geometryPasterTemplate.geoTemplateType;
+        self.geoPasterColor = geometryPasterTemplate.geoTemplateColor;
     }
+    return self;
 }
 
 

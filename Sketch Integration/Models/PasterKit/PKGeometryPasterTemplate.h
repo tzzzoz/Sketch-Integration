@@ -20,8 +20,8 @@
 }
 
 //使用图片路径对几何贴纸模板进行初始化
--(id)initWithFileName:(NSString *)fileName Color:(UIColor *)color Type:(GeometryType)type Rect:(CGRect) rect;  
--(id)initWithImageView:(UIImageView*)imageView Color:(UIColor*)color Type:(GeometryType)type;
+-(id)initWithFileName:(NSString *)fileName Color:(UIColor *)color Type:(GeometryType)type Rect:(CGRect) rect;
+-(id)initWithFileName:(NSString *)fileName Type:(GeometryType)type Rect:(CGRect) rect;
 
 @property (retain, nonatomic) UIImageView *geoTemplateImageView;
 @property (retain) UIColor *geoTemplateColor;

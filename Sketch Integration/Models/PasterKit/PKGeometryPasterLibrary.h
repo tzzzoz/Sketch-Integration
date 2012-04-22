@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PKGeometryPasterTemplate.h"
+#import "PKGeometryPaster.h"
 
 @interface PKGeometryPasterLibrary : NSObject {
     NSMutableArray *geometryPasterTemplates;
@@ -15,4 +17,6 @@
 
 @property (retain, nonatomic) NSMutableArray *geometryPasterTemplates;
 @property (retain, nonatomic) NSMutableArray *geometryPasters;
+
+-(id)initWithDataOfPlist;
 @end

@@ -12,15 +12,18 @@
 @implementation SWDrawViewController
 
 @synthesize pasterView;
+@synthesize geoPasterBox;
+@synthesize createPasterButton;
+@synthesize geoPasters;
 @synthesize pasterTemplate;
 @synthesize pasterWork;
+@synthesize geoPasterLibrary;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        pasterView = [[UIImageView alloc] init];
     }
     return self;
 }
@@ -41,8 +44,6 @@
     pasterView.frame = rect;
     [pasterView addSubview:pasterWork.pasterView];
     [self.view addSubview:pasterView];
-//    [pasterView release];
-    NSLog(@"%d", [pasterView retainCount]);
 }
 
 -(void)returnBack:(id)sender {
@@ -61,7 +62,6 @@
     for (UIView *view in pasterView.subviews) {
         [view removeFromSuperview];
     }
-    NSLog(@"%d", [pasterView retainCount]);
 }
 #pragma mark - View lifecycle
 
@@ -77,6 +77,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    pasterView = [[UIImageView alloc] init];
+    geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
+    geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
+    
+    for (PKGeometryPaster *geoPasterTemplate in geoPasterLibrary.geometryPasters) {
+        [self.geoPasterBox addSubview:geoPasterTemplate.geoPasterImageView];
+    }
 }
 
 
@@ -105,6 +113,13 @@
         self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(90));
         self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
     }
+}
+
+-(void)dealloc {
+    [super dealloc];
+    [pasterView release];
+    [geoPasterLibrary release];
+    [geoPasters release];
 }
 
 @end

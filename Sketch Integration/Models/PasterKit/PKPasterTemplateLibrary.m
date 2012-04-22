@@ -37,8 +37,8 @@
             NSString *fileNameOfPasterTemplate = [dataOfPasterTemplate objectForKey:@"FileName"];
             NSNumber *countOfGeoTemplates = [dataOfPasterTemplate valueForKey:@"CountOfGeoTemplates"];
             NSArray *dataOfGeoPasterTemplates = [dataOfPasterTemplate objectForKey:@"GeoPasterTemplates"];
-                
-            
+
+
             //遍历geoPasterTemplates几何贴纸模板数组
             NSUInteger sizeOfGeoPasterTemplates = [countOfGeoTemplates intValue];
             //创建一个临时的数组，用于贴纸模板的初始化
