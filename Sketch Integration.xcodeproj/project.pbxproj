@@ -48,6 +48,10 @@
 		0A8287A3153471DE00C84E9D /* DataOfPasterTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8287A2153471DE00C84E9D /* DataOfPasterTemplates.plist */; };
 		0A8287A61534729400C84E9D /* SWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A51534729400C84E9D /* SWHelpViewController.m */; };
 		0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */; };
+		18A27DBC154004360057278B /* DKPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DBB154004360057278B /* DKPen.m */; };
+		18A27DC0154004B70057278B /* DKDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DBF154004B70057278B /* DKDrawBoard.m */; };
+		18A27DC4154004C80057278B /* DKWaterColorPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DC2154004C80057278B /* DKWaterColorPen.m */; };
+		18A27DC6154004CF0057278B /* SmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DC5154004CF0057278B /* SmoothLineView.m */; };
 		A9816A5B1531C96D0068B369 /* basicBackgroundImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A571531C96D0068B369 /* basicBackgroundImageView.png */; };
 		A9816A5C1531C96D0068B369 /* cancleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A581531C96D0068B369 /* cancleButton.png */; };
 		A9816A5D1531C96D0068B369 /* confirmButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A591531C96D0068B369 /* confirmButton.png */; };
@@ -182,6 +186,14 @@
 		0A8287A51534729400C84E9D /* SWHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHelpViewController.m; sourceTree = "<group>"; };
 		0A8287A71534742500C84E9D /* SWDrawAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDrawAlbumViewController.h; sourceTree = "<group>"; };
 		0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDrawAlbumViewController.m; sourceTree = "<group>"; };
+		18A27DBA154004360057278B /* DKPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKPen.h; path = DrawKit/DKPen.h; sourceTree = "<group>"; };
+		18A27DBB154004360057278B /* DKPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKPen.m; path = DrawKit/DKPen.m; sourceTree = "<group>"; };
+		18A27DBE154004B70057278B /* DKDrawBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDrawBoard.h; sourceTree = "<group>"; };
+		18A27DBF154004B70057278B /* DKDrawBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawBoard.m; sourceTree = "<group>"; };
+		18A27DC1154004C80057278B /* DKWaterColorPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKWaterColorPen.h; sourceTree = "<group>"; };
+		18A27DC2154004C80057278B /* DKWaterColorPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWaterColorPen.m; sourceTree = "<group>"; };
+		18A27DC3154004C80057278B /* SmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothLineView.h; sourceTree = "<group>"; };
+		18A27DC5154004CF0057278B /* SmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothLineView.m; sourceTree = "<group>"; };
 		A9816A571531C96D0068B369 /* basicBackgroundImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBackgroundImageView.png; sourceTree = "<group>"; };
 		A9816A581531C96D0068B369 /* cancleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancleButton.png; sourceTree = "<group>"; };
 		A9816A591531C96D0068B369 /* confirmButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirmButton.png; sourceTree = "<group>"; };
@@ -342,18 +354,11 @@
 		0A3CBBF7152EF65300B29756 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				18A27DBD1540044D0057278B /* DrawKit */,
 				0A3CBBF5152EF65300B29756 /* EnumClass.h */,
-				0A3CBBF8152EF65300B29756 /* DrawKit */,
 				0A3CBBF9152EF65300B29756 /* PasterKit */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		0A3CBBF8152EF65300B29756 /* DrawKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DrawKit;
 			sourceTree = "<group>";
 		};
 		0A3CBBF9152EF65300B29756 /* PasterKit */ = {
@@ -449,6 +454,21 @@
 				0A8287A2153471DE00C84E9D /* DataOfPasterTemplates.plist */,
 			);
 			name = Plists;
+			sourceTree = "<group>";
+		};
+		18A27DBD1540044D0057278B /* DrawKit */ = {
+			isa = PBXGroup;
+			children = (
+				18A27DBA154004360057278B /* DKPen.h */,
+				18A27DBB154004360057278B /* DKPen.m */,
+				18A27DBE154004B70057278B /* DKDrawBoard.h */,
+				18A27DBF154004B70057278B /* DKDrawBoard.m */,
+				18A27DC1154004C80057278B /* DKWaterColorPen.h */,
+				18A27DC2154004C80057278B /* DKWaterColorPen.m */,
+				18A27DC3154004C80057278B /* SmoothLineView.h */,
+				18A27DC5154004CF0057278B /* SmoothLineView.m */,
+			);
+			name = DrawKit;
 			sourceTree = "<group>";
 		};
 		A9816A561531C96D0068B369 /* SWPromptDialog */ = {
@@ -768,6 +788,10 @@
 				0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */,
 				0A411932153DA0D3000ACAF2 /* UIImage+NSCoder.m in Sources */,
 				0A411933153DA0D3000ACAF2 /* UIImageView+DeepCopy.m in Sources */,
+				18A27DBC154004360057278B /* DKPen.m in Sources */,
+				18A27DC0154004B70057278B /* DKDrawBoard.m in Sources */,
+				18A27DC4154004C80057278B /* DKWaterColorPen.m in Sources */,
+				18A27DC6154004CF0057278B /* SmoothLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +814,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -805,6 +830,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -815,6 +841,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -824,6 +851,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

@@ -14,6 +14,7 @@
 @synthesize pasterView;
 @synthesize pasterTemplate;
 @synthesize pasterWork;
+@synthesize drawBoard;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,6 +77,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    drawBoard = [[DKDrawBoard alloc]init];
+    [self.view addSubview:drawBoard.drawCanvasView];
+    
     [super viewDidLoad];
 }
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PKPasterTemplate.h"
 #import "RootViewController.h"
+#import "DKDrawBoard.h"
 
 @interface SWDrawViewController : UIViewController {
     //视图对象
@@ -17,8 +18,10 @@
     //模型对象
     PKPasterTemplate *pasterTemplate;
     PKPasterWork *pasterWork;
+    DKDrawBoard *drawBoard;
 }
 
+@property (retain, nonatomic) DKDrawBoard *drawBoard;
 @property (retain, nonatomic) UIImageView *pasterView;
 @property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
 @property (retain, nonatomic) PKPasterWork *pasterWork;
