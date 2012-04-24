@@ -16,30 +16,27 @@
 @synthesize isModified;
 
 -(id)initWithFileName:(NSString *)fileName Color:(UIColor *)color Type:(GeometryType)type Rect:(CGRect)rect
-{    
+{
     //判断父类初始化成功 且 文件路径有效
     if (self = [super init]) 
     {
         self.geoTemplateImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:fileName]];
         self.geoTemplateColor = color;
         self.geoTemplateType  = type;
-        return self;
-    } 
-    else
-        return nil;         //初始化失败，可能文件路径无效，处理异常
+    }
+    return self;
 }
 
--(id)initWithImageView:(UIImageView *)imageView Color:(UIColor *)color Type:(GeometryType)type
+-(id)initWithFileName:(NSString *)fileName Type:(GeometryType)type Rect:(CGRect)rect
 {
-    if(self = [super init])
+    //判断父类初始化成功 且 文件路径有效
+    if (self = [super init]) 
     {
-        self.geoTemplateImageView = imageView;
-        self.geoTemplateColor = color;
+        self.geoTemplateImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:fileName]];
         self.geoTemplateType  = type;
-        return self;
+        self.geoTemplateImageView.frame = rect;
     }
-    else
-        return nil;
+    return self;
 }
 
 //使用NSCoder对几何贴纸模板进行归档

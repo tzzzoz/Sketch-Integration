@@ -7,22 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EnumClass.h"
+
+//@protocol changePenState <NSObject>
+//
+//@required
+//-(void) change: (BOOL) state;
+//
+//@end
 
 @interface DKPen : NSObject{
-    //CGColorRef *color;
- //   NSInteger size;
+//    id <changePenState> delegate;
     NSInteger color;
     //for define pen's state, YES for draw and NO for filling 
     BOOL state;
-//    NSInteger style;
-    enum {black, red, yellow, lightBlue, grassGreen, purple, brown, lightOrange, lightPurple, roseRed, lightGreen, darkPurple, grey, green, blue, darkBlue, darkGreen, pink};
 }
 
+//@property (retain) id delegate;
 @property (nonatomic) NSInteger color;
 //@property (nonatomic) NSInteger size;
-//@property (nonatomic) BOOL state;
+@property (nonatomic) BOOL state;
 //@property (nonatomic) NSInteger style;
 
+//-(void)changeState;
 -(void)changeColorWith:(NSInteger)colorButtonNumber;
 
 @end

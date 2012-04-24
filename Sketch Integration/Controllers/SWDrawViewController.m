@@ -12,16 +12,19 @@
 @implementation SWDrawViewController
 
 @synthesize pasterView;
+@synthesize geoPasterBox;
+@synthesize createPasterButton;
+@synthesize geoPasters;
 @synthesize pasterTemplate;
 @synthesize pasterWork;
 @synthesize drawBoard;
+@synthesize geoPasterLibrary;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        pasterView = [[UIImageView alloc] init];
     }
     return self;
 }
@@ -42,8 +45,6 @@
     pasterView.frame = rect;
     [pasterView addSubview:pasterWork.pasterView];
     [self.view addSubview:pasterView];
-//    [pasterView release];
-    NSLog(@"%d", [pasterView retainCount]);
 }
 
 -(void)returnBack:(id)sender {
@@ -57,13 +58,73 @@
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
     [self cleanDrawView];
 }
+//点击清空按钮
+-(IBAction)pressCleanButton:(id)sender{
+    promptDialogView.hidden = NO;
+}
+-(IBAction)pressComfirmButton:(id)sender{
+    promptDialogView.hidden = YES;
+//    drawBoard.drawCanvasView.view = nil;
+    self.drawBoard.drawCanvas.drawCanvasView.image = nil;
+}
+-(IBAction)pressCancelButton:(id)sender{
+    promptDialogView.hidden = YES;
+}
+//点击保存按钮
+-(IBAction)pressSaveButton:(id)sender{
+    //实现画作缩小移动，需修改UIImage为当前画作
+    UIImageView *savedWork = [[UIImageView alloc] initWithFrame:CGRectMake(180.0f, 100.0f, 700.0f, 500.0f)];
+    [savedWork setImage:[UIImage imageNamed:@"backgroundImageViewDAV.png"]];
+//    [savedWork setImage:];
+    
+    [UIImageView beginAnimations:nil context:NULL];
+    [UIImageView setAnimationDuration:3];
+    [UIImageView setAnimationBeginsFromCurrentState:YES];
+    savedWork.frame = CGRectMake(0.0, 504.0, 0.0, 0.0);
+    [UIImageView commitAnimations];
+    [self.view addSubview:savedWork];
+}
 
 -(void)cleanDrawView {
     for (UIView *view in pasterView.subviews) {
         [view removeFromSuperview];
     }
-    NSLog(@"%d", [pasterView retainCount]);
 }
+//涂色
+//-(IBAction)buttonPressed:(id)sender{
+//    UIImage *image=pasterView.image;
+//    fillImage *fill=[[fillImage alloc]initWithImage:image];
+//    struct ColorRGBAStruct tc={255,0,0,255};
+//    struct ColorRGBAStruct bc={254,254,255,255};
+//    int x=(int)xy.x;
+//    int y=(int)xy.y;
+//    if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
+//        [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
+//        image=[fill getImage];
+//        pasterView.image=image;
+//        [fill release];
+//    }
+//}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    UITouch* touch = [touches anyObject];
+    xy = [touch locationInView:self.pasterView];
+    printf("the click location is %f,%f",xy.x,xy.y);
+    UIImage *image=pasterView.image;
+    fillImage *fill=[[fillImage alloc]initWithImage:image];
+    struct ColorRGBAStruct tc={255,0,0,255};
+    struct ColorRGBAStruct bc={255,255,255,255};
+    int x=(int)xy.x;
+    int y=(int)xy.y;
+    if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
+        [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
+        image=[fill getImage];
+        pasterView.image=image;
+        [fill release];
+    }
+}
+
 #pragma mark - View lifecycle
 
 /*
@@ -78,11 +139,36 @@
 - (void)viewDidLoad
 {
     drawBoard = [[DKDrawBoard alloc]init];
-    [self.view addSubview:drawBoard.drawCanvasView];
+    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
     
     [super viewDidLoad];
+    
+    pasterView = [[UIImageView alloc] init];
+    geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
+    geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
+    
+    for (PKGeometryPaster *geoPasterTemplate in geoPasterLibrary.geometryPasters) {
+        [self.geoPasterBox addSubview:geoPasterTemplate.geoPasterImageView];
+    }
+    
+    //刚开始提示框不可见
+    promptDialogView.hidden = YES;
+    
+//    [drawBoard.waterColorPen addObserver:self forKeyPath:@"state" options:NO|YES context:nil];
+//    
+//    //当isLikely的时候
+//    if (drawBoard.isLikely) {
+//        [self penStateChange];
+//    }
 }
 
+//-(void)penStateChange{
+//    [drawBoard.waterColorPen setValue:NO forKey:@"state"];
+//}
+
+//-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+//    
+//}
 
 - (void)viewDidUnload
 {
@@ -109,6 +195,16 @@
         self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(90));
         self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
     }
+}
+
+-(void)dealloc {
+//    [super dealloc];
+    //移除观察者
+//    [drawBoard.waterColorPen removeObserver:self forKeyPath:@"state"];
+    [pasterView release];
+    [geoPasterLibrary release];
+    [geoPasters release];
+    [super dealloc];
 }
 
 @end

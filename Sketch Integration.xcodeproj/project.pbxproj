@@ -48,10 +48,15 @@
 		0A8287A3153471DE00C84E9D /* DataOfPasterTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8287A2153471DE00C84E9D /* DataOfPasterTemplates.plist */; };
 		0A8287A61534729400C84E9D /* SWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A51534729400C84E9D /* SWHelpViewController.m */; };
 		0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */; };
-		18A27DBC154004360057278B /* DKPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DBB154004360057278B /* DKPen.m */; };
-		18A27DC0154004B70057278B /* DKDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DBF154004B70057278B /* DKDrawBoard.m */; };
-		18A27DC4154004C80057278B /* DKWaterColorPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DC2154004C80057278B /* DKWaterColorPen.m */; };
-		18A27DC6154004CF0057278B /* SmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DC5154004CF0057278B /* SmoothLineView.m */; };
+		0ADA662C154001C000C36861 /* DataOfGeoPasterTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */; };
+		1818C5141546CFDA0096EA6E /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C50F1546CFCB0096EA6E /* ImageHelper.m */; };
+		1818C5151546CFDA0096EA6E /* pointStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C5111546CFCF0096EA6E /* pointStack.m */; };
+		1818C5161546CFDA0096EA6E /* fillImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C5131546CFD50096EA6E /* fillImage.m */; };
+		18A3103915453FA300B1C820 /* DKDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103215453FA300B1C820 /* DKDrawBoard.m */; };
+		18A3103A15453FA300B1C820 /* DKPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103415453FA300B1C820 /* DKPen.m */; };
+		18A3103B15453FA300B1C820 /* DKWaterColorPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103615453FA300B1C820 /* DKWaterColorPen.m */; };
+		18A310471546869B00B1C820 /* DKDrawCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A310461546869800B1C820 /* DKDrawCanvas.m */; };
+		18A31052154696CB00B1C820 /* BroadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A31051154696CA00B1C820 /* BroadView.m */; };
 		A9816A5B1531C96D0068B369 /* basicBackgroundImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A571531C96D0068B369 /* basicBackgroundImageView.png */; };
 		A9816A5C1531C96D0068B369 /* cancleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A581531C96D0068B369 /* cancleButton.png */; };
 		A9816A5D1531C96D0068B369 /* confirmButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A591531C96D0068B369 /* confirmButton.png */; };
@@ -62,14 +67,14 @@
 		A9816A681531CB0E0068B369 /* pasterWonderLandButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A671531CB0E0068B369 /* pasterWonderLandButton.png */; };
 		A9816A6A1531CB120068B369 /* sketchWonderlandImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A691531CB120068B369 /* sketchWonderlandImageView.png */; };
 		A9816A6C1531CC0C0068B369 /* doGoodImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A6B1531CC0B0068B369 /* doGoodImageView.png */; };
-		A9816A781531CC690068B369 /* createCirclePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A701531CC690068B369 /* createCirclePasterButton.png */; };
-		A9816A791531CC690068B369 /* createEllipsePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A711531CC690068B369 /* createEllipsePasterButton.png */; };
-		A9816A7A1531CC690068B369 /* createGeometryPasterImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A721531CC690068B369 /* createGeometryPasterImageView.png */; };
-		A9816A7B1531CC690068B369 /* createPentaclePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A731531CC690068B369 /* createPentaclePasterButton.png */; };
-		A9816A7C1531CC690068B369 /* createRectanglePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A741531CC690068B369 /* createRectanglePasterButton.png */; };
-		A9816A7D1531CC690068B369 /* createSquarePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A751531CC690068B369 /* createSquarePasterButton.png */; };
-		A9816A7E1531CC690068B369 /* createTrapeziumPasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A761531CC690068B369 /* createTrapeziumPasterButton.png */; };
-		A9816A7F1531CC690068B369 /* createTrianglePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A771531CC690068B369 /* createTrianglePasterButton.png */; };
+		A9816A781531CC690068B369 /* createdCirclePaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A701531CC690068B369 /* createdCirclePaster.png */; };
+		A9816A791531CC690068B369 /* createdEllipsePaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A711531CC690068B369 /* createdEllipsePaster.png */; };
+		A9816A7A1531CC690068B369 /* createdGeometryPasterImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A721531CC690068B369 /* createdGeometryPasterImageView.png */; };
+		A9816A7B1531CC690068B369 /* createdPentaclePaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A731531CC690068B369 /* createdPentaclePaster.png */; };
+		A9816A7C1531CC690068B369 /* createdRectanglePaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A741531CC690068B369 /* createdRectanglePaster.png */; };
+		A9816A7D1531CC690068B369 /* createdSquarePaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A751531CC690068B369 /* createdSquarePaster.png */; };
+		A9816A7E1531CC690068B369 /* createdTrapeziumPaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A761531CC690068B369 /* createdTrapeziumPaster.png */; };
+		A9816A7F1531CC690068B369 /* createdTrianglePaster.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A771531CC690068B369 /* createdTrianglePaster.png */; };
 		A9816A811531CC7B0068B369 /* geometryPasterLibraryImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A801531CC7B0068B369 /* geometryPasterLibraryImageView.png */; };
 		A9816A831531CC9C0068B369 /* createGeometryPasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A821531CC9B0068B369 /* createGeometryPasterButton.png */; };
 		A9816A8C1531CCA30068B369 /* uncreateCirclePasterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A851531CCA30068B369 /* uncreateCirclePasterButton.png */; };
@@ -186,14 +191,23 @@
 		0A8287A51534729400C84E9D /* SWHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHelpViewController.m; sourceTree = "<group>"; };
 		0A8287A71534742500C84E9D /* SWDrawAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDrawAlbumViewController.h; sourceTree = "<group>"; };
 		0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDrawAlbumViewController.m; sourceTree = "<group>"; };
-		18A27DBA154004360057278B /* DKPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKPen.h; path = DrawKit/DKPen.h; sourceTree = "<group>"; };
-		18A27DBB154004360057278B /* DKPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKPen.m; path = DrawKit/DKPen.m; sourceTree = "<group>"; };
-		18A27DBE154004B70057278B /* DKDrawBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDrawBoard.h; sourceTree = "<group>"; };
-		18A27DBF154004B70057278B /* DKDrawBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawBoard.m; sourceTree = "<group>"; };
-		18A27DC1154004C80057278B /* DKWaterColorPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKWaterColorPen.h; sourceTree = "<group>"; };
-		18A27DC2154004C80057278B /* DKWaterColorPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWaterColorPen.m; sourceTree = "<group>"; };
-		18A27DC3154004C80057278B /* SmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothLineView.h; sourceTree = "<group>"; };
-		18A27DC5154004CF0057278B /* SmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothLineView.m; sourceTree = "<group>"; };
+		0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DataOfGeoPasterTemplates.plist; path = Plists/DataOfGeoPasterTemplates.plist; sourceTree = "<group>"; };
+		1818C50E1546CFCA0096EA6E /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		1818C50F1546CFCB0096EA6E /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		1818C5101546CFCD0096EA6E /* pointStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointStack.h; sourceTree = "<group>"; };
+		1818C5111546CFCF0096EA6E /* pointStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pointStack.m; sourceTree = "<group>"; };
+		1818C5121546CFD20096EA6E /* fillImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fillImage.h; sourceTree = "<group>"; };
+		1818C5131546CFD50096EA6E /* fillImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fillImage.m; sourceTree = "<group>"; };
+		18A3103115453FA300B1C820 /* DKDrawBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDrawBoard.h; sourceTree = "<group>"; };
+		18A3103215453FA300B1C820 /* DKDrawBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawBoard.m; sourceTree = "<group>"; };
+		18A3103315453FA300B1C820 /* DKPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKPen.h; sourceTree = "<group>"; };
+		18A3103415453FA300B1C820 /* DKPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKPen.m; sourceTree = "<group>"; };
+		18A3103515453FA300B1C820 /* DKWaterColorPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKWaterColorPen.h; sourceTree = "<group>"; };
+		18A3103615453FA300B1C820 /* DKWaterColorPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWaterColorPen.m; sourceTree = "<group>"; };
+		18A310451546869500B1C820 /* DKDrawCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDrawCanvas.h; sourceTree = "<group>"; };
+		18A310461546869800B1C820 /* DKDrawCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawCanvas.m; sourceTree = "<group>"; };
+		18A31050154696C400B1C820 /* BroadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadView.h; sourceTree = "<group>"; };
+		18A31051154696CA00B1C820 /* BroadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadView.m; sourceTree = "<group>"; };
 		A9816A571531C96D0068B369 /* basicBackgroundImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBackgroundImageView.png; sourceTree = "<group>"; };
 		A9816A581531C96D0068B369 /* cancleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancleButton.png; sourceTree = "<group>"; };
 		A9816A591531C96D0068B369 /* confirmButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirmButton.png; sourceTree = "<group>"; };
@@ -204,14 +218,14 @@
 		A9816A671531CB0E0068B369 /* pasterWonderLandButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pasterWonderLandButton.png; sourceTree = "<group>"; };
 		A9816A691531CB120068B369 /* sketchWonderlandImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sketchWonderlandImageView.png; sourceTree = "<group>"; };
 		A9816A6B1531CC0B0068B369 /* doGoodImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doGoodImageView.png; sourceTree = "<group>"; };
-		A9816A701531CC690068B369 /* createCirclePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createCirclePasterButton.png; sourceTree = "<group>"; };
-		A9816A711531CC690068B369 /* createEllipsePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createEllipsePasterButton.png; sourceTree = "<group>"; };
-		A9816A721531CC690068B369 /* createGeometryPasterImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createGeometryPasterImageView.png; sourceTree = "<group>"; };
-		A9816A731531CC690068B369 /* createPentaclePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createPentaclePasterButton.png; sourceTree = "<group>"; };
-		A9816A741531CC690068B369 /* createRectanglePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createRectanglePasterButton.png; sourceTree = "<group>"; };
-		A9816A751531CC690068B369 /* createSquarePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createSquarePasterButton.png; sourceTree = "<group>"; };
-		A9816A761531CC690068B369 /* createTrapeziumPasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createTrapeziumPasterButton.png; sourceTree = "<group>"; };
-		A9816A771531CC690068B369 /* createTrianglePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createTrianglePasterButton.png; sourceTree = "<group>"; };
+		A9816A701531CC690068B369 /* createdCirclePaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdCirclePaster.png; sourceTree = "<group>"; };
+		A9816A711531CC690068B369 /* createdEllipsePaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdEllipsePaster.png; sourceTree = "<group>"; };
+		A9816A721531CC690068B369 /* createdGeometryPasterImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdGeometryPasterImageView.png; sourceTree = "<group>"; };
+		A9816A731531CC690068B369 /* createdPentaclePaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdPentaclePaster.png; sourceTree = "<group>"; };
+		A9816A741531CC690068B369 /* createdRectanglePaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdRectanglePaster.png; sourceTree = "<group>"; };
+		A9816A751531CC690068B369 /* createdSquarePaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdSquarePaster.png; sourceTree = "<group>"; };
+		A9816A761531CC690068B369 /* createdTrapeziumPaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdTrapeziumPaster.png; sourceTree = "<group>"; };
+		A9816A771531CC690068B369 /* createdTrianglePaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createdTrianglePaster.png; sourceTree = "<group>"; };
 		A9816A801531CC7B0068B369 /* geometryPasterLibraryImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geometryPasterLibraryImageView.png; sourceTree = "<group>"; };
 		A9816A821531CC9B0068B369 /* createGeometryPasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createGeometryPasterButton.png; sourceTree = "<group>"; };
 		A9816A851531CCA30068B369 /* uncreateCirclePasterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncreateCirclePasterButton.png; sourceTree = "<group>"; };
@@ -354,7 +368,7 @@
 		0A3CBBF7152EF65300B29756 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				18A27DBD1540044D0057278B /* DrawKit */,
+				18A3102D15453F8300B1C820 /* DrawKit */,
 				0A3CBBF5152EF65300B29756 /* EnumClass.h */,
 				0A3CBBF9152EF65300B29756 /* PasterKit */,
 			);
@@ -451,24 +465,33 @@
 		0A8287A1153471BE00C84E9D /* Plists */ = {
 			isa = PBXGroup;
 			children = (
+				0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */,
 				0A8287A2153471DE00C84E9D /* DataOfPasterTemplates.plist */,
 			);
 			name = Plists;
 			sourceTree = "<group>";
 		};
-		18A27DBD1540044D0057278B /* DrawKit */ = {
+		18A3102D15453F8300B1C820 /* DrawKit */ = {
 			isa = PBXGroup;
 			children = (
-				18A27DBA154004360057278B /* DKPen.h */,
-				18A27DBB154004360057278B /* DKPen.m */,
-				18A27DBE154004B70057278B /* DKDrawBoard.h */,
-				18A27DBF154004B70057278B /* DKDrawBoard.m */,
-				18A27DC1154004C80057278B /* DKWaterColorPen.h */,
-				18A27DC2154004C80057278B /* DKWaterColorPen.m */,
-				18A27DC3154004C80057278B /* SmoothLineView.h */,
-				18A27DC5154004CF0057278B /* SmoothLineView.m */,
+				18A3103115453FA300B1C820 /* DKDrawBoard.h */,
+				18A3103215453FA300B1C820 /* DKDrawBoard.m */,
+				18A3103315453FA300B1C820 /* DKPen.h */,
+				18A3103415453FA300B1C820 /* DKPen.m */,
+				18A3103515453FA300B1C820 /* DKWaterColorPen.h */,
+				18A3103615453FA300B1C820 /* DKWaterColorPen.m */,
+				18A31050154696C400B1C820 /* BroadView.h */,
+				18A31051154696CA00B1C820 /* BroadView.m */,
+				18A310451546869500B1C820 /* DKDrawCanvas.h */,
+				18A310461546869800B1C820 /* DKDrawCanvas.m */,
+				1818C50E1546CFCA0096EA6E /* ImageHelper.h */,
+				1818C50F1546CFCB0096EA6E /* ImageHelper.m */,
+				1818C5101546CFCD0096EA6E /* pointStack.h */,
+				1818C5111546CFCF0096EA6E /* pointStack.m */,
+				1818C5121546CFD20096EA6E /* fillImage.h */,
+				1818C5131546CFD50096EA6E /* fillImage.m */,
 			);
-			name = DrawKit;
+			path = DrawKit;
 			sourceTree = "<group>";
 		};
 		A9816A561531C96D0068B369 /* SWPromptDialog */ = {
@@ -497,14 +520,14 @@
 		A9816A6F1531CC680068B369 /* createGeometryPasterImageView */ = {
 			isa = PBXGroup;
 			children = (
-				A9816A701531CC690068B369 /* createCirclePasterButton.png */,
-				A9816A711531CC690068B369 /* createEllipsePasterButton.png */,
-				A9816A721531CC690068B369 /* createGeometryPasterImageView.png */,
-				A9816A731531CC690068B369 /* createPentaclePasterButton.png */,
-				A9816A741531CC690068B369 /* createRectanglePasterButton.png */,
-				A9816A751531CC690068B369 /* createSquarePasterButton.png */,
-				A9816A761531CC690068B369 /* createTrapeziumPasterButton.png */,
-				A9816A771531CC690068B369 /* createTrianglePasterButton.png */,
+				A9816A701531CC690068B369 /* createdCirclePaster.png */,
+				A9816A711531CC690068B369 /* createdEllipsePaster.png */,
+				A9816A731531CC690068B369 /* createdPentaclePaster.png */,
+				A9816A741531CC690068B369 /* createdRectanglePaster.png */,
+				A9816A751531CC690068B369 /* createdSquarePaster.png */,
+				A9816A761531CC690068B369 /* createdTrapeziumPaster.png */,
+				A9816A771531CC690068B369 /* createdTrianglePaster.png */,
+				A9816A721531CC690068B369 /* createdGeometryPasterImageView.png */,
 			);
 			path = createGeometryPasterImageView;
 			sourceTree = "<group>";
@@ -743,14 +766,14 @@
 				A9816A681531CB0E0068B369 /* pasterWonderLandButton.png in Resources */,
 				A9816A6A1531CB120068B369 /* sketchWonderlandImageView.png in Resources */,
 				A9816A6C1531CC0C0068B369 /* doGoodImageView.png in Resources */,
-				A9816A781531CC690068B369 /* createCirclePasterButton.png in Resources */,
-				A9816A791531CC690068B369 /* createEllipsePasterButton.png in Resources */,
-				A9816A7A1531CC690068B369 /* createGeometryPasterImageView.png in Resources */,
-				A9816A7B1531CC690068B369 /* createPentaclePasterButton.png in Resources */,
-				A9816A7C1531CC690068B369 /* createRectanglePasterButton.png in Resources */,
-				A9816A7D1531CC690068B369 /* createSquarePasterButton.png in Resources */,
-				A9816A7E1531CC690068B369 /* createTrapeziumPasterButton.png in Resources */,
-				A9816A7F1531CC690068B369 /* createTrianglePasterButton.png in Resources */,
+				A9816A781531CC690068B369 /* createdCirclePaster.png in Resources */,
+				A9816A791531CC690068B369 /* createdEllipsePaster.png in Resources */,
+				A9816A7A1531CC690068B369 /* createdGeometryPasterImageView.png in Resources */,
+				A9816A7B1531CC690068B369 /* createdPentaclePaster.png in Resources */,
+				A9816A7C1531CC690068B369 /* createdRectanglePaster.png in Resources */,
+				A9816A7D1531CC690068B369 /* createdSquarePaster.png in Resources */,
+				A9816A7E1531CC690068B369 /* createdTrapeziumPaster.png in Resources */,
+				A9816A7F1531CC690068B369 /* createdTrianglePaster.png in Resources */,
 				A9816A811531CC7B0068B369 /* geometryPasterLibraryImageView.png in Resources */,
 				A9816A831531CC9C0068B369 /* createGeometryPasterButton.png in Resources */,
 				A9816A8C1531CCA30068B369 /* uncreateCirclePasterButton.png in Resources */,
@@ -761,6 +784,7 @@
 				A9816A911531CCA30068B369 /* uncreateTrapeziumPasterButton.png in Resources */,
 				A9816A921531CCA30068B369 /* uncreateTrianglePasterButton.png in Resources */,
 				0A8287A3153471DE00C84E9D /* DataOfPasterTemplates.plist in Resources */,
+				0ADA662C154001C000C36861 /* DataOfGeoPasterTemplates.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,10 +812,14 @@
 				0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */,
 				0A411932153DA0D3000ACAF2 /* UIImage+NSCoder.m in Sources */,
 				0A411933153DA0D3000ACAF2 /* UIImageView+DeepCopy.m in Sources */,
-				18A27DBC154004360057278B /* DKPen.m in Sources */,
-				18A27DC0154004B70057278B /* DKDrawBoard.m in Sources */,
-				18A27DC4154004C80057278B /* DKWaterColorPen.m in Sources */,
-				18A27DC6154004CF0057278B /* SmoothLineView.m in Sources */,
+				18A3103915453FA300B1C820 /* DKDrawBoard.m in Sources */,
+				18A3103A15453FA300B1C820 /* DKPen.m in Sources */,
+				18A3103B15453FA300B1C820 /* DKWaterColorPen.m in Sources */,
+				18A310471546869B00B1C820 /* DKDrawCanvas.m in Sources */,
+				18A31052154696CB00B1C820 /* BroadView.m in Sources */,
+				1818C5141546CFDA0096EA6E /* ImageHelper.m in Sources */,
+				1818C5151546CFDA0096EA6E /* pointStack.m in Sources */,
+				1818C5161546CFDA0096EA6E /* fillImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,7 +842,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yiyu xu (SSW662A66D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -830,7 +858,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5A07F2F4-76F7-4947-93E6-C8B7D2600955";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -841,7 +869,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yiyu xu (SSW662A66D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -851,7 +879,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5A07F2F4-76F7-4947-93E6-C8B7D2600955";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

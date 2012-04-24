@@ -9,7 +9,8 @@
 #import "DKPen.h"
 
 @implementation DKPen
-@synthesize color;// size, state, style;
+@synthesize color, state; 
+//delegate; size, state, style;
 
 - (id)init
 {
@@ -34,6 +35,12 @@
 //            break;
 //    }
 //    return self;
+//}
+//
+//-(void)changeState{
+//    if (!state) {
+//        [[self delegate] change:YES];
+//    }
 //}
 
 -(void)changeColorWith:(NSInteger)colorButtonNumber{
