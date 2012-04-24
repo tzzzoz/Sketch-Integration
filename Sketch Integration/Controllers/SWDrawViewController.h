@@ -19,6 +19,7 @@
     NSMutableArray *geoPasters;
     
     //模型对象
+    //需要进行编辑的贴纸模板和贴纸作品
     PKPasterTemplate *pasterTemplate;
     PKPasterWork *pasterWork;
     PKGeometryPasterLibrary *geoPasterLibrary;

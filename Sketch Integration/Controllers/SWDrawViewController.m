@@ -7,6 +7,8 @@
 //
 
 #import "SWDrawViewController.h"
+#import "UIImageView+DeepCopy.h"
+
 #define degreesToRadians(x) (M_PI*(x)/180.0)
 
 @implementation SWDrawViewController
@@ -24,6 +26,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        pasterView = [[UIImageView alloc] init];
+        geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
+        geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
     }
     return self;
 }
@@ -37,8 +42,8 @@
 }
 
 -(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork {
-    self.pasterTemplate = tmpPasterTemplate;
-    self.pasterWork = tmpPasterWork;
+    pasterTemplate = tmpPasterTemplate;
+    pasterWork = tmpPasterWork;
 //    CGRect rect = pasterWork.pasterView.frame;
     CGRect rect = CGRectMake(250, 300, 400, 400);
     pasterView.frame = rect;
@@ -78,12 +83,15 @@
 {
     [super viewDidLoad];
     
-    pasterView = [[UIImageView alloc] init];
-    geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
-    geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
+    NSUInteger index = 0;
     
-    for (PKGeometryPaster *geoPasterTemplate in geoPasterLibrary.geometryPasters) {
-        [self.geoPasterBox addSubview:geoPasterTemplate.geoPasterImageView];
+    for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
+//        [self.geoPasterBox addSubview:geoPaster.geoPasterImageView];
+        UIImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
+        [geoPasters insertObject:imageView atIndex:index];
+        [imageView release];
+        [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
+        index++;
     }
 }
 

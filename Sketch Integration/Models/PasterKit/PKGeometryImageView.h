@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "EnumClass.h"
-#import "UIImageView+DeepCopy.h"
 
 //这个类提供了编辑贴纸相关操作所需要的数据
 
