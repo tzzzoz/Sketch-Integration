@@ -132,15 +132,15 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
     [self.view addSubview:skipImageView];
     CGAffineTransform transform;
     
-    if(animation == EaseIn)
+    if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
     {
         [nextViewController.view setCenter:ScreenRightPoint];
         transform = CGAffineTransformMakeScale(3.0f, 3.0f);
     }
-    else
+    else if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
     {
         [nextViewController.view setCenter:ScreenLeftPoint];
-        transform = CGAffineTransformMakeScale(1, 1);
+        transform = CGAffineTransformMakeScale(1/3.0f, 1/3.0f);
     }
     
     [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^(void)
@@ -154,14 +154,23 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
          nextViewController.view.layer.opacity = 1.0f;
      }completion:^(BOOL finished)
      {
-         if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]])
+         if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
          {
+             [(SWPasterWonderlandViewController*)nextViewController showSelectedImageView];
+             
              starImageView = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"star_8.png"]autorelease]];
              starImageView.center = destinationPoint;
              [self.view addSubview:starImageView];
              [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(showStarAnimation:) userInfo:nil repeats:YES];
          }
-         [nextViewController.view addSubview:skipImageView];
+         else if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
+         {
+             SWPasterWonderlandViewController* wonderLandController = (SWPasterWonderlandViewController*)currentViewController;
+             SWDrawViewController* drawController = (SWDrawViewController*)nextViewController;
+             [drawController setPasterTemplate:wonderLandController.selectedPasterTemplate PasterWork:wonderLandController.selectedPasterWork Frame:skipImageView.frame];
+         }
+         
+         [skipImageView removeFromSuperview];
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
          nextViewController = nil;

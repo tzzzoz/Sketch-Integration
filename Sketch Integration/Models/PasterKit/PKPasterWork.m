@@ -7,6 +7,7 @@
 //
 
 #import "PKPasterWork.h"
+#import "UIImageView+DeepCopy.h"
 
 @implementation PKPasterWork
 
@@ -18,6 +19,7 @@
     if (self) {
         self.geoPasters = [[NSMutableArray alloc] initWithCapacity:[pasterTemplate.geoPasterTemplates count]];
         self.pasterView = [[UIImageView alloc] init];
+        self.pasterView = [pasterTemplate.pasterView deepCopy];
     }
     return self;
 }

@@ -12,13 +12,13 @@
 
 @synthesize pasterTemplates;
 @synthesize pasterWorks;
-@synthesize selectedPosition;
-@synthesize selectedImageView;
 
--(id)initWithDataOfPlist {
+-(id)initWithDataOfPlist 
+{
     self = [super init];    
     //
-    if (self) {
+    if (self)
+    {
         //读取Plist
         //get the plist file from bundle
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"];   
@@ -26,9 +26,10 @@
         NSDictionary *dataOfPlist = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
         NSArray *dataOfPasterTemplates = [dataOfPlist objectForKey:@"DataOfPasterTemplates"];
 
-        //读取出贴纸模板的数量，根据数量初始化贴纸模板数组
+        //读取出贴纸模板的数量，根据数量初始化贴纸模板数组和贴纸作品数组
         NSUInteger sizeOfPasterTemplates = [dataOfPasterTemplates count];
         pasterTemplates = [[NSMutableArray alloc] initWithCapacity:sizeOfPasterTemplates];
+        pasterWorks = [[NSMutableArray alloc] initWithCapacity:sizeOfPasterTemplates];
         
         //遍历dataOfPasterTemplates贴纸模板数组
         for (int i = 0; i < sizeOfPasterTemplates; i++) 
@@ -77,8 +78,13 @@
                 [geoPasterTemplates insertObject:geoPasterTemplate atIndex:j];
             }
             
+            //利用plist中的数据初始化贴纸模板，并添加到数组中
             PKPasterTemplate *pasterTemplate = [[PKPasterTemplate alloc] initWithFileName:fileNameOfPasterTemplate GeoPasterTemplates:geoPasterTemplates];
             [pasterTemplates insertObject:pasterTemplate atIndex:i];
+            
+            //利用已有的贴纸模板初始化贴纸作品，也添加到数组中
+            PKPasterWork *pasterWork = [[PKPasterWork alloc] initWithPasterTemplate:pasterTemplate];
+            [pasterWorks insertObject:pasterWork atIndex:i];
         }
     }
     return self;
