@@ -32,6 +32,7 @@
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [rootViewController skipWithAnimation:EaseOut];
 }
 
 #pragma mark - View lifecycle

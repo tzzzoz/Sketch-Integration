@@ -2,7 +2,7 @@
 //  SWNavigationViewController.m
 //  Sketch Integration
 //
-//  Created by 付 乙荷 on 12-4-10.
+//  Created by kwan terry on 12-4-18.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -50,14 +50,14 @@
     [rootViewController pushViewController:[rootViewController helpViewController]];
     [rootViewController skipWithAnimation:EaseIn];
 }
+
 #pragma mark - View lifecycle
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
-
 
 - (void)viewDidUnload
 {
@@ -70,10 +70,6 @@
 {
     // Return YES for supported orientations
 	return YES;
-}
-
--(void)dealloc {
-    [super dealloc];
 }
 
 @end

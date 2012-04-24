@@ -2,7 +2,7 @@
 //  SWNavigationViewController.h
 //  Sketch Integration
 //
-//  Created by kwan terry on 12-4-19.
+//  Created by kwan terry on 12-4-18.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 

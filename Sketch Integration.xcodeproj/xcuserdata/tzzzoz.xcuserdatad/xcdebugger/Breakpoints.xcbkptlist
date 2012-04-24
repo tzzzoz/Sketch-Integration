@@ -9,39 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "356931390.557039"
+         timestampString = "356958636.905889"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-pressDrawAlbumButton:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "356931390.557039"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
-         landmarkName = "@implementation SWDrawViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "356931390.557039"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-returnBack:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,13 +23,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "356931390.557039"
+         timestampString = "356958958.492509"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-cleanDrawView"
-         landmarkType = "5">
+         startingLineNumber = "79"
+         endingLineNumber = "79"
+         landmarkName = "@implementation SWDrawViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -70,7 +42,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "80"
          endingLineNumber = "80"
-         landmarkName = "-viewDidLoad"
+         landmarkName = "-tapPasterImageView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -84,7 +56,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "125"
          endingLineNumber = "125"
-         landmarkName = "-viewDidUnload"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

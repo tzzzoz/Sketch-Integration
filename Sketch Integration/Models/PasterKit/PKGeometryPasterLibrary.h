@@ -15,6 +15,8 @@
     NSMutableArray *geometryPasters;
 }
 
+-(id)initWithDataOfPlist;
+
 @property (retain, nonatomic) NSMutableArray *geometryPasterTemplates;
 @property (retain, nonatomic) NSMutableArray *geometryPasters;
 

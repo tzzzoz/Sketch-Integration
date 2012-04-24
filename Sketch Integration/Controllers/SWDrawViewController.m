@@ -41,30 +41,45 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork {
-    pasterTemplate = tmpPasterTemplate;
-    pasterWork = tmpPasterWork;
-//    CGRect rect = pasterWork.pasterView.frame;
-    CGRect rect = CGRectMake(250, 300, 400, 400);
-    pasterView.frame = rect;
-    [pasterView addSubview:pasterWork.pasterView];
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame
+{
+    self.pasterTemplate = tmpPasterTemplate;
+    self.pasterWork = tmpPasterWork;
+    pasterView = [[UIImageView alloc]initWithFrame:frame];
+    pasterView.contentMode = UIViewContentModeScaleToFill;
+    if(pasterTemplate.isModified)
+    {
+        UIImageView* subView = [pasterTemplate.pasterView deepCopy];
+        subView.frame = CGRectMake(0.0, 0.0, frame.size.width, frame.size.height);
+        [pasterView addSubview:subView];
+    }
+    else
+    {
+        UIImageView* subView = [pasterWork.pasterView deepCopy];
+        subView.frame = CGRectMake(0.0, 0.0, frame.size.width, frame.size.height);
+        [pasterView addSubview:subView];
+    }
     [self.view addSubview:pasterView];
 }
 
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
-    [self cleanDrawView];
+    UIImageView* skipImageView = [pasterView deepCopy];
+    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
+    [self cleanPasterView];
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
-    [self cleanDrawView];
+    [self cleanPasterView];
 }
 
--(void)cleanDrawView {
-    for (UIView *view in pasterView.subviews) {
+-(void)cleanPasterView 
+{
+    for (UIView *view in pasterView.subviews) 
+    {
         [view removeFromSuperview];
     }
 }

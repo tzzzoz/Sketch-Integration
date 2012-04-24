@@ -33,8 +33,8 @@
 @property (retain, nonatomic) PKPasterWork *pasterWork;
 @property (retain, nonatomic) PKGeometryPasterLibrary *geoPasterLibrary;
 
--(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork;
--(void)cleanDrawView;
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame;
+-(void)cleanPasterView;
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
 @end
