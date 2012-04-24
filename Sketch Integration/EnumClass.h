@@ -16,8 +16,8 @@ typedef enum
     Ellipse     = 2,
     Pentacle    = 3,
     CirCle      = 4,
-    Rectangle   = 5,
-    Square      = 6
+    Square      = 5,
+    Rectangle   = 6
 }GeometryType;
 
 typedef enum
@@ -33,5 +33,7 @@ typedef enum
     EaseIn = 0,
     EaseOut = 1
 }SkipAnimationType;
+
+static const int sizeOfGeoPasterTemplate = 85;
 
 #endif

@@ -13,12 +13,10 @@
 @synthesize pasterTemplates;
 @synthesize pasterWorks;
 
--(id)initWithDataOfPlist 
-{
+-(id)initWithDataOfPlist {
     self = [super init];    
     //
-    if (self)
-    {
+    if (self) {
         //读取Plist
         //get the plist file from bundle
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"];   
@@ -32,21 +30,20 @@
         pasterWorks = [[NSMutableArray alloc] initWithCapacity:sizeOfPasterTemplates];
         
         //遍历dataOfPasterTemplates贴纸模板数组
-        for (int i = 0; i < sizeOfPasterTemplates; i++) 
-        {
+        for (int i = 0; i < sizeOfPasterTemplates; i++) {
+            
             NSDictionary *dataOfPasterTemplate = [dataOfPasterTemplates objectAtIndex:i];
             
             NSString *fileNameOfPasterTemplate = [dataOfPasterTemplate objectForKey:@"FileName"];
             NSNumber *countOfGeoTemplates = [dataOfPasterTemplate valueForKey:@"CountOfGeoTemplates"];
             NSArray *dataOfGeoPasterTemplates = [dataOfPasterTemplate objectForKey:@"GeoPasterTemplates"];
-                
-            
+
+
             //遍历geoPasterTemplates几何贴纸模板数组
             NSUInteger sizeOfGeoPasterTemplates = [countOfGeoTemplates intValue];
             //创建一个临时的数组，用于贴纸模板的初始化
             NSMutableArray *geoPasterTemplates = [[NSMutableArray alloc] initWithCapacity:sizeOfPasterTemplates];
-            for (int j = 0; j < sizeOfGeoPasterTemplates; j++) 
-            {
+            for (int j = 0; j < sizeOfGeoPasterTemplates; j++) {
                 NSDictionary *dataOfGeoPasterTemplate = [dataOfGeoPasterTemplates objectAtIndex:j];
                 //读取颜色数据，并构造一个颜色UIColor
                 NSNumber *red = [dataOfGeoPasterTemplate objectForKey:@"Red"];

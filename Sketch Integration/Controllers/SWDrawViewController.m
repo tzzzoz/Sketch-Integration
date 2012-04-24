@@ -11,16 +11,10 @@
 
 @implementation SWDrawViewController
 
-@synthesize geoPasterButtonArray;
-@synthesize geoPasterButton0;
-@synthesize geoPasterButton1;
-@synthesize geoPasterButton2;
-@synthesize geoPasterButton3;
-@synthesize geoPasterButton4;
-@synthesize geoPasterButton5;
-@synthesize geoPasterButton6;
 @synthesize pasterView;
-
+@synthesize geoPasterBox;
+@synthesize createPasterButton;
+@synthesize geoPasters;
 @synthesize pasterTemplate;
 @synthesize pasterWork;
 @synthesize geoPasterLibrary;
@@ -30,7 +24,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        pasterView = [[UIImageView alloc] init];
     }
     return self;
 }
@@ -64,8 +57,7 @@
     [self.view addSubview:pasterView];
 }
 
--(void)returnBack:(id)sender
-{
+-(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
     UIImageView* skipImageView = [pasterView deepCopy];
@@ -73,8 +65,7 @@
     [self cleanPasterView];
 }
 
--(void)pressDrawAlbumButton:(id)sender 
-{
+-(void)pressDrawAlbumButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
     [self cleanPasterView];
@@ -96,47 +87,24 @@
 }
 */
 
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    geoPasterLibrary = [[PKGeometryPasterLibrary alloc]initWithDataOfPlist];
+    pasterView = [[UIImageView alloc] init];
+    geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
+    geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
     
-    geoPasterButtonArray = [[NSMutableArray alloc]initWithCapacity:7];
-    [geoPasterButtonArray addObject:geoPasterButton0];
-    [geoPasterButtonArray addObject:geoPasterButton1];
-    [geoPasterButtonArray addObject:geoPasterButton2];
-    [geoPasterButtonArray addObject:geoPasterButton3];
-    [geoPasterButtonArray addObject:geoPasterButton4];
-    [geoPasterButtonArray addObject:geoPasterButton5];
-    [geoPasterButtonArray addObject:geoPasterButton6];
-    
-    for(int i=0; i<7; i++)
-    {
-        UIButton* geoPasterButton = [geoPasterButtonArray objectAtIndex:i];
-        PKGeometryPasterTemplate* tmpGeoTemplate = [geoPasterLibrary.geometryPasterTemplates objectAtIndex:i];
-//        PKGeometryPaster* tmpGeoPaster = [geoPasterLibrary.geometryPasters objectAtIndex:i];
-        if(!tmpGeoTemplate.isModified)
-        {
-            [geoPasterButton setImage:tmpGeoTemplate.geoTemplateImageView.image  forState:UIControlStateNormal];
-        }
-        else
-        {
-//           [geoPasterButton setImage:tmpGeoPaster.geoPasterImageView.image  forState:UIControlEventAllEvents]; 
-        }
+    for (PKGeometryPaster *geoPasterTemplate in geoPasterLibrary.geometryPasters) {
+        [self.geoPasterBox addSubview:geoPasterTemplate.geoPasterImageView];
     }
 }
 
+
 - (void)viewDidUnload
 {
-    [self setGeoPasterButton0:nil];
-    [self setGeoPasterButton1:nil];
-    [self setGeoPasterButton2:nil];
-    [self setGeoPasterButton3:nil];
-    [self setGeoPasterButton4:nil];
-    [self setGeoPasterButton5:nil];
-    [self setGeoPasterButton6:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -162,14 +130,11 @@
     }
 }
 
-- (void)dealloc {
-    [geoPasterButton0 release];
-    [geoPasterButton1 release];
-    [geoPasterButton2 release];
-    [geoPasterButton3 release];
-    [geoPasterButton4 release];
-    [geoPasterButton5 release];
-    [geoPasterButton6 release];
+-(void)dealloc {
     [super dealloc];
+    [pasterView release];
+    [geoPasterLibrary release];
+    [geoPasters release];
 }
+
 @end

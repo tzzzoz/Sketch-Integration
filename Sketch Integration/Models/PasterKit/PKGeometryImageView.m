@@ -155,4 +155,5 @@
     [aCoder encodeCGPoint:rigthBottomPointOriginal forKey:@"rigthBottomPointOriginal"];
     [aCoder encodeCGPoint:centerPointOriginal forKey:@"centerPointOriginal"];
 }
+
 @end

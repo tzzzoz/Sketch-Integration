@@ -222,11 +222,6 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    navigationViewController = nil;
-    pasterWonderlandViewController = nil;
-    drawViewController = nil;
-    drawAlbumViewController = nil;
-    helpViewController = nil;
 }
 
 -(void)dealloc {

@@ -153,6 +153,21 @@
 								<int key="NSvFlags">292</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
+									<object class="IBUIImageView" id="162527773">
+										<reference key="NSNextResponder" ref="210683022"/>
+										<int key="NSvFlags">256</int>
+										<string key="NSFrame">{{2, 6}, {932, 130}}</string>
+										<reference key="NSSuperview" ref="210683022"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="938251500"/>
+										<string key="NSReuseIdentifierKey">_NS:544</string>
+										<bool key="IBUIUserInteractionEnabled">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">geometryPasterLibraryImageView.png</string>
+										</object>
+									</object>
 									<object class="IBUIButton" id="938251500">
 										<reference key="NSNextResponder" ref="210683022"/>
 										<int key="NSvFlags">292</int>
@@ -172,15 +187,111 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreateTrianglePasterButton.png</string>
+									</object>
+									<object class="IBUIButton" id="102334428">
+										<reference key="NSNextResponder" ref="210683022"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{141, 35}, {85, 85}}</string>
+										<reference key="NSSuperview" ref="210683022"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="799840282"/>
+										<string key="NSReuseIdentifierKey">_NS:237</string>
+										<bool key="IBUIOpaque">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIContentHorizontalAlignment">0</int>
+										<int key="IBUIContentVerticalAlignment">0</int>
+										<reference key="IBUIFont" ref="721967775"/>
+										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
+										<object class="NSColor" key="IBUINormalTitleColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
+										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
+									</object>
+									<object class="IBUIButton" id="799840282">
+										<reference key="NSNextResponder" ref="210683022"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{254, 35}, {85, 85}}</string>
+										<reference key="NSSuperview" ref="210683022"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="377910012"/>
+										<string key="NSReuseIdentifierKey">_NS:237</string>
+										<bool key="IBUIOpaque">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIContentHorizontalAlignment">0</int>
+										<int key="IBUIContentVerticalAlignment">0</int>
+										<reference key="IBUIFont" ref="721967775"/>
+										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
+										<object class="NSColor" key="IBUINormalTitleColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+										</object>
+										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
+									</object>
+									<object class="IBUIButton" id="377910012">
+										<reference key="NSNextResponder" ref="210683022"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{367, 35}, {85, 85}}</string>
+										<reference key="NSSuperview" ref="210683022"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="32217162"/>
+										<string key="NSReuseIdentifierKey">_NS:237</string>
+										<bool key="IBUIOpaque">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIContentHorizontalAlignment">0</int>
+										<int key="IBUIContentVerticalAlignment">0</int>
+										<reference key="IBUIFont" ref="721967775"/>
+										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
+										<object class="NSColor" key="IBUINormalTitleColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+										</object>
+										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
+									</object>
+									<object class="IBUIButton" id="32217162">
+										<reference key="NSNextResponder" ref="210683022"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{480, 35}, {85, 85}}</string>
+										<reference key="NSSuperview" ref="210683022"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="297399017"/>
+										<string key="NSReuseIdentifierKey">_NS:237</string>
+										<bool key="IBUIOpaque">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIContentHorizontalAlignment">0</int>
+										<int key="IBUIContentVerticalAlignment">0</int>
+										<reference key="IBUIFont" ref="721967775"/>
+										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
+										<object class="NSColor" key="IBUINormalTitleColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+										</object>
+										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
+									</object>
+									<object class="IBUIButton" id="297399017">
+										<reference key="NSNextResponder" ref="210683022"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{593, 35}, {85, 85}}</string>
+										<reference key="NSSuperview" ref="210683022"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="755470720"/>
+										<string key="NSReuseIdentifierKey">_NS:237</string>
+										<bool key="IBUIOpaque">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIContentHorizontalAlignment">0</int>
+										<int key="IBUIContentVerticalAlignment">0</int>
+										<reference key="IBUIFont" ref="721967775"/>
+										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
+										<object class="NSColor" key="IBUINormalTitleColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+										</object>
+										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
 									</object>
 									<object class="IBUIButton" id="755470720">
 										<reference key="NSNextResponder" ref="210683022"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{672, 35}, {85, 85}}</string>
+										<string key="NSFrame">{{706, 35}, {85, 85}}</string>
 										<reference key="NSSuperview" ref="210683022"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="791911722"/>
@@ -196,18 +307,13 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreateRectanglePasterButton.png</string>
-										</object>
 									</object>
 									<object class="IBUIButton" id="791911722">
 										<reference key="NSNextResponder" ref="210683022"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{799, 35}, {85, 85}}</string>
+										<string key="NSFrame">{{819, 35}, {85, 85}}</string>
 										<reference key="NSSuperview" ref="210683022"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:237</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -225,131 +331,11 @@
 											<string key="NSResourceName">createGeometryPasterButton.png</string>
 										</object>
 									</object>
-									<object class="IBUIButton" id="297399017">
-										<reference key="NSNextResponder" ref="210683022"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{560, 35}, {85, 85}}</string>
-										<reference key="NSSuperview" ref="210683022"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="755470720"/>
-										<string key="NSReuseIdentifierKey">_NS:237</string>
-										<bool key="IBUIOpaque">NO</bool>
-										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<int key="IBUIContentHorizontalAlignment">0</int>
-										<int key="IBUIContentVerticalAlignment">0</int>
-										<reference key="IBUIFont" ref="721967775"/>
-										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
-										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreateSquarePasterButton.png</string>
-										</object>
-									</object>
-									<object class="IBUIButton" id="102334428">
-										<reference key="NSNextResponder" ref="210683022"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{140, 35}, {85, 85}}</string>
-										<reference key="NSSuperview" ref="210683022"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="799840282"/>
-										<string key="NSReuseIdentifierKey">_NS:237</string>
-										<bool key="IBUIOpaque">NO</bool>
-										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<int key="IBUIContentHorizontalAlignment">0</int>
-										<int key="IBUIContentVerticalAlignment">0</int>
-										<reference key="IBUIFont" ref="721967775"/>
-										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
-										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreateTrapeziumPasterButton.png</string>
-										</object>
-									</object>
-									<object class="IBUIButton" id="377910012">
-										<reference key="NSNextResponder" ref="210683022"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{333, 35}, {85, 85}}</string>
-										<reference key="NSSuperview" ref="210683022"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="32217162"/>
-										<string key="NSReuseIdentifierKey">_NS:237</string>
-										<bool key="IBUIOpaque">NO</bool>
-										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<int key="IBUIContentHorizontalAlignment">0</int>
-										<int key="IBUIContentVerticalAlignment">0</int>
-										<reference key="IBUIFont" ref="721967775"/>
-										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
-										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalBackgroundImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreatePentaclePasterButton.png</string>
-										</object>
-									</object>
-									<object class="IBUIButton" id="799840282">
-										<reference key="NSNextResponder" ref="210683022"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{240, 35}, {85, 85}}</string>
-										<reference key="NSSuperview" ref="210683022"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="377910012"/>
-										<string key="NSReuseIdentifierKey">_NS:237</string>
-										<bool key="IBUIOpaque">NO</bool>
-										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<int key="IBUIContentHorizontalAlignment">0</int>
-										<int key="IBUIContentVerticalAlignment">0</int>
-										<reference key="IBUIFont" ref="721967775"/>
-										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
-										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreateEllipsePasterButton.png</string>
-										</object>
-									</object>
-									<object class="IBUIButton" id="32217162">
-										<reference key="NSNextResponder" ref="210683022"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{444, 35}, {85, 85}}</string>
-										<reference key="NSSuperview" ref="210683022"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="297399017"/>
-										<string key="NSReuseIdentifierKey">_NS:237</string>
-										<bool key="IBUIOpaque">NO</bool>
-										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<int key="IBUIContentHorizontalAlignment">0</int>
-										<int key="IBUIContentVerticalAlignment">0</int>
-										<reference key="IBUIFont" ref="721967775"/>
-										<reference key="IBUIHighlightedTitleColor" ref="508425898"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
-										<reference key="IBUINormalTitleShadowColor" ref="624069601"/>
-										<object class="NSCustomResource" key="IBUINormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">uncreateCirclePasterButton.png</string>
-										</object>
-									</object>
 								</object>
-								<string key="NSFrame">{{85, 642}, {930, 678}}</string>
+								<string key="NSFrame">{{85, 642}, {932, 130}}</string>
 								<reference key="NSSuperview" ref="440797145"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="938251500"/>
+								<reference key="NSNextKeyView" ref="162527773"/>
 								<string key="NSReuseIdentifierKey">_NS:195</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -546,59 +532,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton1</string>
+						<string key="label">geoPasterBox</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="102334428"/>
+						<reference key="destination" ref="210683022"/>
 					</object>
-					<int key="connectionID">174</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton2</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="799840282"/>
-					</object>
-					<int key="connectionID">175</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton3</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="377910012"/>
-					</object>
-					<int key="connectionID">176</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton4</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="32217162"/>
-					</object>
-					<int key="connectionID">177</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton5</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="297399017"/>
-					</object>
-					<int key="connectionID">178</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton6</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="755470720"/>
-					</object>
-					<int key="connectionID">179</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">geoPasterButton0</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="938251500"/>
-					</object>
-					<int key="connectionID">180</int>
+					<int key="connectionID">173</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -668,14 +606,15 @@
 						<reference key="object" ref="210683022"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="162527773"/>
 							<reference ref="938251500"/>
 							<reference ref="102334428"/>
-							<reference ref="377910012"/>
 							<reference ref="799840282"/>
+							<reference ref="377910012"/>
 							<reference ref="32217162"/>
 							<reference ref="297399017"/>
-							<reference ref="791911722"/>
 							<reference ref="755470720"/>
+							<reference ref="791911722"/>
 						</object>
 						<reference key="parent" ref="440797145"/>
 						<string key="objectName">View</string>
@@ -689,36 +628,6 @@
 						<int key="objectID">14</int>
 						<reference key="object" ref="424032431"/>
 						<reference key="parent" ref="440797145"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="32217162"/>
-						<reference key="parent" ref="210683022"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">16</int>
-						<reference key="object" ref="799840282"/>
-						<reference key="parent" ref="210683022"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">18</int>
-						<reference key="object" ref="755470720"/>
-						<reference key="parent" ref="210683022"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">19</int>
-						<reference key="object" ref="297399017"/>
-						<reference key="parent" ref="210683022"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">21</int>
-						<reference key="object" ref="377910012"/>
-						<reference key="parent" ref="210683022"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">27</int>
-						<reference key="object" ref="791911722"/>
-						<reference key="parent" ref="210683022"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
@@ -742,6 +651,11 @@
 						<reference key="parent" ref="440797145"/>
 					</object>
 					<object class="IBObjectRecord">
+						<int key="objectID">170</int>
+						<reference key="object" ref="162527773"/>
+						<reference key="parent" ref="210683022"/>
+					</object>
+					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
 						<reference key="object" ref="938251500"/>
 						<reference key="parent" ref="210683022"/>
@@ -749,6 +663,37 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
 						<reference key="object" ref="102334428"/>
+						<reference key="parent" ref="210683022"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">16</int>
+						<reference key="object" ref="799840282"/>
+						<reference key="parent" ref="210683022"/>
+						<string key="objectName">Button</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">21</int>
+						<reference key="object" ref="377910012"/>
+						<reference key="parent" ref="210683022"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">15</int>
+						<reference key="object" ref="32217162"/>
+						<reference key="parent" ref="210683022"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">19</int>
+						<reference key="object" ref="297399017"/>
+						<reference key="parent" ref="210683022"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">18</int>
+						<reference key="object" ref="755470720"/>
+						<reference key="parent" ref="210683022"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="791911722"/>
 						<reference key="parent" ref="210683022"/>
 					</object>
 				</object>
@@ -772,6 +717,7 @@
 					<string>166.IBPluginDependency</string>
 					<string>166.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>17.IBPluginDependency</string>
+					<string>170.IBPluginDependency</string>
 					<string>18.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
@@ -812,6 +758,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -826,7 +773,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">181</int>
+			<int key="maxID">173</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -867,70 +814,14 @@
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>geoPasterButton0</string>
-							<string>geoPasterButton1</string>
-							<string>geoPasterButton2</string>
-							<string>geoPasterButton3</string>
-							<string>geoPasterButton4</string>
-							<string>geoPasterButton5</string>
-							<string>geoPasterButton6</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-						</object>
+						<string key="NS.key.0">geoPasterBox</string>
+						<string key="NS.object.0">UIView</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>geoPasterButton0</string>
-							<string>geoPasterButton1</string>
-							<string>geoPasterButton2</string>
-							<string>geoPasterButton3</string>
-							<string>geoPasterButton4</string>
-							<string>geoPasterButton5</string>
-							<string>geoPasterButton6</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton0</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton1</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton2</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton3</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton4</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton5</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">geoPasterButton6</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
+						<string key="NS.key.0">geoPasterBox</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">geoPasterBox</string>
+							<string key="candidateClassName">UIView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -955,17 +846,11 @@
 				<string>DVCbackgroundImageView.png</string>
 				<string>createGeometryPasterButton.png</string>
 				<string>enterAlumButton.png</string>
+				<string>geometryPasterLibraryImageView.png</string>
 				<string>redoButton.png</string>
 				<string>removeGeometryPasterButton.png</string>
 				<string>returnButton.png</string>
 				<string>saveButton.png</string>
-				<string>uncreateCirclePasterButton.png</string>
-				<string>uncreateEllipsePasterButton.png</string>
-				<string>uncreatePentaclePasterButton.png</string>
-				<string>uncreateRectanglePasterButton.png</string>
-				<string>uncreateSquarePasterButton.png</string>
-				<string>uncreateTrapeziumPasterButton.png</string>
-				<string>uncreateTrianglePasterButton.png</string>
 				<string>undoButton.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
@@ -973,17 +858,11 @@
 				<string>{1024, 768}</string>
 				<string>{85, 85}</string>
 				<string>{70, 90}</string>
+				<string>{930, 140}</string>
 				<string>{45, 45}</string>
 				<string>{90, 125}</string>
 				<string>{75, 60}</string>
 				<string>{85, 70}</string>
-				<string>{85, 85}</string>
-				<string>{85, 85}</string>
-				<string>{85, 85}</string>
-				<string>{85, 85}</string>
-				<string>{85, 85}</string>
-				<string>{85, 85}</string>
-				<string>{85, 85}</string>
 				<string>{45, 45}</string>
 			</object>
 		</object>
