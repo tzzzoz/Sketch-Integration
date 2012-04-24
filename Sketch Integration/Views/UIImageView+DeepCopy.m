@@ -11,7 +11,7 @@
 
 @implementation UIImageView (DeepCopy)
 
--(UIImageView *)deepCopy
+-(id)deepCopy
 {
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];

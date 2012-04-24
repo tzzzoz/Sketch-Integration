@@ -156,4 +156,12 @@
     [aCoder encodeCGPoint:centerPointOriginal forKey:@"centerPointOriginal"];
 }
 
+-(id)deepCopy {
+    self = [super deepCopy];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end

@@ -101,7 +101,6 @@
     NSUInteger index = 0;
     
     for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
-//        [self.geoPasterBox addSubview:geoPaster.geoPasterImageView];
         UIImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
         [geoPasters insertObject:imageView atIndex:index];
         [imageView release];
