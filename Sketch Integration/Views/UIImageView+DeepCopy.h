@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImageView (DeepCopy)
--(UIImageView *)deepCopy;
+-(id)deepCopy;
 @end
