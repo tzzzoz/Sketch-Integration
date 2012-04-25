@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PKGeometryImageView.h"
 #import "EnumClass.h"
+#import "UIImageView+DeepCopy.h"
 
 ////实现了NSCoding的协议，该类可以Archive到本地
 @interface PKGeometryPasterTemplate : NSObject <NSCoding> 

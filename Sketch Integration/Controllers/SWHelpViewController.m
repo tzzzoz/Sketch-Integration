@@ -10,12 +10,15 @@
 #define degreesToRadians(x) (M_PI*(x)/180.0)
 
 @implementation SWHelpViewController
+@synthesize prevButton, nextButton, helpImageView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        helpImageIndex = 1;
     }
     return self;
 }
@@ -32,6 +35,55 @@
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [rootViewController skipWithAnimation:EaseOut];
+}
+
+-(IBAction)clickNextButton:(id)sender{
+    helpImageIndex++;
+    if (helpImageIndex>4) {
+        //  nextButton.imageView.image = [UIImage imageNamed:@"beforeButton.png"];
+        // UIImage *unNormalImage =[UIImage imageNamed:@"beforeButton.png"];
+        //[nextButton setImage:unNormalImage forState:UIControlStateNormal];
+        [nextButton setEnabled:NO];
+        [prevButton setEnabled:YES];
+        //helpImageIndex=0;
+    }
+    else
+        if (helpImageIndex<1) {
+            //   prevButton.imageView.image = [UIImage imageNamed:@"nextButton.png"];
+            [prevButton setEnabled:NO];
+            [nextButton setEnabled:YES];
+            // helpImageIndex=0;
+        }
+        else{
+            helpImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"helpImageView%d.png",helpImageIndex]];
+            [prevButton setEnabled:YES];
+            [nextButton setEnabled:YES];
+        }
+    
+}
+-(IBAction)clickPrevButton:(id)sender{
+    helpImageIndex--;
+    if (helpImageIndex>4) {
+        //  nextButton.imageView.image = [UIImage imageNamed:@"beforeButton.png"];
+        //   helpImageIndex=0;
+        [nextButton setEnabled:NO];
+        [prevButton setEnabled:YES];
+        
+    }
+    else
+        if (helpImageIndex<1) {
+            //     prevButton.imageView.image = [UIImage imageNamed:@"nextButton.png"];
+            //    helpImageIndex=0;
+            [prevButton setEnabled:NO];
+            [nextButton setEnabled:YES];
+        }
+        else{
+            helpImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"helpImageView%d.png",helpImageIndex]];
+            [prevButton setEnabled:YES];
+            [nextButton setEnabled:YES];
+        }
+    
 }
 
 #pragma mark - View lifecycle

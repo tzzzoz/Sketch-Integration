@@ -19,6 +19,11 @@
 #import "SWDrawViewController.h"
 #import "SWDrawAlbumViewController.h"
 #import "SWHelpViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
+extern const CGPoint ScreenCenterPoint; 
+extern const CGPoint ScreenLeftPoint; 
+extern const CGPoint ScreenRightPoint;
 
 @interface RootViewController : UIViewController {
     NSMutableArray *viewControllersStack;
@@ -28,9 +33,12 @@
     SWDrawAlbumViewController *drawAlbumViewController;
     SWHelpViewController *helpViewController;
     
+    //播放星星ImageView
+    UIImageView* starImageView;
+    
     //记录当前的和后一个的视图控制器
-    UIViewController *currentViewController;
-    UIViewController *nextViewController;
+    @public UIViewController *currentViewController;
+    @public UIViewController *nextViewController;
 }
 
 //Singleton method
@@ -42,6 +50,7 @@
 @property (retain, nonatomic) SWDrawViewController *drawViewController;
 @property (retain, nonatomic) SWDrawAlbumViewController *drawAlbumViewController;
 @property (retain, nonatomic) SWHelpViewController *helpViewController;
+@property (retain, nonatomic) UIImageView *starImageView;
 @property (retain, nonatomic) UIViewController *currentViewController;
 @property (retain, nonatomic) UIViewController *nextViewController;
 
@@ -49,5 +58,9 @@
 -(void)runWithViewController:(UIViewController*) viewController;
 -(void)pushViewController:(UIViewController*) viewController;
 -(void)popViewController;
+
+-(void)skipWithAnimation:(SkipAnimationType)animation;
+-(void)skipWithImageView:(UIImageView*)imageView Destination:(CGPoint)destinationPoint Animation:(SkipAnimationType)animation;
+-(void)showStarAnimation:(NSTimer *)timer;
 
 @end

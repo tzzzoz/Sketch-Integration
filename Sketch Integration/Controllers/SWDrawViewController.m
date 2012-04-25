@@ -7,6 +7,8 @@
 //
 
 #import "SWDrawViewController.h"
+#import "UIImageView+DeepCopy.h"
+
 #define degreesToRadians(x) (M_PI*(x)/180.0)
 
 @implementation SWDrawViewController
@@ -25,6 +27,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        pasterView = [[UIImageView alloc] init];
+        geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
+        geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
     }
     return self;
 }
@@ -37,26 +42,33 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork {
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame
+{
     self.pasterTemplate = tmpPasterTemplate;
     self.pasterWork = tmpPasterWork;
-//    CGRect rect = pasterWork.pasterView.frame;
-    CGRect rect = CGRectMake(250, 300, 400, 400);
-    pasterView.frame = rect;
-    [pasterView addSubview:pasterWork.pasterView];
+//    pasterView = [[UIImageView alloc]initWithFrame:frame];
+    pasterView = [pasterWork.pasterView deepCopy];
+    pasterView.frame = frame;
+    
+//    UIImageView* subView = [pasterWork.pasterView deepCopy];
+//    subView.bounds = CGRectMake(0.0, 0.0, frame.size.width, frame.size.height);
+//    [pasterView addSubview:subView];
+
     [self.view addSubview:pasterView];
 }
 
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
-    [self cleanDrawView];
+    UIImageView* skipImageView = [pasterView deepCopy];
+    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
+    [self cleanPasterView];
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
-    [self cleanDrawView];
+    [self cleanPasterView];
 }
 //点击清空按钮
 -(IBAction)pressCleanButton:(id)sender{
@@ -73,8 +85,9 @@
 //点击保存按钮
 -(IBAction)pressSaveButton:(id)sender{
     //实现画作缩小移动，需修改UIImage为当前画作
-    UIImageView *savedWork = [[UIImageView alloc] initWithFrame:CGRectMake(180.0f, 100.0f, 700.0f, 500.0f)];
-    [savedWork setImage:[UIImage imageNamed:@"backgroundImageViewDAV.png"]];
+    UIImageView *savedWork = [[UIImageView alloc] initWithFrame:CGRectMake(180.0f, 100.0f, 512.0f, 512.0f)];
+//    [savedWork setImage:[UIImage imageNamed:@"backgroundImageViewDAV.png"]];
+    savedWork.image = pasterView.image;
 //    [savedWork setImage:];
     
     [UIImageView beginAnimations:nil context:NULL];
@@ -85,10 +98,13 @@
     [self.view addSubview:savedWork];
 }
 
--(void)cleanDrawView {
-    for (UIView *view in pasterView.subviews) {
+-(void)cleanPasterView 
+{
+    for (UIView *view in pasterView.subviews) 
+    {
         [view removeFromSuperview];
     }
+    [pasterView removeFromSuperview];
 }
 //涂色
 //-(IBAction)buttonPressed:(id)sender{
@@ -109,14 +125,16 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
     UITouch* touch = [touches anyObject];
+    //UIImageView* subImageView = [pasterView.subviews lastObject];
     xy = [touch locationInView:self.pasterView];
     printf("the click location is %f,%f",xy.x,xy.y);
-    UIImage *image=pasterView.image;
+    UIImage *image= pasterView.image;
     fillImage *fill=[[fillImage alloc]initWithImage:image];
     struct ColorRGBAStruct tc={255,0,0,255};
     struct ColorRGBAStruct bc={255,255,255,255};
-    int x=(int)xy.x;
-    int y=(int)xy.y;
+    int x=(int)xy.x*image.size.width/pasterView.frame.size.width;
+    int y=(int)xy.y*image.size.height/pasterView.frame.size.height;
+    printf("the x is %d,the y is %d,the width is %f,the height is %f",x,y,image.size.width,image.size.height);
     if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
         [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
         image=[fill getImage];
@@ -138,17 +156,20 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    drawBoard = [[DKDrawBoard alloc]init];
-    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
-    
+//    drawBoard = [[DKDrawBoard alloc]init];
+//    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
+//    
     [super viewDidLoad];
     
-    pasterView = [[UIImageView alloc] init];
-    geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
-    geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
+    NSUInteger index = 0;
     
-    for (PKGeometryPaster *geoPasterTemplate in geoPasterLibrary.geometryPasters) {
-        [self.geoPasterBox addSubview:geoPasterTemplate.geoPasterImageView];
+    for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
+//        [self.geoPasterBox addSubview:geoPaster.geoPasterImageView];
+        UIImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
+        [geoPasters insertObject:imageView atIndex:index];
+        [imageView release];
+        [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
+        index++;
     }
     
     //刚开始提示框不可见

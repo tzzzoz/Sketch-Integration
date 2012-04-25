@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "PKPasterTemplateLibrary.h"
 #import "RootViewController.h"
+#import "UIImageView+DeepCopy.h"
 
 @interface SWPasterWonderlandViewController : UIViewController{
     //视图对象
@@ -31,6 +33,11 @@
     
     //模型对象
     PKPasterTemplateLibrary *pasterTemplateLibrary;
+    
+    UIImageView *selectedImageView;
+    CGPoint selectedPosition;
+    PKPasterWork *selectedPasterWork;
+    PKPasterTemplate *selectedPasterTemplate;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImageView;
@@ -48,6 +55,11 @@
 @property (nonatomic, retain) IBOutlet UIImageView *pasterTemplate11;
 @property (nonatomic, retain) IBOutlet UIButton *returnButton;
 
+@property (nonatomic, retain) UIImageView *selectedImageView;
+@property (assign, nonatomic) CGPoint selectedPosition;
+@property (retain, nonatomic) PKPasterWork *selectedPasterWork;
+@property (retain, nonatomic) PKPasterTemplate *selectedPasterTemplate;
+
 @property (nonatomic, retain)  NSMutableArray *pasterViews;
 
 @property (nonatomic, retain) IBOutlet PKPasterTemplateLibrary *pasterTemplateLibrary;
@@ -55,4 +67,7 @@
 
 -(IBAction)returnBack:(id)sender;
 -(void)tapPasterImageView:(id)sender;
+-(void)showSelectedImageView;
+-(void)clearSelectedImageView;
+
 @end

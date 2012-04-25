@@ -9,8 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 
-@interface SWHelpViewController : UIViewController
+@interface SWHelpViewController : UIViewController{
+    UIButton *prevButton;
+    UIButton *nextButton;
+    
+    UIImageView *helpImageView;
+    
+    NSInteger helpImageIndex;
+}
 
+@property (nonatomic, retain) IBOutlet UIButton *prevButton;
+@property (nonatomic, retain) IBOutlet UIButton *nextButton;
+@property (nonatomic, retain) IBOutlet UIImageView *helpImageView;
+
+
+
+-(IBAction)clickNextButton:(id)sender;
+-(IBAction)clickPrevButton:(id)sender;
 
 -(IBAction)returnBack:(id)sender;
 @end

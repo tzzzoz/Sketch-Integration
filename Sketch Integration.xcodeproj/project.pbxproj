@@ -24,7 +24,6 @@
 		0A3CBC3B152EF65400B29756 /* SWDrawAlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */; };
 		0A3CBC3C152EF65400B29756 /* SWDrawView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1D152EF65300B29756 /* SWDrawView.xib */; };
 		0A3CBC3D152EF65400B29756 /* SWHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1E152EF65300B29756 /* SWHelpView.xib */; };
-		0A3CBC3E152EF65400B29756 /* SWNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC1F152EF65300B29756 /* SWNavigationView.xib */; };
 		0A3CBC3F152EF65400B29756 /* SWPasterWonderlandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */; };
 		0A3CBC49152EF77000B29756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3CBC48152EF77000B29756 /* main.m */; };
 		0A3CBC4D152EF7E100B29756 /* backgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3CBC4A152EF7E100B29756 /* backgroundImage.png */; };
@@ -57,6 +56,16 @@
 		18A3103B15453FA300B1C820 /* DKWaterColorPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103615453FA300B1C820 /* DKWaterColorPen.m */; };
 		18A310471546869B00B1C820 /* DKDrawCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A310461546869800B1C820 /* DKDrawCanvas.m */; };
 		18A31052154696CB00B1C820 /* BroadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A31051154696CA00B1C820 /* BroadView.m */; };
+		A3867FE215453D0B002DC793 /* DataOfGeoTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3867FE115453D0B002DC793 /* DataOfGeoTemplates.plist */; };
+		A38C52DA15401AFC00D3A6EC /* SWNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38C52D915401AFC00D3A6EC /* SWNavigationView.xib */; };
+		A3C710421546B1D1002B9621 /* star_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C7103A1546B1D1002B9621 /* star_1.png */; };
+		A3C710431546B1D1002B9621 /* star_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C7103B1546B1D1002B9621 /* star_2.png */; };
+		A3C710441546B1D1002B9621 /* star_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C7103C1546B1D1002B9621 /* star_3.png */; };
+		A3C710451546B1D1002B9621 /* star_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C7103D1546B1D1002B9621 /* star_4.png */; };
+		A3C710461546B1D1002B9621 /* star_5.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C7103E1546B1D1002B9621 /* star_5.png */; };
+		A3C710471546B1D1002B9621 /* star_6.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C7103F1546B1D1002B9621 /* star_6.png */; };
+		A3C710481546B1D1002B9621 /* star_7.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C710401546B1D1002B9621 /* star_7.png */; };
+		A3C710491546B1D1002B9621 /* star_8.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C710411546B1D1002B9621 /* star_8.png */; };
 		A9816A5B1531C96D0068B369 /* basicBackgroundImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A571531C96D0068B369 /* basicBackgroundImageView.png */; };
 		A9816A5C1531C96D0068B369 /* cancleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A581531C96D0068B369 /* cancleButton.png */; };
 		A9816A5D1531C96D0068B369 /* confirmButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A591531C96D0068B369 /* confirmButton.png */; };
@@ -161,7 +170,6 @@
 		0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawAlbumView.xib; sourceTree = "<group>"; };
 		0A3CBC1D152EF65300B29756 /* SWDrawView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawView.xib; sourceTree = "<group>"; };
 		0A3CBC1E152EF65300B29756 /* SWHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHelpView.xib; sourceTree = "<group>"; };
-		0A3CBC1F152EF65300B29756 /* SWNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWNavigationView.xib; sourceTree = "<group>"; };
 		0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWPasterWonderlandView.xib; sourceTree = "<group>"; };
 		0A3CBC48152EF77000B29756 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0A3CBC4A152EF7E100B29756 /* backgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundImage.png; sourceTree = "<group>"; };
@@ -208,6 +216,16 @@
 		18A310461546869800B1C820 /* DKDrawCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawCanvas.m; sourceTree = "<group>"; };
 		18A31050154696C400B1C820 /* BroadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadView.h; sourceTree = "<group>"; };
 		18A31051154696CA00B1C820 /* BroadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadView.m; sourceTree = "<group>"; };
+		A3867FE115453D0B002DC793 /* DataOfGeoTemplates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DataOfGeoTemplates.plist; path = Plists/DataOfGeoTemplates.plist; sourceTree = "<group>"; };
+		A38C52D915401AFC00D3A6EC /* SWNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWNavigationView.xib; sourceTree = "<group>"; };
+		A3C7103A1546B1D1002B9621 /* star_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_1.png; path = ../star_1.png; sourceTree = "<group>"; };
+		A3C7103B1546B1D1002B9621 /* star_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_2.png; path = ../star_2.png; sourceTree = "<group>"; };
+		A3C7103C1546B1D1002B9621 /* star_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_3.png; path = ../star_3.png; sourceTree = "<group>"; };
+		A3C7103D1546B1D1002B9621 /* star_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_4.png; path = ../star_4.png; sourceTree = "<group>"; };
+		A3C7103E1546B1D1002B9621 /* star_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_5.png; path = ../star_5.png; sourceTree = "<group>"; };
+		A3C7103F1546B1D1002B9621 /* star_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_6.png; path = ../star_6.png; sourceTree = "<group>"; };
+		A3C710401546B1D1002B9621 /* star_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_7.png; path = ../star_7.png; sourceTree = "<group>"; };
+		A3C710411546B1D1002B9621 /* star_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_8.png; path = ../star_8.png; sourceTree = "<group>"; };
 		A9816A571531C96D0068B369 /* basicBackgroundImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBackgroundImageView.png; sourceTree = "<group>"; };
 		A9816A581531C96D0068B369 /* cancleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancleButton.png; sourceTree = "<group>"; };
 		A9816A591531C96D0068B369 /* confirmButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirmButton.png; sourceTree = "<group>"; };
@@ -403,7 +421,7 @@
 				0A41192F153DA0D3000ACAF2 /* UIImage+NSCoder.m */,
 				0A411930153DA0D3000ACAF2 /* UIImageView+DeepCopy.h */,
 				0A411931153DA0D3000ACAF2 /* UIImageView+DeepCopy.m */,
-				0A3CBC1F152EF65300B29756 /* SWNavigationView.xib */,
+				A38C52D915401AFC00D3A6EC /* SWNavigationView.xib */,
 				0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */,
 				0A3CBC1D152EF65300B29756 /* SWDrawView.xib */,
 				0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */,
@@ -436,6 +454,14 @@
 		0A3CBC46152EF6C300B29756 /* SWPasterWonderlandView */ = {
 			isa = PBXGroup;
 			children = (
+				A3C7103A1546B1D1002B9621 /* star_1.png */,
+				A3C7103B1546B1D1002B9621 /* star_2.png */,
+				A3C7103C1546B1D1002B9621 /* star_3.png */,
+				A3C7103D1546B1D1002B9621 /* star_4.png */,
+				A3C7103E1546B1D1002B9621 /* star_5.png */,
+				A3C7103F1546B1D1002B9621 /* star_6.png */,
+				A3C710401546B1D1002B9621 /* star_7.png */,
+				A3C710411546B1D1002B9621 /* star_8.png */,
 				0A3CBC4A152EF7E100B29756 /* backgroundImage.png */,
 				0A3CBC4C152EF7E100B29756 /* returnButton.png */,
 				0A3CBC4B152EF7E100B29756 /* pasterTemplates */,
@@ -467,6 +493,7 @@
 			children = (
 				0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */,
 				0A8287A2153471DE00C84E9D /* DataOfPasterTemplates.plist */,
+				A3867FE115453D0B002DC793 /* DataOfGeoTemplates.plist */,
 			);
 			name = Plists;
 			sourceTree = "<group>";
@@ -697,7 +724,6 @@
 				0A3CBC3B152EF65400B29756 /* SWDrawAlbumView.xib in Resources */,
 				0A3CBC3C152EF65400B29756 /* SWDrawView.xib in Resources */,
 				0A3CBC3D152EF65400B29756 /* SWHelpView.xib in Resources */,
-				0A3CBC3E152EF65400B29756 /* SWNavigationView.xib in Resources */,
 				0A3CBC3F152EF65400B29756 /* SWPasterWonderlandView.xib in Resources */,
 				0A3CBC4D152EF7E100B29756 /* backgroundImage.png in Resources */,
 				0A3CBC4E152EF7E100B29756 /* returnButton.png in Resources */,
@@ -784,7 +810,17 @@
 				A9816A911531CCA30068B369 /* uncreateTrapeziumPasterButton.png in Resources */,
 				A9816A921531CCA30068B369 /* uncreateTrianglePasterButton.png in Resources */,
 				0A8287A3153471DE00C84E9D /* DataOfPasterTemplates.plist in Resources */,
+				A38C52DA15401AFC00D3A6EC /* SWNavigationView.xib in Resources */,
+				A3867FE215453D0B002DC793 /* DataOfGeoTemplates.plist in Resources */,
 				0ADA662C154001C000C36861 /* DataOfGeoPasterTemplates.plist in Resources */,
+				A3C710421546B1D1002B9621 /* star_1.png in Resources */,
+				A3C710431546B1D1002B9621 /* star_2.png in Resources */,
+				A3C710441546B1D1002B9621 /* star_3.png in Resources */,
+				A3C710451546B1D1002B9621 /* star_4.png in Resources */,
+				A3C710461546B1D1002B9621 /* star_5.png in Resources */,
+				A3C710471546B1D1002B9621 /* star_6.png in Resources */,
+				A3C710481546B1D1002B9621 /* star_7.png in Resources */,
+				A3C710491546B1D1002B9621 /* star_8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

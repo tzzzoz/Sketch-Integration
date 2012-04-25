@@ -25,6 +25,9 @@
 @synthesize pasterTemplate11;
 @synthesize returnButton;
 
+@synthesize selectedImageView;
+@synthesize selectedPasterTemplate,selectedPasterWork,selectedPosition;
+
 @synthesize pasterViews;
 
 @synthesize pasterTemplateLibrary;
@@ -41,34 +44,69 @@
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
-    NSLog(@"%@", self.view.superview);
     [super didReceiveMemoryWarning];
-    NSLog(@"%@", self.view.superview);
-//    [self.view removeFromSuperview];
-    NSLog(@"ss");
+    
     // Release any cached data, images, etc that aren't in use.
 }
 
 
--(void)returnBack:(id)sender {
+-(void)returnBack:(id)sender 
+{
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [rootViewController skipWithAnimation:EaseOut];
 }
 
--(void)tapPasterImageView:(UIGestureRecognizer *) gestureRecognizer {
-    RootViewController *rootViewController = [RootViewController sharedRootViewController];
+-(void)tapPasterImageView:(UIGestureRecognizer *) gestureRecognizer 
+{
     UIImageView *imageView = (UIImageView*)gestureRecognizer.view;
+    selectedImageView = imageView;
+    
     NSUInteger index = 0;
-    for (UIImageView *pasterView in pasterViews) {
-        if ([imageView isEqual:pasterView]) {
+    for (UIImageView *pasterView in pasterViews) 
+    {
+        if ([imageView isEqual:pasterView]) 
+        {
             break;
-        }
+        }   
         index++;
     }
     PKPasterTemplate *pasterTemplate = [pasterTemplateLibrary.pasterTemplates objectAtIndex:index];
     PKPasterWork *pasterWork = [pasterTemplateLibrary.pasterWorks objectAtIndex:index];
-    [rootViewController.drawViewController setPasterTemplate:pasterTemplate PasterWork:pasterWork];
+    
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:rootViewController.drawViewController];
+    UIImageView* skipImageView = [[UIImageView alloc]initWithFrame:imageView.frame];
+    [skipImageView addSubview:[pasterTemplate.pasterView deepCopy]];    
+    selectedPosition = skipImageView.center;
+    selectedPasterWork = pasterWork;
+    selectedPasterTemplate = pasterTemplate;
+    
+    [rootViewController skipWithImageView:skipImageView Destination:ScreenCenterPoint Animation:EaseIn];
+    [self clearSelectedImageView];
+}
+
+-(void)showSelectedImageView
+{
+    if(selectedImageView == nil)
+        return;
+    
+    if(selectedPasterTemplate.isModified)
+    {
+        [selectedImageView addSubview:[selectedPasterTemplate.pasterView deepCopy]];
+    }
+    else
+    {
+        [selectedImageView addSubview:[selectedPasterWork.pasterView deepCopy]];
+    }
+}
+
+-(void)clearSelectedImageView
+{
+    for(UIView* subView in selectedImageView.subviews)
+    {
+        [subView removeFromSuperview];
+    }
 }
 
 #pragma mark - View lifecycle
@@ -95,12 +133,20 @@
     
     UIImageView *imageView;
     NSUInteger index = 0;
-    for (PKPasterTemplate *pasterTemplate in pasterTemplateLibrary.pasterTemplates) {
-        if (pasterTemplate.isModified) {
+    for (PKPasterTemplate *pasterTemplate in pasterTemplateLibrary.pasterTemplates) 
+    {
+        if (pasterTemplate.isModified) 
+        {
             PKPasterWork *pasterWork = [pasterTemplateLibrary.pasterWorks objectAtIndex:index];
-            [[pasterViews objectAtIndex:index] addSubview:pasterWork.pasterView];
-        } else {
-            [[pasterViews objectAtIndex:index] addSubview:pasterTemplate.pasterView];
+            UIImageView* subView = [pasterWork.pasterView deepCopy];
+            subView.frame = [[pasterViews objectAtIndex:index]frame];
+            [[pasterViews objectAtIndex:index] addSubview:[pasterWork.pasterView deepCopy]];
+        } 
+        else
+        {
+            UIImageView* subView = [pasterTemplate.pasterView deepCopy];
+            subView.frame = [[pasterViews objectAtIndex:index]frame];
+            [[pasterViews objectAtIndex:index] addSubview:[pasterTemplate.pasterView deepCopy]];
         }
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPasterImageView:)];
         imageView = [pasterViews objectAtIndex:index];

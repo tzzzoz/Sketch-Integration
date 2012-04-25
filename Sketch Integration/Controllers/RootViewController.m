@@ -18,8 +18,14 @@
 @synthesize helpViewController;
 @synthesize currentViewController;
 @synthesize nextViewController;
+@synthesize starImageView;
 
 static  RootViewController *_sharedRootViewController = nil;
+static int controlIndex = 0;
+
+const CGPoint ScreenCenterPoint = {1024/2,768/2};
+const CGPoint ScreenLeftPoint   = {-1024/2,768/2};
+const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 
 + (RootViewController *) sharedRootViewController {
     if (!_sharedRootViewController) {
@@ -40,7 +46,6 @@ static  RootViewController *_sharedRootViewController = nil;
         // 从xib文件中读取视图资源，对试图控制器进行初始化
         viewControllersStack = [[NSMutableArray alloc] init];
         navigationViewController = [[SWNavigationViewController alloc] initWithNibName:@"SWNavigationView" bundle:nil];
-        //NSLog(@"1retainCount is %d", [currentViewController retainCount]);
         pasterWonderlandViewController = [[SWPasterWonderlandViewController alloc] initWithNibName:@"SWPasterWonderlandView" bundle:nil];
         drawViewController = [[SWDrawViewController alloc] initWithNibName:@"SWDrawView" bundle:nil];
         drawAlbumViewController = [[SWDrawAlbumViewController alloc] initWithNibName:@"SWDrawAlbumView" bundle:nil];
@@ -48,23 +53,18 @@ static  RootViewController *_sharedRootViewController = nil;
         
         //当前
         currentViewController = nil;
-        nextViewController = nil;
-        //NSLog(@"2retainCount is %d", [currentViewController retainCount]);        
+        nextViewController = nil;       
         [self runWithViewController:navigationViewController];
-        //NSLog(@"3retainCount is %d", [currentViewController retainCount]);
-
-        //NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DataOfPasterTemplates" ofType:@"plist"];
-        //NSLog(@"%@", plistPath);
+        currentViewController = navigationViewController;
     }
     return self;
 }
 
 -(void)display {
     NSAssert(nextViewController != nil, @"nextViewController can't be nil");
-    currentViewController = nextViewController;
-    nextViewController = nil;
-    [currentViewController willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0.5];
-    self.view = currentViewController.view;
+//    [currentViewController willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0.5];
+    nextViewController.view.layer.opacity = 1.0f;
+    [self.view addSubview:nextViewController.view];
 }
 
 
@@ -99,6 +99,99 @@ static  RootViewController *_sharedRootViewController = nil;
     }
 }
 
+-(void)skipWithAnimation:(SkipAnimationType)animation
+{
+    if(animation == EaseIn)
+    {
+        [nextViewController.view setCenter:ScreenRightPoint];
+    }
+    else if(animation == EaseOut)
+    {
+        [nextViewController.view setCenter:ScreenLeftPoint];
+    }
+    
+    nextViewController.view.layer.opacity = 0.0f;
+    [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^(void)
+     {
+         currentViewController.view.layer.opacity = 0.0f;
+         
+         nextViewController.view.center = ScreenCenterPoint;
+         nextViewController.view.layer.opacity = 1.0f;
+     }completion:^(BOOL finished)
+     {
+         [currentViewController.view removeFromSuperview];
+         currentViewController = nextViewController;
+         nextViewController = nil;
+     }];
+    
+}
+
+-(void)skipWithImageView:(UIImageView *)imageView Destination:(CGPoint)destinationPoint Animation:(SkipAnimationType)animation
+{
+    UIImageView* skipImageView = imageView;
+    [self.view addSubview:skipImageView];
+    CGAffineTransform transform;
+    
+    if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
+    {
+        [nextViewController.view setCenter:ScreenRightPoint];
+        transform = CGAffineTransformMakeScale(3.0f, 3.0f);
+    }
+    else if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
+    {
+        [nextViewController.view setCenter:ScreenLeftPoint];
+        transform = CGAffineTransformMakeScale(1/3.0f, 1/3.0f);
+    }
+    
+    [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^(void)
+     {
+         currentViewController.view.layer.opacity = 0.0f;
+         
+         skipImageView.center = destinationPoint;
+         skipImageView.transform = transform;
+         
+         nextViewController.view.center = ScreenCenterPoint;
+         nextViewController.view.layer.opacity = 1.0f;
+     }completion:^(BOOL finished)
+     {
+         if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
+         {
+             [(SWPasterWonderlandViewController*)nextViewController showSelectedImageView];
+             
+             starImageView = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"star_8.png"]autorelease]];
+             starImageView.center = destinationPoint;
+             [self.view addSubview:starImageView];
+             [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(showStarAnimation:) userInfo:nil repeats:YES];
+         }
+         else if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
+         {
+             SWPasterWonderlandViewController* wonderLandController = (SWPasterWonderlandViewController*)currentViewController;
+             SWDrawViewController* drawController = (SWDrawViewController*)nextViewController;
+             [drawController setPasterTemplate:wonderLandController.selectedPasterTemplate PasterWork:wonderLandController.selectedPasterWork Frame:skipImageView.frame];
+         }
+         
+         [skipImageView removeFromSuperview];
+         [currentViewController.view removeFromSuperview];
+         currentViewController = nextViewController;
+         nextViewController = nil;
+     }];
+}
+
+-(void)showStarAnimation:(NSTimer *)timer
+{
+    if(controlIndex == 8)
+    {
+        controlIndex = 0;
+        [starImageView removeFromSuperview];
+        [timer invalidate];
+    }
+    
+    NSString* imageName = [NSString stringWithFormat:@"star_%d.png",8-controlIndex];
+    UIImage*  tempImage = [UIImage imageNamed:imageName];
+    starImageView.image = tempImage;
+    controlIndex++;
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -121,7 +214,6 @@ static  RootViewController *_sharedRootViewController = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self display];
 }
 
 

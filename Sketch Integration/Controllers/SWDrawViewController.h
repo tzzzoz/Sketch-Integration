@@ -23,6 +23,7 @@
     IBOutlet UIView *promptDialogView;
     
     //模型对象
+    //需要进行编辑的贴纸模板和贴纸作品
     PKPasterTemplate *pasterTemplate;
     PKPasterWork *pasterWork;
     DKDrawBoard *drawBoard;
@@ -41,10 +42,13 @@
 @property (retain, nonatomic) PKGeometryPasterLibrary *geoPasterLibrary;
 
 //涂色
--(IBAction)buttonPressed:(id)sender;
+//-(IBAction)buttonPressed:(id)sender;
 
 -(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork;
 -(void)cleanDrawView;
+
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame;
+-(void)cleanPasterView;
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
 -(IBAction)pressCleanButton:(id)sender;

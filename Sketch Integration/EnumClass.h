@@ -28,6 +28,7 @@ typedef enum
     Nothing     = 3
 }OperationType;
 
+
 typedef enum {
     black, 
     red, 
@@ -49,5 +50,12 @@ typedef enum {
     pink
 }ColorType;
 
+typedef enum
+{
+    EaseIn = 0,
+    EaseOut = 1
+}SkipAnimationType;
+
 static const int sizeOfGeoPasterTemplate = 85;
+
 #endif
