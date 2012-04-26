@@ -54,6 +54,15 @@
 		0A8287A61534729400C84E9D /* SWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A51534729400C84E9D /* SWHelpViewController.m */; };
 		0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */; };
 		0ADA662C154001C000C36861 /* DataOfGeoPasterTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */; };
+		0AF9F97815497D2D00EBAB30 /* SWDrawView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF9F97715497D2D00EBAB30 /* SWDrawView.xib */; };
+		1818C5141546CFDA0096EA6E /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C50F1546CFCB0096EA6E /* ImageHelper.m */; };
+		1818C5151546CFDA0096EA6E /* pointStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C5111546CFCF0096EA6E /* pointStack.m */; };
+		1818C5161546CFDA0096EA6E /* fillImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C5131546CFD50096EA6E /* fillImage.m */; };
+		18A3103915453FA300B1C820 /* DKDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103215453FA300B1C820 /* DKDrawBoard.m */; };
+		18A3103A15453FA300B1C820 /* DKPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103415453FA300B1C820 /* DKPen.m */; };
+		18A3103B15453FA300B1C820 /* DKWaterColorPen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3103615453FA300B1C820 /* DKWaterColorPen.m */; };
+		18A310471546869B00B1C820 /* DKDrawCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A310461546869800B1C820 /* DKDrawCanvas.m */; };
+		18A31052154696CB00B1C820 /* BroadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A31051154696CA00B1C820 /* BroadView.m */; };
 		A3867FE215453D0B002DC793 /* DataOfGeoTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3867FE115453D0B002DC793 /* DataOfGeoTemplates.plist */; };
 		A38C52DA15401AFC00D3A6EC /* SWNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38C52D915401AFC00D3A6EC /* SWNavigationView.xib */; };
 		A9816A5B1531C96D0068B369 /* basicBackgroundImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A571531C96D0068B369 /* basicBackgroundImageView.png */; };
@@ -191,6 +200,23 @@
 		0A8287A71534742500C84E9D /* SWDrawAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDrawAlbumViewController.h; sourceTree = "<group>"; };
 		0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDrawAlbumViewController.m; sourceTree = "<group>"; };
 		0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DataOfGeoPasterTemplates.plist; path = Plists/DataOfGeoPasterTemplates.plist; sourceTree = "<group>"; };
+		0AF9F97715497D2D00EBAB30 /* SWDrawView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SWDrawView.xib; path = ../../../../../../Volumes/Win/SWDrawView.xib; sourceTree = "<group>"; };
+		1818C50E1546CFCA0096EA6E /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		1818C50F1546CFCB0096EA6E /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		1818C5101546CFCD0096EA6E /* pointStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointStack.h; sourceTree = "<group>"; };
+		1818C5111546CFCF0096EA6E /* pointStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pointStack.m; sourceTree = "<group>"; };
+		1818C5121546CFD20096EA6E /* fillImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fillImage.h; sourceTree = "<group>"; };
+		1818C5131546CFD50096EA6E /* fillImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fillImage.m; sourceTree = "<group>"; };
+		18A3103115453FA300B1C820 /* DKDrawBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDrawBoard.h; sourceTree = "<group>"; };
+		18A3103215453FA300B1C820 /* DKDrawBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawBoard.m; sourceTree = "<group>"; };
+		18A3103315453FA300B1C820 /* DKPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKPen.h; sourceTree = "<group>"; };
+		18A3103415453FA300B1C820 /* DKPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKPen.m; sourceTree = "<group>"; };
+		18A3103515453FA300B1C820 /* DKWaterColorPen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKWaterColorPen.h; sourceTree = "<group>"; };
+		18A3103615453FA300B1C820 /* DKWaterColorPen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWaterColorPen.m; sourceTree = "<group>"; };
+		18A310451546869500B1C820 /* DKDrawCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDrawCanvas.h; sourceTree = "<group>"; };
+		18A310461546869800B1C820 /* DKDrawCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDrawCanvas.m; sourceTree = "<group>"; };
+		18A31050154696C400B1C820 /* BroadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadView.h; sourceTree = "<group>"; };
+		18A31051154696CA00B1C820 /* BroadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadView.m; sourceTree = "<group>"; };
 		A3867FE115453D0B002DC793 /* DataOfGeoTemplates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DataOfGeoTemplates.plist; path = Plists/DataOfGeoTemplates.plist; sourceTree = "<group>"; };
 		A38C52D915401AFC00D3A6EC /* SWNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWNavigationView.xib; sourceTree = "<group>"; };
 		A9816A571531C96D0068B369 /* basicBackgroundImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBackgroundImageView.png; sourceTree = "<group>"; };
@@ -349,18 +375,11 @@
 		0A3CBBF7152EF65300B29756 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				18A3102D15453F8300B1C820 /* DrawKit */,
 				0A3CBBF5152EF65300B29756 /* EnumClass.h */,
-				0A3CBBF8152EF65300B29756 /* DrawKit */,
 				0A3CBBF9152EF65300B29756 /* PasterKit */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		0A3CBBF8152EF65300B29756 /* DrawKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DrawKit;
 			sourceTree = "<group>";
 		};
 		0A3CBBF9152EF65300B29756 /* PasterKit */ = {
@@ -393,6 +412,7 @@
 				0A411931153DA0D3000ACAF2 /* UIImageView+DeepCopy.m */,
 				A38C52D915401AFC00D3A6EC /* SWNavigationView.xib */,
 				0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */,
+				0AF9F97715497D2D00EBAB30 /* SWDrawView.xib */,
 				0A3CBC1D152EF65300B29756 /* SWDrawView.xib */,
 				0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */,
 				0A3CBC1E152EF65300B29756 /* SWHelpView.xib */,
@@ -458,6 +478,29 @@
 				A3867FE115453D0B002DC793 /* DataOfGeoTemplates.plist */,
 			);
 			name = Plists;
+			sourceTree = "<group>";
+		};
+		18A3102D15453F8300B1C820 /* DrawKit */ = {
+			isa = PBXGroup;
+			children = (
+				18A3103115453FA300B1C820 /* DKDrawBoard.h */,
+				18A3103215453FA300B1C820 /* DKDrawBoard.m */,
+				18A3103315453FA300B1C820 /* DKPen.h */,
+				18A3103415453FA300B1C820 /* DKPen.m */,
+				18A3103515453FA300B1C820 /* DKWaterColorPen.h */,
+				18A3103615453FA300B1C820 /* DKWaterColorPen.m */,
+				18A31050154696C400B1C820 /* BroadView.h */,
+				18A31051154696CA00B1C820 /* BroadView.m */,
+				18A310451546869500B1C820 /* DKDrawCanvas.h */,
+				18A310461546869800B1C820 /* DKDrawCanvas.m */,
+				1818C50E1546CFCA0096EA6E /* ImageHelper.h */,
+				1818C50F1546CFCB0096EA6E /* ImageHelper.m */,
+				1818C5101546CFCD0096EA6E /* pointStack.h */,
+				1818C5111546CFCF0096EA6E /* pointStack.m */,
+				1818C5121546CFD20096EA6E /* fillImage.h */,
+				1818C5131546CFD50096EA6E /* fillImage.m */,
+			);
+			path = DrawKit;
 			sourceTree = "<group>";
 		};
 		A9816A561531C96D0068B369 /* SWPromptDialog */ = {
@@ -753,6 +796,7 @@
 				0A16FCEB1546DBCB0063CB71 /* drawViewButton.png in Resources */,
 				0A16FCEC1546DBCB0063CB71 /* pasterWonderLandButton.png in Resources */,
 				0A16FCED1546DBCB0063CB71 /* sketchWonderlandImageView.png in Resources */,
+				0AF9F97815497D2D00EBAB30 /* SWDrawView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +824,14 @@
 				0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */,
 				0A411932153DA0D3000ACAF2 /* UIImage+NSCoder.m in Sources */,
 				0A411933153DA0D3000ACAF2 /* UIImageView+DeepCopy.m in Sources */,
+				18A3103915453FA300B1C820 /* DKDrawBoard.m in Sources */,
+				18A3103A15453FA300B1C820 /* DKPen.m in Sources */,
+				18A3103B15453FA300B1C820 /* DKWaterColorPen.m in Sources */,
+				18A310471546869B00B1C820 /* DKDrawCanvas.m in Sources */,
+				18A31052154696CB00B1C820 /* BroadView.m in Sources */,
+				1818C5141546CFDA0096EA6E /* ImageHelper.m in Sources */,
+				1818C5151546CFDA0096EA6E /* pointStack.m in Sources */,
+				1818C5161546CFDA0096EA6E /* fillImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

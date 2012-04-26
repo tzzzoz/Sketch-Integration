@@ -28,6 +28,28 @@ typedef enum
     Nothing     = 3
 }OperationType;
 
+
+typedef enum {
+    black, 
+    red, 
+    yellow, 
+    lightBlue, 
+    grassGreen, 
+    purple, 
+    brown, 
+    lightOrange, 
+    lightPurple, 
+    roseRed, 
+    lightGreen, 
+    darkPurple, 
+    grey, 
+    green, 
+    blue, 
+    darkBlue, 
+    darkGreen, 
+    pink
+}ColorType;
+
 typedef enum
 {
     EaseIn = 0,

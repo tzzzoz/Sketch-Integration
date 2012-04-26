@@ -225,12 +225,13 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 }
 
 -(void)dealloc {
-    [super dealloc];
+ //   [super dealloc];
     [navigationViewController release];
     [pasterWonderlandViewController release];
     [drawViewController release];
     [drawAlbumViewController release];
     [helpViewController release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
