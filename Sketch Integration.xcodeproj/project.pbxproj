@@ -54,6 +54,7 @@
 		0A8287A91534742500C84E9D /* SWDrawAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */; };
 		0ADA662C154001C000C36861 /* DataOfGeoPasterTemplates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */; };
 		0AF9F97B15497EC700EBAB30 /* SWDrawView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF9F97A15497EC700EBAB30 /* SWDrawView.xib */; };
+		0AF9F98115498C5400EBAB30 /* UIPasterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9F98015498C5400EBAB30 /* UIPasterView.m */; };
 		1818C5141546CFDA0096EA6E /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C50F1546CFCB0096EA6E /* ImageHelper.m */; };
 		1818C5151546CFDA0096EA6E /* pointStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C5111546CFCF0096EA6E /* pointStack.m */; };
 		1818C5161546CFDA0096EA6E /* fillImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C5131546CFD50096EA6E /* fillImage.m */; };
@@ -199,6 +200,8 @@
 		0A8287A81534742500C84E9D /* SWDrawAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDrawAlbumViewController.m; sourceTree = "<group>"; };
 		0ADA662B154001C000C36861 /* DataOfGeoPasterTemplates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DataOfGeoPasterTemplates.plist; path = Plists/DataOfGeoPasterTemplates.plist; sourceTree = "<group>"; };
 		0AF9F97A15497EC700EBAB30 /* SWDrawView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawView.xib; sourceTree = "<group>"; };
+		0AF9F97F15498C5400EBAB30 /* UIPasterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPasterView.h; sourceTree = "<group>"; };
+		0AF9F98015498C5400EBAB30 /* UIPasterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPasterView.m; sourceTree = "<group>"; };
 		1818C50E1546CFCA0096EA6E /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
 		1818C50F1546CFCB0096EA6E /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		1818C5101546CFCD0096EA6E /* pointStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointStack.h; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 		0A3CBC1B152EF65300B29756 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AF9F97F15498C5400EBAB30 /* UIPasterView.h */,
+				0AF9F98015498C5400EBAB30 /* UIPasterView.m */,
 				0A41192E153DA0D3000ACAF2 /* UIImage+NSCoder.h */,
 				0A41192F153DA0D3000ACAF2 /* UIImage+NSCoder.m */,
 				0A411930153DA0D3000ACAF2 /* UIImageView+DeepCopy.h */,
@@ -828,6 +833,7 @@
 				1818C5141546CFDA0096EA6E /* ImageHelper.m in Sources */,
 				1818C5151546CFDA0096EA6E /* pointStack.m in Sources */,
 				1818C5161546CFDA0096EA6E /* fillImage.m in Sources */,
+				0AF9F98115498C5400EBAB30 /* UIPasterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

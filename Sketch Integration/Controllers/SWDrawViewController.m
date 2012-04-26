@@ -21,12 +21,15 @@
 @synthesize drawBoard;
 @synthesize geoPasterLibrary;
 
+@synthesize selectedGeoImageView;
+@synthesize beginPoint;
+@synthesize rotationTransform,translationTransform,scaleTransform;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        pasterView = [[UIImageView alloc] init];
+        pasterView = [[UIPasterView alloc] init];
         geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
         geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
     }
@@ -59,9 +62,9 @@
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
-    UIImageView* skipImageView = [pasterView deepCopy];
-    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
-    [self cleanPasterView];
+//    UIImageView* skipImageView = [pasterView deepCopy];
+//    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
+//    [self cleanPasterView];
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
@@ -86,7 +89,7 @@
     //实现画作缩小移动，需修改UIImage为当前画作
     UIImageView *savedWork = [[UIImageView alloc] initWithFrame:CGRectMake(180.0f, 100.0f, 512.0f, 512.0f)];
 //    [savedWork setImage:[UIImage imageNamed:@"backgroundImageViewDAV.png"]];
-    savedWork.image = pasterView.image;
+//    savedWork.image = pasterView.image;
 //    [savedWork setImage:];
     
     [UIImageView beginAnimations:nil context:NULL];
@@ -125,27 +128,46 @@
 //    }
 //}
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-    UITouch* touch = [touches anyObject];
-    //UIImageView* subImageView = [pasterView.subviews lastObject];
-    xy = [touch locationInView:self.pasterView];
-    printf("the click location is %f,%f",xy.x,xy.y);
-    UIImage *image= pasterView.image;
-    fillImage *fill=[[fillImage alloc]initWithImage:image];
-    struct ColorRGBAStruct tc={255,0,0,255};
-    struct ColorRGBAStruct bc={255,255,255,255};
-    int x=(int)xy.x*image.size.width/pasterView.frame.size.width;
-    int y=(int)xy.y*image.size.height/pasterView.frame.size.height;
-    printf("the x is %d,the y is %d,the width is %f,the height is %f",x,y,image.size.width,image.size.height);
-    if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
-        [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
-        image=[fill getImage];
-        pasterView.image=image;
-        [fill release];
-    }
-}
+//填充
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    [super touchesBegan:touches withEvent:event];
+//    UITouch* touch = [touches anyObject];
+//    //UIImageView* subImageView = [pasterView.subviews lastObject];
+//    xy = [touch locationInView:self.pasterView];
+//    printf("the click location is %f,%f",xy.x,xy.y);
+//    UIImage *image= pasterView.image;
+//    fillImage *fill=[[fillImage alloc]initWithImage:image];
+//    struct ColorRGBAStruct tc={255,0,0,255};
+//    struct ColorRGBAStruct bc={255,255,255,255};
+//    int x=(int)xy.x*image.size.width/pasterView.frame.size.width;
+//    int y=(int)xy.y*image.size.height/pasterView.frame.size.height;
+//    printf("the x is %d,the y is %d,the width is %f,the height is %f",x,y,image.size.width,image.size.height);
+//    if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
+//        [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
+//        image=[fill getImage];
+//        pasterView.image=image;
+//        [fill release];
+//    }
+//}
 
+-(void)tapGeoImageView:(UIGestureRecognizer *)gestureRecognizer
+{
+    UIImageView* imageView = (PKGeometryImageView*)gestureRecognizer.view;
+    int index = 0;
+    for(UIImageView* tmpImageView in geoPasterBox.subviews)
+    {
+        if([tmpImageView isEqual:imageView])
+        {
+            break;
+        }
+        index++;
+    }
+    NSLog(@"tap!");
+    PKGeometryPaster* geoPaster = [geoPasterLibrary.geometryPasters objectAtIndex:index];
+    PKGeometryImageView* geoPasterView = (PKGeometryImageView*)[geoPaster.geoPasterImageView deepCopy];
+    [self.view addSubview:geoPasterView];
+    
+}
 #pragma mark - View lifecycle
 
 /*
@@ -176,6 +198,26 @@
         index++;
     }
     
+    pasterView.frame = CGRectMake(100, 100, 500, 500);
+    PKGeometryImageView* geoImageView = [[PKGeometryImageView alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
+    PKGeometryImageView* geoImageView1 = [[PKGeometryImageView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+    geoImageView.image = [[UIImage imageNamed:@"saveButton.png"]autorelease];
+    geoImageView1.image = [[UIImage imageNamed:@"saveButton.png"]autorelease]; 
+//    pasterView.selectedGeoImageView = geoImageView;
+//    [geoImageView initFourCorners];
+    [pasterView addSubview:geoImageView];
+    [pasterView addSubview:geoImageView1];
+    
+    [self.view addSubview:pasterView];
+    //对每个几何贴纸视图加入手势识别
+//    NSLog(@"count of subviews: %d",[geoPasterBox.subviews count]);
+//    for(UIImageView* imageView in geoPasters)
+//    {
+//        UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGeoImageView:)];
+//        [imageView addGestureRecognizer:singleTap];
+//        [singleTap release];
+//    }
+
     //刚开始提示框不可见
     promptDialogView.hidden = YES;
     

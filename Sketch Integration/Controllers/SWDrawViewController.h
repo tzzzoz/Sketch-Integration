@@ -12,13 +12,14 @@
 #import "DKDrawBoard.h"
 #import "PKGeometryPasterLibrary.h"
 #import "fillImage.h"
+#import "UIPasterView.h"
 #import "ImageHelper.h"
 
 @interface SWDrawViewController : UIViewController {
     //视图对象
-    UIImageView *pasterView;
+    UIPasterView *pasterView;
     IBOutlet UIView *geoPasterBox;
-    UIButton *createPasterButton;
+    IBOutlet UIButton *createPasterButton;
     NSMutableArray *geoPasters;
     IBOutlet UIView *promptDialogView;
     
@@ -33,28 +34,32 @@
 }
 
 @property (retain, nonatomic) DKDrawBoard *drawBoard;
-@property (retain, nonatomic) UIImageView *pasterView;
+@property (retain, nonatomic) UIPasterView *pasterView;
 @property (retain, nonatomic) IBOutlet UIView *geoPasterBox;
-@property (retain, nonatomic) UIButton *createPasterButton;
+@property (retain, nonatomic) IBOutlet UIButton *createPasterButton;
 @property (retain, nonatomic) NSMutableArray *geoPasters;
 @property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
 @property (retain, nonatomic) PKPasterWork *pasterWork;
 @property (retain, nonatomic) PKGeometryPasterLibrary *geoPasterLibrary;
 
+@property (retain, nonatomic) PKGeometryImageView* selectedGeoImageView;
+@property (assign, nonatomic) CGPoint beginPoint;
+@property (assign, nonatomic) CGAffineTransform rotationTransform;
+@property (assign, nonatomic) CGAffineTransform translationTransform;
+@property (assign, nonatomic) CGAffineTransform scaleTransform;
 //涂色
 //-(IBAction)buttonPressed:(id)sender;
 
--(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork;
--(void)cleanDrawView;
+-(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame;
 
 -(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame;
 -(void)cleanPasterView;
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
 -(IBAction)takePhoto:(id)sender;
--(IBAction)pressCleanButton:(id)sender;
--(IBAction)pressComfirmButton:(id)sender;
--(IBAction)pressCancelButton:(id)sender;
--(IBAction)pressSaveButton:(id)sender;
--(void)penStateChange;
+//-(IBAction)pressCleanButton:(id)sender;
+//-(IBAction)pressComfirmButton:(id)sender;
+//-(IBAction)pressCancelButton:(id)sender;
+//-(IBAction)pressSaveButton:(id)sender;
+//-(void)penStateChange;
 @end
