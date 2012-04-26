@@ -7,7 +7,6 @@
 //
 
 #import "SWDrawViewController.h"
-#import "UIImageView+DeepCopy.h"
 
 #define degreesToRadians(x) (M_PI*(x)/180.0)
 
@@ -76,6 +75,10 @@
     [self cleanPasterView];
 }
 
+-(void)takePhoto:(id)sender {
+    
+}
+
 -(void)cleanPasterView 
 {
     for (UIView *view in pasterView.subviews) 
@@ -101,8 +104,10 @@
     NSUInteger index = 0;
     
     for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
-        UIImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
-        [geoPasters insertObject:imageView atIndex:index];
+        PKGeometryImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
+        imageView.userInteractionEnabled = YES;
+        NSLog(@"%@", imageView);
+        [self.geoPasters insertObject:imageView atIndex:index];
         [imageView release];
         [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
         index++;

@@ -37,4 +37,5 @@
 -(void)cleanPasterView;
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
+-(IBAction)takePhoto:(id)sender;
 @end

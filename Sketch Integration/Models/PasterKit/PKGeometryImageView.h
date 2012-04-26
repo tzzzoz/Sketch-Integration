@@ -54,5 +54,6 @@
 -(void)drawFrameWithContext:(CGContextRef)context;
 -(void)calulateFourCorners;
 -(void)initFourCorners;
+-(id)deepCopy;
 
 @end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A16FCDB1546C7DD0063CB71 /* na.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A16FCDA1546C7DD0063CB71 /* na.xib */; };
 		0A16FCE31546DA800063CB71 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A16FCE21546DA800063CB71 /* icon.png */; };
 		0A16FCE91546DBCB0063CB71 /* backgroundImageViewNV.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A16FCE41546DBCB0063CB71 /* backgroundImageViewNV.png */; };
 		0A16FCEA1546DBCB0063CB71 /* drawAlbumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A16FCE51546DBCB0063CB71 /* drawAlbumButton.png */; };
@@ -125,7 +124,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A16FCDA1546C7DD0063CB71 /* na.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = na.xib; path = ../../../na.xib; sourceTree = "<group>"; };
 		0A16FCE21546DA800063CB71 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0A16FCE41546DBCB0063CB71 /* backgroundImageViewNV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundImageViewNV.png; path = SWNavigationView/backgroundImageViewNV.png; sourceTree = "<group>"; };
 		0A16FCE51546DBCB0063CB71 /* drawAlbumButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drawAlbumButton.png; path = SWNavigationView/drawAlbumButton.png; sourceTree = "<group>"; };
@@ -397,7 +395,6 @@
 				0A3CBC20152EF65300B29756 /* SWPasterWonderlandView.xib */,
 				0A3CBC1D152EF65300B29756 /* SWDrawView.xib */,
 				0A3CBC1C152EF65300B29756 /* SWDrawAlbumView.xib */,
-				0A16FCDA1546C7DD0063CB71 /* na.xib */,
 				0A3CBC1E152EF65300B29756 /* SWHelpView.xib */,
 			);
 			path = Views;
@@ -750,7 +747,6 @@
 				A38C52DA15401AFC00D3A6EC /* SWNavigationView.xib in Resources */,
 				A3867FE215453D0B002DC793 /* DataOfGeoTemplates.plist in Resources */,
 				0ADA662C154001C000C36861 /* DataOfGeoPasterTemplates.plist in Resources */,
-				0A16FCDB1546C7DD0063CB71 /* na.xib in Resources */,
 				0A16FCE31546DA800063CB71 /* icon.png in Resources */,
 				0A16FCE91546DBCB0063CB71 /* backgroundImageViewNV.png in Resources */,
 				0A16FCEA1546DBCB0063CB71 /* drawAlbumButton.png in Resources */,

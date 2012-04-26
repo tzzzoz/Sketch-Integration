@@ -14,31 +14,32 @@
 @synthesize geoPasterColor;
 @synthesize geoPasterType;
 
--(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate Color:(UIColor *)color {
-    self = [super init];
-    if (self && color) 
-    {
-        geoPasterImageView = [[PKGeometryImageView alloc]initWithImage:geometryPasterTemplate.geoTemplateImageView.image];
-        self.geoPasterColor = color;
-        self.geoPasterType  = geometryPasterTemplate.geoTemplateType;
-    } 
-    return self;
-}
-
--(id)initWithGeometryImageView:(PKGeometryImageView *)imageView Color:(UIColor *)color {
-    self = [super init];
-    if(self && color && imageView)
-    {
-        self.geoPasterImageView = imageView;
-        self.geoPasterColor = color;
-    }
-    return self;
-}
+//-(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate Color:(UIColor *)color {
+//    self = [super init];
+//    if (self && color) 
+//    {
+//        geoPasterImageView = [[PKGeometryImageView alloc]initWithImage:geometryPasterTemplate.geoTemplateImageView.image];
+//        self.geoPasterColor = color;
+//        self.geoPasterType  = geometryPasterTemplate.geoTemplateType;
+//    } 
+//    return self;
+//}
+//
+//-(id)initWithGeometryImageView:(PKGeometryImageView *)imageView Color:(UIColor *)color {
+//    self = [super init];
+//    if(self && color && imageView)
+//    {
+//        self.geoPasterImageView = imageView;
+//        self.geoPasterColor = color;
+//    }
+//    return self;
+//}
 
 -(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate {
     self = [super init];
     if (self) {
-        self.geoPasterImageView = (PKGeometryImageView *)[geometryPasterTemplate.geoTemplateImageView deepCopy];
+        self.geoPasterImageView = [[PKGeometryImageView alloc] initWithImage:[geometryPasterTemplate.geoTemplateImageView image]];
+        self.geoPasterImageView.frame = geometryPasterTemplate.geoTemplateImageView.frame;
         self.geoPasterType = geometryPasterTemplate.geoTemplateType;
         self.geoPasterColor = geometryPasterTemplate.geoTemplateColor;
     }

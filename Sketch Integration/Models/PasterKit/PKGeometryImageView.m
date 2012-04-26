@@ -119,6 +119,9 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
+        self.image = [aDecoder decodeObjectForKey:@"image"];
+        self.frame = [aDecoder decodeCGRectForKey:@"frame"];
+        self.isGeometrySelected = [aDecoder decodeBoolForKey:@"isGeometrySelected"];
         self.leftTopPoint = [aDecoder decodeCGPointForKey:@"leftTopPoint"];
         self.rightTopPoint = [aDecoder decodeCGPointForKey:@"rightTopPoint"];
         self.leftBottomPoint = [aDecoder decodeCGPointForKey:@"leftBottomPoint"];
@@ -139,6 +142,9 @@
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.image forKey:@"image"];
+    [aCoder encodeCGRect:self.frame forKey:@"frame"];
+    [aCoder encodeBool:isGeometrySelected forKey:@"isGeometrySelected"];
     [aCoder encodeCGPoint:leftTopPoint forKey:@"leftTopPoint"];
     [aCoder encodeCGPoint:rightTopPoint forKey:@"rightTopPoint"];
     [aCoder encodeCGPoint:leftBottomPoint forKey:@"leftBottomPoint"];
@@ -157,11 +163,25 @@
 }
 
 -(id)deepCopy {
-    self = [super deepCopy];
-    if (self) {
+    PKGeometryImageView *geoImageView = [super deepCopy];
+    if (geoImageView) {
+        geoImageView.leftTopPoint = leftTopPoint;
+        geoImageView.rightTopPoint = rightTopPoint;
+        geoImageView.leftBottomPoint = leftBottomPoint;
+        geoImageView.rightBottomPoint = rightBottomPoint;
+        geoImageView.rotationPoint = rotationPoint;
+        geoImageView.centerPoint = centerPoint;
         
+        geoImageView.geometryTransfrom = geometryTransfrom;
+        geoImageView.operationType = operationType;
+
+        geoImageView.leftTopPointOriginal = leftTopPointOriginal;
+        geoImageView.rightTopPointOriginal = rightTopPointOriginal;
+        geoImageView.leftBottomPointOriginal = leftBottomPointOriginal;
+        geoImageView.rigthBottomPointOriginal = rigthBottomPointOriginal;
+        geoImageView.centerPointOriginal = centerPointOriginal;
     }
-    return self;
+    return geoImageView;
 }
 
 @end

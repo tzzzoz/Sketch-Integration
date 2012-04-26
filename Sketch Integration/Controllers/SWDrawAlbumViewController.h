@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 
-@interface SWDrawAlbumViewController : UIViewController
+@interface SWDrawAlbumViewController : UIViewController {
+    //模型对象
+    NSMutableArray *pasterWorkShows;
+}
 
+@property (retain, nonatomic) NSMutableArray *pasterWorkShows;
 
 -(IBAction)returnBack:(id)sender;
 
