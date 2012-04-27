@@ -28,7 +28,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "114"
          endingLineNumber = "114"
-         landmarkName = "-cleanPasterView"
+         landmarkName = "-pressSaveButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -42,7 +42,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "110"
          endingLineNumber = "110"
-         landmarkName = "-cleanPasterView"
+         landmarkName = "-pressCancelButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -56,7 +56,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "110"
          endingLineNumber = "110"
-         landmarkName = "-cleanPasterView"
+         landmarkName = "-pressCancelButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -70,7 +70,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "104"
          endingLineNumber = "104"
-         landmarkName = "-takePhoto:"
+         landmarkName = "-pressCleanButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -84,7 +84,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "109"
          endingLineNumber = "109"
-         landmarkName = "-cleanPasterView"
+         landmarkName = "-pressComfirmButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -98,8 +98,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "204"
          endingLineNumber = "204"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         landmarkName = "@implementation SWDrawViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -112,8 +112,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "205"
          endingLineNumber = "205"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         landmarkName = "@implementation SWDrawViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -126,8 +126,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "208"
          endingLineNumber = "208"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         landmarkName = "@implementation SWDrawViewController"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

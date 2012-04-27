@@ -135,12 +135,13 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
     if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
     {
         [nextViewController.view setCenter:ScreenRightPoint];
-        transform = CGAffineTransformMakeScale(3.0f, 3.0f);
+//        transform = CGAffineTransformMakeScale(865/288.0f, 630/210.0f);
+        transform = CGAffineTransformMakeScale(3.0, 3.0);
     }
     else if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
     {
         [nextViewController.view setCenter:ScreenLeftPoint];
-        transform = CGAffineTransformMakeScale(1/3.0f, 1/3.0f);
+        transform = CGAffineTransformMakeScale(288/865.0f, 210/630.0f);
     }
     
     [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^(void)
@@ -225,13 +226,12 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 }
 
 -(void)dealloc {
- //   [super dealloc];
+    [super dealloc];
     [navigationViewController release];
     [pasterWonderlandViewController release];
     [drawViewController release];
     [drawAlbumViewController release];
     [helpViewController release];
-    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

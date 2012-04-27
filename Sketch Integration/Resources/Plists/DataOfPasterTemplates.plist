@@ -97,7 +97,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate0.png</string>
+			<string>pasterTemplateImageView1.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -194,7 +194,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate1.png</string>
+			<string>pasterTemplateImageView2.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -291,7 +291,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate2.png</string>
+			<string>pasterTemplateImageView3.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -388,7 +388,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate3.png</string>
+			<string>pasterTemplateImageView4.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -485,7 +485,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate4.png</string>
+			<string>pasterTemplateImageView5.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -582,7 +582,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate5.png</string>
+			<string>pasterTemplateImageView6.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -679,7 +679,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate6.png</string>
+			<string>pasterTemplateImageView7.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -776,7 +776,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate7.png</string>
+			<string>pasterTemplateImageView8.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -873,7 +873,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate8.png</string>
+			<string>pasterTemplateImageView9.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -970,7 +970,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate9.png</string>
+			<string>pasterTemplateImageView10.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -1067,7 +1067,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate10.png</string>
+			<string>pasterTemplateImageView11.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>
@@ -1164,7 +1164,7 @@
 				</dict>
 			</array>
 			<key>FileName</key>
-			<string>pasterTemplate11.png</string>
+			<string>pasterTemplateImageView12.png</string>
 			<key>CountOfGeoTemplates</key>
 			<integer>0</integer>
 		</dict>

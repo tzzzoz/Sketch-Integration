@@ -51,11 +51,10 @@
 //-(IBAction)buttonPressed:(id)sender;
 
 -(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame;
-
--(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame;
 -(void)cleanPasterView;
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
+-(void)tapGeoImageView:(UIGestureRecognizer*)gestureRecognizer;
 -(IBAction)takePhoto:(id)sender;
 //-(IBAction)pressCleanButton:(id)sender;
 //-(IBAction)pressComfirmButton:(id)sender;

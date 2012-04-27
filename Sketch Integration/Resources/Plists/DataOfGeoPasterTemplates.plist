@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>FileName</key>
-			<string>createdTrianglePaster.png</string>
+			<string>trianglePasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>0</integer>
 			<key>X</key>
@@ -16,7 +16,7 @@
 		</dict>
 		<dict>
 			<key>FileName</key>
-			<string>createdTrapeziumPaster.png</string>
+			<string>trapeziumPasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>1</integer>
 			<key>X</key>
@@ -26,7 +26,7 @@
 		</dict>
 		<dict>
 			<key>FileName</key>
-			<string>createdEllipsePaster.png</string>
+			<string>ellipsePasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>2</integer>
 			<key>X</key>
@@ -36,7 +36,7 @@
 		</dict>
 		<dict>
 			<key>FileName</key>
-			<string>createdPentaclePaster.png</string>
+			<string>pentaclePasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>3</integer>
 			<key>X</key>
@@ -46,7 +46,7 @@
 		</dict>
 		<dict>
 			<key>FileName</key>
-			<string>createdCirclePaster.png</string>
+			<string>circlePasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>4</integer>
 			<key>X</key>
@@ -56,7 +56,7 @@
 		</dict>
 		<dict>
 			<key>FileName</key>
-			<string>createdSquarePaster.png</string>
+			<string>squarePasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>5</integer>
 			<key>X</key>
@@ -66,21 +66,11 @@
 		</dict>
 		<dict>
 			<key>FileName</key>
-			<string>createdRectanglePaster.png</string>
+			<string>rectanglePasterTemplateImageView.png</string>
 			<key>Type</key>
 			<integer>6</integer>
 			<key>X</key>
 			<integer>706</integer>
-			<key>Y</key>
-			<integer>35</integer>
-		</dict>
-		<dict>
-			<key>FileName</key>
-			<string>createGeometryPasterButton.png</string>
-			<key>Type</key>
-			<integer>6</integer>
-			<key>X</key>
-			<integer>819</integer>
 			<key>Y</key>
 			<integer>35</integer>
 		</dict>

@@ -27,9 +27,11 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
-        pasterView = [[UIPasterView alloc] init];
+        pasterView = [[UIView alloc]initWithFrame:CGRectMake(108, 36, 865, 630)];
+    pasterView.contentMode = UIViewContentModeScaleToFill;
         geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
         geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasterTemplates.count];
     }
@@ -48,23 +50,47 @@
 {
     self.pasterTemplate = tmpPasterTemplate;
     self.pasterWork = tmpPasterWork;
-//    pasterView = [[UIImageView alloc]initWithFrame:frame];
-    pasterView = [pasterWork.pasterView deepCopy];
-    pasterView.frame = frame;
     
-//    UIImageView* subView = [pasterWork.pasterView deepCopy];
-//    subView.bounds = CGRectMake(0.0, 0.0, frame.size.width, frame.size.height);
-//    [pasterView addSubview:subView];
-
+    //pasterView加入贴纸作品
+    UIImageView* subView = [[UIImageView alloc]initWithImage:tmpPasterWork.pasterView.image];
+    [pasterView addSubview:subView];
+    
+    for(UIImageView* geoImageView in tmpPasterWork.pasterView.subviews)
+    {
+        if([geoImageView isKindOfClass:[PKGeometryImageView class]])
+        {
+            [pasterView addSubview:[geoImageView deepCopy]];
+        }
+    }
+    
+//    PKGeometryPasterTemplate* paster = [geoPasterLibrary.geometryPasterTemplates objectAtIndex:0];
+////    UIImageView* temp1 = [paster.geoPasterImageView deepCopy];
+//    UIImageView* temp1 = (UIImageView*)paster.geoTemplateImageView;
+//    [pasterView addSubview:[temp1 deepCopy]];
+    
+//    PKGeometryPaster* paster = [geoPasterLibrary.geometryPasters objectAtIndex:0];
+//    PKGeometryImageView* temp1 = [paster.geoPasterImageView deepCopy];
+//    [pasterView addSubview:temp1];
+    
     [self.view addSubview:pasterView];
 }
 
--(void)returnBack:(id)sender {
+-(void)returnBack:(id)sender 
+{
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
-//    UIImageView* skipImageView = [pasterView deepCopy];
-//    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
-//    [self cleanPasterView];
+    
+    UIImageView* skipImageView = [[UIImageView alloc]initWithFrame:pasterView.frame];
+    for(UIImageView* imageView in pasterView.subviews)
+    {
+        if([imageView isKindOfClass:[PKGeometryImageView class]])
+            [skipImageView addSubview:[imageView deepCopy]];
+        else
+            skipImageView.image = imageView.image;
+    }
+    
+    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
+    [self cleanPasterView];
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
@@ -168,6 +194,7 @@
     [self.view addSubview:geoPasterView];
     
 }
+
 #pragma mark - View lifecycle
 
 /*
@@ -186,29 +213,17 @@
 //    
     [super viewDidLoad];
     
+    //在视图加入几何贴纸
     NSUInteger index = 0;
-    
     for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
         PKGeometryImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
         imageView.userInteractionEnabled = YES;
-        NSLog(@"%@", imageView);
-        [self.geoPasters insertObject:imageView atIndex:index];
+        [geoPasters insertObject:imageView atIndex:index];
         [imageView release];
         [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
         index++;
     }
     
-    pasterView.frame = CGRectMake(100, 100, 500, 500);
-    PKGeometryImageView* geoImageView = [[PKGeometryImageView alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
-    PKGeometryImageView* geoImageView1 = [[PKGeometryImageView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    geoImageView.image = [[UIImage imageNamed:@"saveButton.png"]autorelease];
-    geoImageView1.image = [[UIImage imageNamed:@"saveButton.png"]autorelease]; 
-//    pasterView.selectedGeoImageView = geoImageView;
-//    [geoImageView initFourCorners];
-    [pasterView addSubview:geoImageView];
-    [pasterView addSubview:geoImageView1];
-    
-    [self.view addSubview:pasterView];
     //对每个几何贴纸视图加入手势识别
 //    NSLog(@"count of subviews: %d",[geoPasterBox.subviews count]);
 //    for(UIImageView* imageView in geoPasters)
@@ -265,13 +280,12 @@
 }
 
 -(void)dealloc {
-//    [super dealloc];
+    [super dealloc];
     //移除观察者
 //    [drawBoard.waterColorPen removeObserver:self forKeyPath:@"state"];
     [pasterView release];
     [geoPasterLibrary release];
     [geoPasters release];
-    [super dealloc];
 }
 
 @end

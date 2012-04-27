@@ -36,6 +36,7 @@
     
     UIImageView *selectedImageView;
     CGPoint selectedPosition;
+    CGRect selectedRect;
     PKPasterWork *selectedPasterWork;
     PKPasterTemplate *selectedPasterTemplate;
 }
@@ -57,6 +58,7 @@
 
 @property (nonatomic, retain) UIImageView *selectedImageView;
 @property (assign, nonatomic) CGPoint selectedPosition;
+@property (assign, nonatomic) CGRect selectedRect;
 @property (retain, nonatomic) PKPasterWork *selectedPasterWork;
 @property (retain, nonatomic) PKPasterTemplate *selectedPasterTemplate;
 
