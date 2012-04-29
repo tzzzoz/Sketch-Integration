@@ -55,7 +55,6 @@
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
 -(void)tapGeoImageView:(UIGestureRecognizer*)gestureRecognizer;
--(IBAction)takePhoto:(id)sender;
 //-(IBAction)pressCleanButton:(id)sender;
 //-(IBAction)pressComfirmButton:(id)sender;
 //-(IBAction)pressCancelButton:(id)sender;

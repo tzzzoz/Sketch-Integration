@@ -20,7 +20,7 @@
     //判断父类初始化成功 且 文件路径有效
     if (self = [super init]) 
     {
-        self.geoTemplateImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:fileName]];
+        self.geoTemplateImageView = [[[UIImageView alloc]initWithImage:[UIImage imageNamed:fileName]] autorelease];
         self.geoTemplateColor = color;
         self.geoTemplateType  = type;
     }
@@ -32,7 +32,7 @@
     //判断父类初始化成功 且 文件路径有效
     if (self = [super init]) 
     {
-        self.geoTemplateImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:fileName]];
+        self.geoTemplateImageView = [[[UIImageView alloc]initWithImage:[UIImage imageNamed:fileName]] autorelease];
         self.geoTemplateType  = type;
         self.geoTemplateImageView.frame = rect;
     }

@@ -13,12 +13,16 @@
 @interface PKGeometryPasterLibrary : NSObject {
     NSMutableArray *geometryPasterTemplates;
     NSMutableArray *geometryPasters;
+    BOOL isModified;
 }
 
 -(id)initWithDataOfPlist;
 
 @property (retain, nonatomic) NSMutableArray *geometryPasterTemplates;
 @property (retain, nonatomic) NSMutableArray *geometryPasters;
+@property (assign, nonatomic) BOOL isModified;
 
 -(id)initWithDataOfPlist;
+-(BOOL)saveDataToDoc:(BOOL) isFirst;
+-(void) readDataFromDoc;
 @end

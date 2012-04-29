@@ -22,13 +22,55 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357104735.4642"
+         filePath = "Sketch Integration/Controllers/SWNavigationViewController.m"
+         timestampString = "357279194.709323"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
-         landmarkName = "-pressSaveButton:"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-viewDidUnload"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWNavigationViewController.m"
+         timestampString = "357279195.627791"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
+         landmarkName = "-viewDidUnload"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/AppDelegate.m"
+         timestampString = "357295021.528902"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
+         landmarkName = "-dealloc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/AppDelegate.m"
+         timestampString = "357295021.528902"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
+         landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -37,12 +79,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357104735.4642"
+         timestampString = "357406150.323046"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
-         landmarkName = "-pressCancelButton:"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
+         landmarkName = "-tapGeoImageView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -51,12 +93,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357104667.066403"
+         timestampString = "357406150.323046"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
-         landmarkName = "-pressCancelButton:"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
+         landmarkName = "-tapGeoImageView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -64,13 +106,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357102804.430669"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
-         landmarkName = "-pressCleanButton:"
+         startingLineNumber = "174"
+         endingLineNumber = "174"
+         landmarkName = "-skipWithImageView:Destination:Animation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -78,13 +120,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357105582.566944"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
-         landmarkName = "-pressComfirmButton:"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
+         landmarkName = "-skipWithImageView:Destination:Animation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -92,42 +134,224 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357142232.098133"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
-         landmarkName = "@implementation SWDrawViewController"
-         landmarkType = "3">
+         startingLineNumber = "176"
+         endingLineNumber = "176"
+         landmarkName = "-skipWithImageView:Destination:Animation:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357142236.629978"
+         filePath = "Sketch Integration/Controllers/SWPasterWonderlandViewController.m"
+         timestampString = "357391349.20956"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "205"
-         endingLineNumber = "205"
-         landmarkName = "@implementation SWDrawViewController"
-         landmarkType = "3">
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "-tapPasterImageView:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357142239.090123"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
-         landmarkName = "@implementation SWDrawViewController"
-         landmarkType = "3">
+         startingLineNumber = "135"
+         endingLineNumber = "135"
+         landmarkName = "-skipWithImageView:Destination:Animation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
+         landmarkName = "-skipWithImageView:Destination:Animation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
+         landmarkName = "-skipWithImageView:Destination:Animation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-popViewController"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/RootViewController.m"
+         timestampString = "357401416.652628"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
+         landmarkName = "-popViewController"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterTemplateLibrary.m"
+         timestampString = "357407810.003993"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
+         landmarkName = "-initWithDataOfPlist"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterWork.m"
+         timestampString = "357406221.841248"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-initWithPasterTemplate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterTemplateLibrary.m"
+         timestampString = "357406231.209246"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
+         landmarkName = "-initWithDataOfPlist"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterTemplateLibrary.m"
+         timestampString = "357407810.003993"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-initWithDataOfPlist"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterWork.m"
+         timestampString = "357406302.80461"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "-initWithPasterTemplate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterTemplateLibrary.m"
+         timestampString = "357406677.258374"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-initWithDataOfPlist"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterTemplateLibrary.m"
+         timestampString = "357406686.277065"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
+         landmarkName = "-initWithDataOfPlist"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterWork.m"
+         timestampString = "357407051.170918"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
+         landmarkName = "-initWithPasterTemplate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Models/PasterKit/PKPasterWork.m"
+         timestampString = "357407052.361756"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "-initWithPasterTemplate:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

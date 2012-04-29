@@ -121,7 +121,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
      {
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
-         nextViewController = nil;
+//         nextViewController = nil;
      }];
     
 }
@@ -159,7 +159,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
          {
              [(SWPasterWonderlandViewController*)nextViewController showSelectedImageView];
              
-             starImageView = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"star_8.png"]autorelease]];
+             starImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"star_8.png"]];
              starImageView.center = destinationPoint;
              [self.view addSubview:starImageView];
              [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(showStarAnimation:) userInfo:nil repeats:YES];
@@ -174,7 +174,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
          [skipImageView removeFromSuperview];
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
-         nextViewController = nil;
+//         nextViewController = nil;
      }];
 }
 
@@ -226,12 +226,16 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 }
 
 -(void)dealloc {
-    [super dealloc];
+    NSLog(@"fuck");
+    [viewControllersStack release];
+    [currentViewController release];
+    [nextViewController release];
     [navigationViewController release];
     [pasterWonderlandViewController release];
     [drawViewController release];
     [drawAlbumViewController release];
     [helpViewController release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

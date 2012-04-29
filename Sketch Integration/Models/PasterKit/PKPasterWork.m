@@ -17,16 +17,28 @@
 - (id)initWithPasterTemplate:(PKPasterTemplate *)pasterTemplate {
     self = [super init];
     if (self) {
-        self.geoPasters = [[NSMutableArray alloc] initWithCapacity:[pasterTemplate.geoPasterTemplates count]];
-        self.pasterView = [[UIImageView alloc] init];
-        self.pasterView = [pasterTemplate.pasterView deepCopy];
+        self.geoPasters = [[[NSMutableArray alloc] initWithCapacity:[pasterTemplate.geoPasterTemplates count]] autorelease];
+        self.pasterView = [[pasterTemplate.pasterView deepCopy] autorelease];
     }
     return self;
 }
 
 -(void)insertGeoPaster:(PKGeometryPaster *)geoPaster atIndex:(NSUInteger)index {
-    [self.geoPasters insertObject:geoPasters atIndex:index];
-    [self.pasterView addSubview:geoPaster.geoPasterImageView];
+    [geoPasters insertObject:[[geoPaster copy] autorelease] atIndex:index];
+    [pasterView addSubview:geoPaster.geoPasterImageView];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        self.geoPasters = [aDecoder decodeObjectForKey:@"geoPasters"];
+        self.pasterView = [aDecoder decodeObjectForKey:@"pasterView"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:geoPasters forKey:@"geoPasters"];
+    [aCoder encodeObject:pasterView forKey:@"pasterView"];
 }
 
 @end

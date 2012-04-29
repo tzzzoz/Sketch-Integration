@@ -16,8 +16,8 @@
 
 -(id)initWithFileName:(NSString *)fileName GeoPasterTemplates:(NSMutableArray *)array {
     if (self = [super init]) {
-        self.geoPasterTemplates = [[NSMutableArray alloc] init];
-        self.pasterView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
+        self.geoPasterTemplates = [[[NSMutableArray alloc] init] autorelease];
+        self.pasterView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]] autorelease];
         self.isModified = FALSE;
         
         geoPasterTemplates = array;
@@ -33,6 +33,7 @@
     if (self = [super init]) {
         self.geoPasterTemplates = [aDecoder decodeObjectForKey:@"geoPasterTemplates"];
         self.pasterView = [aDecoder decodeObjectForKey:@"pasterView"];
+        self.isModified = [aDecoder decodeBoolForKey:@"isModified"];
     }
     return self;
 }
@@ -40,5 +41,6 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:geoPasterTemplates forKey:@"geoPasterTemplates"];
     [aCoder encodeObject:pasterView forKey:@"pasterView"];
+    [aCoder encodeBool:isModified forKey:@"isModified"];
 }
 @end

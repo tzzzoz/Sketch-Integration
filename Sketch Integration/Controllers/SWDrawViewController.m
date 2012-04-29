@@ -54,6 +54,7 @@
     //pasterView加入贴纸作品
     UIImageView* subView = [[UIImageView alloc]initWithImage:tmpPasterWork.pasterView.image];
     [pasterView addSubview:subView];
+    [subView release];
     
     for(UIImageView* geoImageView in tmpPasterWork.pasterView.subviews)
     {
@@ -80,6 +81,9 @@
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
     
+    //更新保存修改过的几何贴纸
+    [geoPasterLibrary saveDataToDoc:NO];
+    
     UIImageView* skipImageView = [[UIImageView alloc]initWithFrame:pasterView.frame];
     for(UIImageView* imageView in pasterView.subviews)
     {
@@ -90,6 +94,8 @@
     }
     
     [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
+    
+    [skipImageView release];
     [self cleanPasterView];
 }
 
@@ -124,12 +130,12 @@
     savedWork.frame = CGRectMake(0.0, 504.0, 0.0, 0.0);
     [UIImageView commitAnimations];
     [self.view addSubview:savedWork];
-}
-
--(void)takePhoto:(id)sender {
     
+    [savedWork release];
 }
 
+
+//清除pasterView的所有子视图
 -(void)cleanPasterView 
 {
     for (UIView *view in pasterView.subviews) 
@@ -138,6 +144,101 @@
     }
     [pasterView removeFromSuperview];
 }
+
+-(void)tapGeoImageView:(UIGestureRecognizer *)gestureRecognizer
+{
+    UIImageView* imageView = (PKGeometryImageView*)gestureRecognizer.view;
+    int index = 0;
+    for(UIImageView* tmpImageView in geoPasterBox.subviews)
+    {
+        if([tmpImageView isEqual:imageView])
+        {
+            break;
+        }
+        index++;
+    }
+    NSLog(@"tap!");
+    PKGeometryPaster* geoPaster = [geoPasterLibrary.geometryPasters objectAtIndex:index];
+    PKGeometryImageView* geoPasterView = (PKGeometryImageView*)[geoPaster.geoPasterImageView deepCopy];
+    [self.view addSubview:geoPasterView];
+    
+}
+
+#pragma mark - View lifecycle
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+//    drawBoard = [[DKDrawBoard alloc]init];
+//    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
+//    
+    [super viewDidLoad];
+    
+    //在视图加入几何贴纸
+    NSUInteger index = 0;
+    for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
+        PKGeometryImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
+        imageView.userInteractionEnabled = YES;
+        [geoPasters insertObject:imageView atIndex:index];
+        [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
+        index++;
+    }
+    //对每个几何贴纸视图加入手势识别
+//    NSLog(@"count of subviews: %d",[geoPasterBox.subviews count]);
+//    for(UIImageView* imageView in geoPasters)
+//    {
+//        UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGeoImageView:)];
+//        [imageView addGestureRecognizer:singleTap];
+//        [singleTap release];
+//    }
+
+    //刚开始提示框不可见
+    promptDialogView.hidden = YES;
+    
+//    [drawBoard.waterColorPen addObserver:self forKeyPath:@"state" options:NO|YES context:nil];
+//    
+//    //当isLikely的时候
+//    if (drawBoard.isLikely) {
+//        [self penStateChange];
+//    }
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+	return YES;
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        
+        self.view.transform = CGAffineTransformIdentity;
+        self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(-90));
+        self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
+    } else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        
+        self.view.transform = CGAffineTransformIdentity;
+        self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(90));
+        self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
+    }
+}
+
+-(void)dealloc {
+    //移除观察者
+//    [drawBoard.waterColorPen removeObserver:self forKeyPath:@"state"];
+    [pasterView release];
+    [geoPasterLibrary release];
+    [geoPasters release];
+    [super dealloc];
+}
+
 //涂色
 //-(IBAction)buttonPressed:(id)sender{
 //    UIImage *image=pasterView.image;
@@ -176,74 +277,6 @@
 //    }
 //}
 
--(void)tapGeoImageView:(UIGestureRecognizer *)gestureRecognizer
-{
-    UIImageView* imageView = (PKGeometryImageView*)gestureRecognizer.view;
-    int index = 0;
-    for(UIImageView* tmpImageView in geoPasterBox.subviews)
-    {
-        if([tmpImageView isEqual:imageView])
-        {
-            break;
-        }
-        index++;
-    }
-    NSLog(@"tap!");
-    PKGeometryPaster* geoPaster = [geoPasterLibrary.geometryPasters objectAtIndex:index];
-    PKGeometryImageView* geoPasterView = (PKGeometryImageView*)[geoPaster.geoPasterImageView deepCopy];
-    [self.view addSubview:geoPasterView];
-    
-}
-
-#pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-//    drawBoard = [[DKDrawBoard alloc]init];
-//    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
-//    
-    [super viewDidLoad];
-    
-    //在视图加入几何贴纸
-    NSUInteger index = 0;
-    for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
-        PKGeometryImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
-        imageView.userInteractionEnabled = YES;
-        [geoPasters insertObject:imageView atIndex:index];
-        [imageView release];
-        [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
-        index++;
-    }
-    
-    //对每个几何贴纸视图加入手势识别
-//    NSLog(@"count of subviews: %d",[geoPasterBox.subviews count]);
-//    for(UIImageView* imageView in geoPasters)
-//    {
-//        UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGeoImageView:)];
-//        [imageView addGestureRecognizer:singleTap];
-//        [singleTap release];
-//    }
-
-    //刚开始提示框不可见
-    promptDialogView.hidden = YES;
-    
-//    [drawBoard.waterColorPen addObserver:self forKeyPath:@"state" options:NO|YES context:nil];
-//    
-//    //当isLikely的时候
-//    if (drawBoard.isLikely) {
-//        [self penStateChange];
-//    }
-}
-
 //-(void)penStateChange{
 //    [drawBoard.waterColorPen setValue:NO forKey:@"state"];
 //}
@@ -252,40 +285,5 @@
 //    
 //}
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
-
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        
-        self.view.transform = CGAffineTransformIdentity;
-        self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(-90));
-        self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
-    } else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        
-        self.view.transform = CGAffineTransformIdentity;
-        self.view.transform = CGAffineTransformMakeRotation(degreesToRadians(90));
-        self.view.bounds = CGRectMake(0.0, 0.0, 480.0, 300.0);
-    }
-}
-
--(void)dealloc {
-    [super dealloc];
-    //移除观察者
-//    [drawBoard.waterColorPen removeObserver:self forKeyPath:@"state"];
-    [pasterView release];
-    [geoPasterLibrary release];
-    [geoPasters release];
-}
 
 @end

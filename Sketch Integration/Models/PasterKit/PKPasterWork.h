@@ -10,7 +10,7 @@
 #import "PKPasterTemplate.h"
 #import "PKGeometryPaster.h"
 
-@interface PKPasterWork : NSObject {
+@interface PKPasterWork : NSObject <NSCoding> {
     NSMutableArray *geoPasters;                 //存放几何贴纸对象
     UIImageView *pasterView;                    //存放几何贴纸的view
 }

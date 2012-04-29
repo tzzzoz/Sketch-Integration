@@ -13,11 +13,15 @@
 @interface PKPasterTemplateLibrary : NSObject {
     NSMutableArray *pasterTemplates;
     NSMutableArray *pasterWorks;
+    BOOL isModified;
 }
 
 -(id)initWithDataOfPlist;
 
 @property (retain, nonatomic) NSMutableArray *pasterTemplates;
 @property (retain, nonatomic) NSMutableArray *pasterWorks;
+@property (assign, nonatomic) BOOL isModified;
 
+-(BOOL)saveDataToDoc:(BOOL) isFirst;
+-(void) readDataFromDoc;
 @end

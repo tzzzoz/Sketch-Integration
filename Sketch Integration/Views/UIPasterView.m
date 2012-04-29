@@ -20,7 +20,7 @@
     if (self) 
     {
         // Initialization code
-        [self setBackgroundColor:[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
+        [self setBackgroundColor:[[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]autorelease]];
     }
     return self;
 }

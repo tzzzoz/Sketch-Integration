@@ -88,6 +88,7 @@
     
     CGPoint destinationPoint = CGPointMake(549.5, 351);
     [rootViewController skipWithImageView:skipImageView Destination:destinationPoint Animation:EaseIn];
+    [skipImageView release];
     [self clearSelectedImageView];
 }
 
@@ -154,15 +155,6 @@
         
         index++;
     }
-    
-
-//    for (int i = 0; i < 12; i++) {
-//        UIImageView *imageView = [pasterTemplates objectAtIndex:i];
-//        NSString *fileName = [[NSString alloc] initWithFormat:@"pasterTemplate%d.png", i];
-//        [imageView setImage:[UIImage imageNamed:fileName]];
-//        [fileName release];
-//    }
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
