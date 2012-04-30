@@ -218,19 +218,21 @@
         if(CGRectContainsPoint(pasterView.frame, endPoint))
         {
             selectedGeoImageView.frame = CGRectMake(selectedGeoImageView.frame.origin.x-pasterView.frame.origin.x, selectedGeoImageView.frame.origin.y-pasterView.frame.origin.y, selectedGeoImageView.frame.size.width, selectedGeoImageView.frame.size.height);
-            [pasterView addSubview:selectedGeoImageView];
-
-            //模型层贴纸作品数据更新
-            PKGeometryImageView *newGeoImageView = [selectedGeoImageView deepCopy];
-            PKGeometryPaster *geoPaster = [[PKGeometryPaster alloc] initWithGeometryImageView:newGeoImageView];
-            [self.pasterWork.geoPasters addObject:geoPaster];
-            [self.pasterWork.pasterView addSubview:geoPaster.geoPasterImageView];
             
-            [newGeoImageView release];
-            [geoPaster release];
+            PKGeometryImageView* newGeoImageView = [[PKGeometryImageView alloc]initWithFrame:selectedGeoImageView.frame];
+            newGeoImageView.image = selectedGeoImageView.image;
+            [pasterView addSubview:newGeoImageView];
             
+            [selectedGeoImageView removeFromSuperview];
             selectedGeoImageView = nil;
             selectedRectOriginal = CGRectInfinite;
+
+            //模型层贴纸作品数据更新
+            PKGeometryImageView *modelGeoImageView = [newGeoImageView deepCopy];
+            PKGeometryPaster *geoPaster = [[PKGeometryPaster alloc] initWithGeometryImageView:modelGeoImageView];
+            [self.pasterWork.geoPasters addObject:geoPaster];
+            [self.pasterWork.pasterView addSubview:geoPaster.geoPasterImageView];
+            [geoPaster release];
         }
         else
         {
