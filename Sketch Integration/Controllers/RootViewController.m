@@ -65,6 +65,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 //    [currentViewController willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:0.5];
     nextViewController.view.layer.opacity = 1.0f;
     [self.view addSubview:nextViewController.view];
+    [nextViewController viewWillAppear:YES];
 }
 
 
@@ -121,7 +122,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
      {
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
-//         nextViewController = nil;
+         nextViewController = nil;
      }];
     
 }
@@ -135,13 +136,15 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
     if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
     {
         [nextViewController.view setCenter:ScreenRightPoint];
+        transform = CGAffineTransformScale(skipImageView.transform, 865/288.0f, 630/210.0f);
 //        transform = CGAffineTransformMakeScale(865/288.0f, 630/210.0f);
-        transform = CGAffineTransformMakeScale(3.0, 3.0);
+//        transform = CGAffineTransformMakeScale(3.0, 3.0);
     }
     else if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
     {
         [nextViewController.view setCenter:ScreenLeftPoint];
-        transform = CGAffineTransformMakeScale(288/865.0f, 210/630.0f);
+        transform = CGAffineTransformScale(skipImageView.transform, 288/865.0f, 210/630.0f);
+//        transform = CGAffineTransformMakeScale(288/865.0f, 210/630.0f);
     }
     
     [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationCurveEaseIn animations:^(void)
@@ -157,9 +160,9 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
      {
          if(animation == EaseOut && [nextViewController isKindOfClass:[SWPasterWonderlandViewController class]] && [currentViewController isKindOfClass:[SWDrawViewController class]])
          {
-             [(SWPasterWonderlandViewController*)nextViewController showSelectedImageView];
+             [(SWPasterWonderlandViewController*)nextViewController showSelectedImageView:skipImageView];
              
-             starImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"star_8.png"]];
+             starImageView = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"star_8.png"]autorelease]];
              starImageView.center = destinationPoint;
              [self.view addSubview:starImageView];
              [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(showStarAnimation:) userInfo:nil repeats:YES];
@@ -174,7 +177,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
          [skipImageView removeFromSuperview];
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
-//         nextViewController = nil;
+         nextViewController = nil;
      }];
 }
 
@@ -226,22 +229,18 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 }
 
 -(void)dealloc {
-    NSLog(@"fuck");
-    [viewControllersStack release];
-    [currentViewController release];
-    [nextViewController release];
+    [super dealloc];
     [navigationViewController release];
     [pasterWonderlandViewController release];
     [drawViewController release];
     [drawAlbumViewController release];
     [helpViewController release];
-    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+	return YES;
 }
 
 @end

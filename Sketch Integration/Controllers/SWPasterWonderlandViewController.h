@@ -69,7 +69,7 @@
 
 -(IBAction)returnBack:(id)sender;
 -(void)tapPasterImageView:(id)sender;
--(void)showSelectedImageView;
+-(void)showSelectedImageView:(UIImageView*)copyImageView;
 -(void)clearSelectedImageView;
 
 @end

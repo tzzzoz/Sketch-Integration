@@ -20,11 +20,11 @@
         self.pasterView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]] autorelease];
         self.isModified = FALSE;
         
-        geoPasterTemplates = array;
-        //把几何贴纸模板的geoTemplateImageView添加到贴纸模板的父视图pasterView中
-        for (PKGeometryPasterTemplate *geoPasterTemplate in array) {
-            [self.pasterView addSubview:geoPasterTemplate.geoTemplateImageView];
-        }
+//        geoPasterTemplates = array;
+//        //把几何贴纸模板的geoTemplateImageView添加到贴纸模板的父视图pasterView中
+//        for (PKGeometryPasterTemplate *geoPasterTemplate in array) {
+//            [self.pasterView addSubview:geoPasterTemplate.geoTemplateImageView];
+//        }
     }
     return self;
 }

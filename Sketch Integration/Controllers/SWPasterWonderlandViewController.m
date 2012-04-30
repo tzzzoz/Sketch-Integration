@@ -38,7 +38,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        
+        pasterTemplateLibrary = [[PKPasterTemplateLibrary alloc] initWithDataOfPlist];
     }
     return self;
 }
@@ -78,33 +78,28 @@
     
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:rootViewController.drawViewController];
-    UIImageView* skipImageView = [[UIImageView alloc]initWithFrame:imageView.frame];
-    UIImageView* subView = [pasterTemplate.pasterView deepCopy];
-    subView.frame = CGRectMake(0, 0, skipImageView.frame.size.width, skipImageView.frame.size.height);
-    [skipImageView addSubview:subView];    
+    
+    UIImageView* subView = [[imageView.subviews objectAtIndex:0]deepCopy];
+    subView.frame = imageView.frame;
+    UIImageView* skipImageView = subView;
+    
     selectedPosition = skipImageView.center;
     selectedPasterWork = pasterWork;
     selectedPasterTemplate = pasterTemplate;
     
     CGPoint destinationPoint = CGPointMake(549.5, 351);
     [rootViewController skipWithImageView:skipImageView Destination:destinationPoint Animation:EaseIn];
-    [skipImageView release];
     [self clearSelectedImageView];
 }
 
--(void)showSelectedImageView
+-(void)showSelectedImageView:(UIImageView*)copyImageView
 {
-    if(selectedImageView == nil)
+    if(copyImageView == nil)
         return;
     
-    if(selectedPasterTemplate.isModified)
-    {
-        [selectedImageView addSubview:[selectedPasterTemplate.pasterView deepCopy]];
-    }
-    else
-    {
-        [selectedImageView addSubview:[selectedPasterWork.pasterView deepCopy]];
-    }
+    UIImageView* subView = [copyImageView deepCopy];
+    subView.frame = CGRectMake(0, 0, selectedImageView.frame.size.width, selectedImageView.frame.size.height);
+    [selectedImageView addSubview:subView];
 }
 
 -(void)clearSelectedImageView
@@ -135,8 +130,6 @@
     [pasterViews addObject:pasterTemplate10];
     [pasterViews addObject:pasterTemplate11];
     
-    pasterTemplateLibrary = [[PKPasterTemplateLibrary alloc] initWithDataOfPlist];
-    
     UIImageView *imageView;
     NSUInteger index = 0;
     for (PKPasterTemplate *pasterTemplate in pasterTemplateLibrary.pasterTemplates) 
@@ -144,6 +137,10 @@
         UIImageView* pasterWorkImageView = [pasterViews objectAtIndex:index];
         PKPasterWork* pasterWork = [pasterTemplateLibrary.pasterWorks objectAtIndex:index];
         UIImageView* subView = [pasterWork.pasterView deepCopy];
+        //对pasterWork缩小
+        CGAffineTransform transform = CGAffineTransformScale(subView.transform, 288/865.0f, 210/630.0f);
+        subView.transform = transform;
+        
         subView.frame = CGRectMake(0, 0, pasterWorkImageView.frame.size.width, pasterWorkImageView.frame.size.height);
         [pasterWorkImageView addSubview:subView];
 
@@ -162,6 +159,10 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

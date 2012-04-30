@@ -26,6 +26,7 @@
         operationType = Nothing;
         isGeometrySelected = NO;
         geometryTransfrom = self.transform;
+        [self initFourCorners];
         
     }
     return self;

@@ -13,6 +13,7 @@
 #import "PKGeometryPasterLibrary.h"
 #import "fillImage.h"
 #import "UIPasterView.h"
+#import "UIImageView+DeepCopy.h"
 #import "ImageHelper.h"
 
 @interface SWDrawViewController : UIViewController {
@@ -21,6 +22,9 @@
     IBOutlet UIView *geoPasterBox;
     IBOutlet UIButton *createPasterButton;
     NSMutableArray *geoPasters;
+    
+    PKGeometryImageView* selectedGeoImageView;
+    CGRect selectedRectOriginal;
     IBOutlet UIView *promptDialogView;
     
     //模型对象
@@ -41,12 +45,7 @@
 @property (retain, nonatomic) PKPasterTemplate *pasterTemplate;
 @property (retain, nonatomic) PKPasterWork *pasterWork;
 @property (retain, nonatomic) PKGeometryPasterLibrary *geoPasterLibrary;
-
 @property (retain, nonatomic) PKGeometryImageView* selectedGeoImageView;
-@property (assign, nonatomic) CGPoint beginPoint;
-@property (assign, nonatomic) CGAffineTransform rotationTransform;
-@property (assign, nonatomic) CGAffineTransform translationTransform;
-@property (assign, nonatomic) CGAffineTransform scaleTransform;
 //涂色
 //-(IBAction)buttonPressed:(id)sender;
 
@@ -55,6 +54,7 @@
 -(IBAction)returnBack:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;
 -(void)tapGeoImageView:(UIGestureRecognizer*)gestureRecognizer;
+-(void)savePasterWork;
 //-(IBAction)pressCleanButton:(id)sender;
 //-(IBAction)pressComfirmButton:(id)sender;
 //-(IBAction)pressCancelButton:(id)sender;

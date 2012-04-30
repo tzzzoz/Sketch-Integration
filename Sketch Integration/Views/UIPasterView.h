@@ -18,7 +18,9 @@
     CGAffineTransform scaleTransform;
     
     UIImageView* pasterTemplateImageView;
-    PKGeometryImageView* selectedGeoImageView;
+    @public PKGeometryImageView* selectedGeoImageView;
+    
+    BOOL isFoul;
 }
 
 @property (retain, nonatomic) UIImageView* pasterTemplateImageView;

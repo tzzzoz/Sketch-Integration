@@ -26,15 +26,14 @@
 //    return self;
 //}
 //
-//-(id)initWithGeometryImageView:(PKGeometryImageView *)imageView Color:(UIColor *)color {
-//    self = [super init];
-//    if(self && color && imageView)
-//    {
-//        self.geoPasterImageView = imageView;
-//        self.geoPasterColor = color;
-//    }
-//    return self;
-//}
+-(id)initWithGeometryImageView:(PKGeometryImageView *)imageView {
+    self = [super init];
+    if(self && imageView)
+    {
+        self.geoPasterImageView = imageView;
+    }
+    return self;
+}
 
 -(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate *)geometryPasterTemplate {
     self = [super init];

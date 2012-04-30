@@ -117,7 +117,7 @@
         fileName = [path stringByAppendingPathComponent:@"PasterLibrary_Pasters"];
         [NSKeyedArchiver archiveRootObject:self.pasterWorks toFile:fileName];
     } else {
-        //如果不是第一次保存，只保存几何贴纸对象不再保存模板对象
+        //如果不是第一次保存，只保存贴纸对象不再保存模板对象
         if (isModified) {
             fileName = [path stringByAppendingPathComponent:@"PasterLibrary_Pasters"];
             [NSKeyedArchiver archiveRootObject:self.pasterWorks toFile:fileName];

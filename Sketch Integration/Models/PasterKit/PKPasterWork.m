@@ -18,14 +18,14 @@
     self = [super init];
     if (self) {
         self.geoPasters = [[[NSMutableArray alloc] initWithCapacity:[pasterTemplate.geoPasterTemplates count]] autorelease];
-        self.pasterView = [[pasterTemplate.pasterView deepCopy] autorelease];
+        self.pasterView = [pasterTemplate.pasterView deepCopy];
     }
     return self;
 }
 
 -(void)insertGeoPaster:(PKGeometryPaster *)geoPaster atIndex:(NSUInteger)index {
-    [geoPasters insertObject:[[geoPaster copy] autorelease] atIndex:index];
-    [pasterView addSubview:geoPaster.geoPasterImageView];
+    [self.geoPasters insertObject:[[geoPaster copy] autorelease] atIndex:index];
+    [self.pasterView addSubview:geoPaster.geoPasterImageView];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {

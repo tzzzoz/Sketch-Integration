@@ -21,7 +21,7 @@
 //几何贴纸的创建依赖其对应的几何贴纸模板，存在依赖关系
 //使用相应的几何贴纸模板来初始化几何贴纸
 //-(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate*)geometryPasterTemplate Color:(UIColor*) color;
-//-(id)initWithGeometryImageView:(PKGeometryImageView*)imageView Color:(UIColor*)color;
+-(id)initWithGeometryImageView:(PKGeometryImageView *)imageView;
 -(id)initWithGeometryPasterTemplate:(PKGeometryPasterTemplate*)geometryPasterTemplate;
 
 @property (retain, nonatomic) PKGeometryImageView *geoPasterImageView;

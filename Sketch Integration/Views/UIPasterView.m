@@ -20,23 +20,24 @@
     if (self) 
     {
         // Initialization code
-        [self setBackgroundColor:[[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]autorelease]];
+        [self becomeFirstResponder];
+        [self setBackgroundColor:[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
     }
     return self;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touch!!!");
+    NSLog(@"pasterview  touch!!!");
     
     beginPoint = [[touches anyObject]locationInView:self];
-
+    
     if(selectedGeoImageView == nil)
     {
         for(UIImageView* imageView in self.subviews)
         {
             if(![imageView isKindOfClass:[PKGeometryImageView class]])
-                return;
+                continue;
             else
             {
                 if(CGRectContainsPoint(imageView.frame, beginPoint))
@@ -49,6 +50,8 @@
                 }
             }
         }
+        if(selectedGeoImageView == nil)
+            return;
     }
     
     if(!selectedGeoImageView.isGeometrySelected)
@@ -154,6 +157,23 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    CGPoint point = [[touches anyObject]locationInView:self];
+    if(!CGRectContainsPoint(self.bounds, point) && selectedGeoImageView.operationType == Translation)
+    {
+        isFoul = YES;
+        CGPoint vector = CGPointMake(beginPoint.x-point.x, beginPoint.y-point.y);
+        self.translationTransform = CGAffineTransformConcat(self.translationTransform, CGAffineTransformMakeTranslation(vector.x, vector.y));
+        
+        [UIView animateWithDuration:0.5f animations:^(void) {
+            selectedGeoImageView.transform = self.translationTransform;
+        } completion:^(BOOL finished) {
+            selectedGeoImageView.geometryTransfrom = self.translationTransform;
+            [selectedGeoImageView calulateFourCorners];
+            isFoul = NO;
+        }];
+        
+    }
+    
     self.rotationTransform = selectedGeoImageView.transform;
     self.translationTransform = selectedGeoImageView.transform;
     self.scaleTransform = selectedGeoImageView.transform;
@@ -164,7 +184,7 @@
 -(void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    if(selectedGeoImageView.isGeometrySelected)
+    if(selectedGeoImageView.isGeometrySelected && !isFoul)
         [selectedGeoImageView drawFrameWithContext:context];
 }
 
