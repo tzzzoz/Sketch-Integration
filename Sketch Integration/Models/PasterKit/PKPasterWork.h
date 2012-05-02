@@ -2,7 +2,7 @@
 //  PKPasterWork.h
 //  Sketch
 //
-//  Created by 付 乙荷 on 12-4-3.
+//  Created by    on 12-4-3.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 

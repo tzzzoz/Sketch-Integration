@@ -2,7 +2,7 @@
 //  SWNavigationViewController.m
 //  Sketch Integration
 //
-//  Created by 付 乙荷 on 12-4-10.
+//  Created by    on 12-4-10.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -31,24 +31,29 @@
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController pasterWonderlandViewController]];
     [rootViewController skipWithAnimation:EaseIn];
+    [jumpPlayer play];
 }
 
 -(void)pressDrawViewButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawViewController]];
     [rootViewController skipWithAnimation:EaseIn];
+    [jumpPlayer play];
 }
 
 -(void)pressDrawAlbumButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
     [rootViewController skipWithAnimation:EaseIn];
+    [jumpPlayer play];
 }
 
 -(void)pressHelpButton:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:[rootViewController helpViewController]];
     [rootViewController skipWithAnimation:EaseIn];
+    [jumpPlayer play];
+
 }
 #pragma mark - View lifecycle
 
@@ -56,6 +61,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL  *url = [NSURL fileURLWithPath:[NSString  
+                                          stringWithFormat:@"%@/sound_navigationView.mp3",  [[NSBundle mainBundle]  resourcePath]]];
+    NSError  *error;
+    audioPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];    //加载背景音乐
+    audioPlayer.numberOfLoops  = -1;
+    audioPlayer.volume=0.3;   //音量设置
+    if  (audioPlayer == nil)      //文件不存在
+        printf("音频加载失败");    
+    else                          //文件存在
+        [audioPlayer  play];           //播放背景音乐
+    url = [NSURL fileURLWithPath:[NSString  
+                                  stringWithFormat:@"%@/sound_pageJump.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    
+    jumpPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载tap音效
+    jumpPlayer.numberOfLoops  = 0;
+    if  (jumpPlayer == nil)      //文件不存在
+        printf("音频加载失败");  
 }
 
 
@@ -73,6 +95,8 @@
 }
 
 -(void)dealloc {
+    [audioPlayer release];
+    [jumpPlayer release];
     [super dealloc];
 }
 

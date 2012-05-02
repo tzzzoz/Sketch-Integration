@@ -2,7 +2,7 @@
 //  RootViewController.m
 //  Button Fun
 //
-//  Created by 付 乙荷 on 12-4-5.
+//  Created by    on 12-4-5.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -172,9 +172,9 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
              SWPasterWonderlandViewController* wonderLandController = (SWPasterWonderlandViewController*)currentViewController;
              SWDrawViewController* drawController = (SWDrawViewController*)nextViewController;
              [drawController setPasterTemplate:wonderLandController.selectedPasterTemplate PasterWork:wonderLandController.selectedPasterWork Frame:skipImageView.frame];
+             [skipImageView removeFromSuperview];
          }
          
-         [skipImageView removeFromSuperview];
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
          nextViewController = nil;
@@ -229,18 +229,18 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
 }
 
 -(void)dealloc {
-    [super dealloc];
     [navigationViewController release];
     [pasterWonderlandViewController release];
     [drawViewController release];
     [drawAlbumViewController release];
     [helpViewController release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 @end

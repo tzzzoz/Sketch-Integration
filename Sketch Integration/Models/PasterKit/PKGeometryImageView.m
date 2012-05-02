@@ -2,7 +2,7 @@
 //  PKGeometryImageView.m
 //  Sketch
 //
-//  Created by 付 乙荷 on 12-3-24.
+//  Created by  on 12-3-24.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -166,6 +166,7 @@
 -(id)deepCopy {
     PKGeometryImageView *geoImageView = [super deepCopy];
     if (geoImageView) {
+        geoImageView.isGeometrySelected = isGeometrySelected;
         geoImageView.leftTopPoint = leftTopPoint;
         geoImageView.rightTopPoint = rightTopPoint;
         geoImageView.leftBottomPoint = leftBottomPoint;
@@ -182,6 +183,7 @@
         geoImageView.rigthBottomPointOriginal = rigthBottomPointOriginal;
         geoImageView.centerPointOriginal = centerPointOriginal;
     }
+    
     return geoImageView;
 }
 

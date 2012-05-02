@@ -7,6 +7,8 @@
 //
 
 #import "UIPasterView.h"
+#import "RootViewController.h"
+
 
 @implementation UIPasterView
 
@@ -24,6 +26,10 @@
         [self setBackgroundColor:[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
     }
     return self;
+}
+
+-(void)setTC:(ColorRGBA)c{
+    tc=c;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -59,6 +65,8 @@
         if(CGRectContainsPoint(selectedGeoImageView.frame, beginPoint))
         {
             selectedGeoImageView.isGeometrySelected = YES;
+            RootViewController *rootViewController = [RootViewController sharedRootViewController];
+            [[rootViewController drawViewController]hiddenGeoPasterBox];
             selectedGeoImageView.operationType = Translation;
             
             self.rotationTransform = selectedGeoImageView.transform;
@@ -68,6 +76,8 @@
         else
         {
             selectedGeoImageView.isGeometrySelected = NO;
+            RootViewController *rootViewController = [RootViewController sharedRootViewController];
+            [[rootViewController drawViewController]displayGeoPasterBox];
             selectedGeoImageView.operationType = Nothing;
             selectedGeoImageView = nil;
         }
@@ -98,6 +108,8 @@
         else
         {
             selectedGeoImageView.isGeometrySelected = NO;
+            RootViewController *rootViewController = [RootViewController sharedRootViewController];
+            [[rootViewController drawViewController]displayGeoPasterBox];
             selectedGeoImageView.operationType = Nothing;
             selectedGeoImageView = nil;
         }
@@ -158,6 +170,16 @@
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint point = [[touches anyObject]locationInView:self];
+    if(abs(point.x-beginPoint.x)<=3&&abs(point.y-beginPoint.y)<=3&&selectedGeoImageView.isGeometrySelected){
+        if(tc.alpha!=0){
+            FillImage *changeColor=[[FillImage alloc]initWithImage:selectedGeoImageView.image];
+            int x=(int)selectedGeoImageView.image.size.width/2;
+            int y=(int)selectedGeoImageView.image.size.height/2;
+            [changeColor changeColor:x andY:y withTC:tc];
+            selectedGeoImageView.image=[changeColor getImage];
+            [changeColor release];
+        }
+    }
     if(!CGRectContainsPoint(self.bounds, point) && selectedGeoImageView.operationType == Translation)
     {
         isFoul = YES;
@@ -168,6 +190,7 @@
             selectedGeoImageView.transform = self.translationTransform;
         } completion:^(BOOL finished) {
             selectedGeoImageView.geometryTransfrom = self.translationTransform;
+
             [selectedGeoImageView calulateFourCorners];
             isFoul = NO;
         }];

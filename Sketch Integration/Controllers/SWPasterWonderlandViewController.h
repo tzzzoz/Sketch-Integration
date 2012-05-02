@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
 #import "PKPasterTemplateLibrary.h"
 #import "RootViewController.h"
 #import "UIImageView+DeepCopy.h"
@@ -39,6 +40,10 @@
     CGRect selectedRect;
     PKPasterWork *selectedPasterWork;
     PKPasterTemplate *selectedPasterTemplate;
+    
+    //音频
+    AVAudioPlayer  *jumpPlayer;
+    AVAudioPlayer *returnPlayer;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImageView;

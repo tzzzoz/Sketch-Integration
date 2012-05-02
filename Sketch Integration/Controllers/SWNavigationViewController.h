@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "RootViewController.h"
 
-@interface SWNavigationViewController : UIViewController
+@interface SWNavigationViewController : UIViewController {
+    //音频
+    AVAudioPlayer  *audioPlayer;
+    AVAudioPlayer  *jumpPlayer;
+}
 
 -(IBAction)pressPasterWonderlandButton:(id)sender;
 -(IBAction)pressDrawAlbumButton:(id)sender;

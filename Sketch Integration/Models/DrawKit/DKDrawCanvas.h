@@ -11,11 +11,12 @@
 
 
 @interface DKDrawCanvas : NSObject{
-    UIImageView *drawCanvasView;
+//    UIImageView *drawCanvasView;
 //    NSMutableArray *strokes;
 //    NSMutableArray *points;
+    BroadView *drawCanvasView;
 }
 
-@property (retain, nonatomic) UIImageView *drawCanvasView;
+@property (retain, nonatomic) BroadView *drawCanvasView;
 
 @end

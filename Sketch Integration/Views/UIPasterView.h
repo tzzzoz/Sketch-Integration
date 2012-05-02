@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "PKGeometryImageView.h"
+#import "FillImage.h"
 
 @interface UIPasterView : UIView
 {
@@ -19,10 +20,11 @@
     
     UIImageView* pasterTemplateImageView;
     @public PKGeometryImageView* selectedGeoImageView;
-    
+    ColorRGBA tc;
     BOOL isFoul;
 }
 
+-(void)setTC:(ColorRGBA) c;
 @property (retain, nonatomic) UIImageView* pasterTemplateImageView;
 @property (retain, nonatomic) PKGeometryImageView* selectedGeoImageView;
 @property (assign, nonatomic) CGPoint beginPoint;

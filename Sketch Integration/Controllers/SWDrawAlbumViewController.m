@@ -2,7 +2,7 @@
 //  SWDrawAlbumViewController.m
 //  Sketch Integration
 //
-//  Created by 付 乙荷 on 12-4-10.
+//  Created by    on 12-4-10.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -33,6 +33,11 @@
 -(void)returnBack:(id)sender {
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
+    [returnPlayer play];
+}
+
+-(void)deleteButtonPressed:(id)sender{
+    [deletePlayer play];
 }
 
 #pragma mark - View lifecycle
@@ -49,6 +54,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //加载音频文件
+    NSURL  *url = [NSURL fileURLWithPath:[NSString  
+                                          stringWithFormat:@"%@/sound_slip.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    NSError  *error;
+    slipPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载tap音效
+    slipPlayer.numberOfLoops  = 0;
+    if  (slipPlayer == nil)      //文件不存在
+        printf("音频加载失败");
+    
+    url = [NSURL fileURLWithPath:[NSString  
+                                  stringWithFormat:@"%@/sound_returnButton.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    returnPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载return音效
+    returnPlayer.numberOfLoops  = 0;
+    if  (returnPlayer == nil)      //文件不存在
+        printf("音频加载失败");
+    
+    url = [NSURL fileURLWithPath:[NSString  
+                                  stringWithFormat:@"%@/sound_deleteButton.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    deletePlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载return音效
+    deletePlayer.numberOfLoops  = 0;
+    if  (deletePlayer == nil)      //文件不存在
+        printf("音频加载失败");
 }
 
 
@@ -57,6 +84,13 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)dealloc{
+    [returnPlayer release];
+    [slipPlayer release];
+    [deletePlayer release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

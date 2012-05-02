@@ -57,6 +57,7 @@
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
     [rootViewController skipWithAnimation:EaseOut];
+    [returnPlayer play];
 }
 
 -(void)tapPasterImageView:(UIGestureRecognizer *) gestureRecognizer 
@@ -79,7 +80,7 @@
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:rootViewController.drawViewController];
     
-    UIImageView* subView = [[imageView.subviews objectAtIndex:0]deepCopy];
+    UIImageView* subView = [imageView.subviews objectAtIndex:0];
     subView.frame = imageView.frame;
     UIImageView* skipImageView = subView;
     
@@ -89,6 +90,7 @@
     
     CGPoint destinationPoint = CGPointMake(549.5, 351);
     [rootViewController skipWithImageView:skipImageView Destination:destinationPoint Animation:EaseIn];
+    [jumpPlayer play];
     [self clearSelectedImageView];
 }
 
@@ -97,7 +99,7 @@
     if(copyImageView == nil)
         return;
     
-    UIImageView* subView = [copyImageView deepCopy];
+    UIImageView* subView = copyImageView;
     subView.frame = CGRectMake(0, 0, selectedImageView.frame.size.width, selectedImageView.frame.size.height);
     [selectedImageView addSubview:subView];
 }
@@ -136,7 +138,20 @@
     {
         UIImageView* pasterWorkImageView = [pasterViews objectAtIndex:index];
         PKPasterWork* pasterWork = [pasterTemplateLibrary.pasterWorks objectAtIndex:index];
-        UIImageView* subView = [pasterWork.pasterView deepCopy];
+        
+        UIImageView* subView = [[UIImageView alloc]initWithFrame:pasterWork.pasterView.frame];
+        subView.image = pasterWork.pasterView.image;
+        for(PKGeometryImageView* geoImageView in pasterWork.pasterView.subviews)
+        {
+            if([geoImageView isKindOfClass:[PKGeometryImageView class]])
+            {
+                geoImageView.transform = CGAffineTransformIdentity;
+                PKGeometryImageView* subImageView = [geoImageView deepCopy];
+                subImageView.transform = CGAffineTransformConcat(subImageView.transform, subImageView.geometryTransfrom);
+                [subView addSubview:subImageView];
+            }
+        }
+        
         //对pasterWork缩小
         CGAffineTransform transform = CGAffineTransformScale(subView.transform, 288/865.0f, 210/630.0f);
         subView.transform = transform;
@@ -152,6 +167,19 @@
         
         index++;
     }
+    NSURL  *url = [NSURL fileURLWithPath:[NSString  
+                                          stringWithFormat:@"%@/sound_pageJump.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    NSError  *error;
+    jumpPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载tap音效
+    jumpPlayer.numberOfLoops  = 0;
+    if  (jumpPlayer == nil)      //文件不存在
+        printf("音频加载失败");
+    url = [NSURL fileURLWithPath:[NSString  
+                                  stringWithFormat:@"%@/sound_returnButton.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    returnPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载return音效
+    returnPlayer.numberOfLoops  = 0;
+    if  (returnPlayer == nil)      //文件不存在
+        printf("音频加载失败");
 }
 
 - (void)viewDidUnload
@@ -159,6 +187,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)dealloc{
+    [jumpPlayer release];
+    [returnPlayer release];
+    [super dealloc];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

@@ -17,7 +17,7 @@
 
 @synthesize arrayAbandonedStrokes,arrayStrokes;
 @synthesize currentColor,currentSize;
-@synthesize undoButton,redoButton,deleteButton;
+//@synthesize undoButton,redoButton,deleteButton;
 @synthesize owner;
 @synthesize unitList,graphList,newGraphList,pointGraphList,saveGraphList;
 @synthesize context;
@@ -87,7 +87,7 @@
 //    [self performSelectorOnMainThread:@selector(setNeedsDisplay) withObject:0 waitUntilDone:YES];
 }
 
--(void)undoFunc:(id)sender
+-(void)undoFunc
 {
     if ([arrayStrokes count]>0)
     {
@@ -107,7 +107,7 @@
     
 }
 
--(void)redoFunc:(id)sender
+-(void)redoFunc
 {
     if ([arrayAbandonedStrokes count]>0) 
     {
@@ -127,12 +127,12 @@
     
     
 }
-
--(void)deleteFunc:(id)sender
+//-(void)deleteFunc:(id)sender
+-(void)deleteFunc
 {
     [self.arrayStrokes removeAllObjects];
     [self.arrayAbandonedStrokes removeAllObjects];
-    
+    ////////?????
     UIGraphicsBeginImageContext(self.bounds.size);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
@@ -209,12 +209,16 @@
 {
     graphListSize = graphList.count;
     
+//    lastImage = self.currentImage;
+    
     self.currentImage = nil;
     
     [self.arrayAbandonedStrokes removeAllObjects];
     [graphList removeAllObjects];
     NSDictionary* dictStroke = [arrayStrokes lastObject];
     NSMutableArray* arrayPointsInStroke = [dictStroke objectForKey:@"points"];
+    
+    graphImageView.image = currentImage;
     
 //    [factory createWithPoint:arrayPointsInStroke Unit:unitList Graph:graphList PointGraph:pointGraphList NewGraph:newGraphList];
 //    Constraint* constructor = [[Constraint alloc]initWithPointList:pointGraphList GraphList:graphList SeletedList:newGraphList];
@@ -271,12 +275,13 @@
 
 -(void)dealloc
 {
-    [super dealloc];
+    
     
     [arrayStrokes release];
     [arrayAbandonedStrokes release];
     
     [currentColor release];
+    [super dealloc];
 }
 
 @end

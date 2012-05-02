@@ -2,7 +2,7 @@
 //  SWHelpViewController.m
 //  Sketch Integration
 //
-//  Created by 付 乙荷 on 12-4-10.
+//  Created by    on 12-4-10.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -36,26 +36,30 @@
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
     [rootViewController skipWithAnimation:EaseOut];
+    [returnPlayer play];
 }
 
 -(IBAction)clickNextButton:(id)sender{
     helpImageIndex++;
-    if (helpImageIndex>4) {
+    if (helpImageIndex>25) {
         //  nextButton.imageView.image = [UIImage imageNamed:@"beforeButton.png"];
         // UIImage *unNormalImage =[UIImage imageNamed:@"beforeButton.png"];
         //[nextButton setImage:unNormalImage forState:UIControlStateNormal];
         [nextButton setEnabled:NO];
         [prevButton setEnabled:YES];
+        [noUsePlayer play];
         //helpImageIndex=0;
     }
     else
         if (helpImageIndex<1) {
             //   prevButton.imageView.image = [UIImage imageNamed:@"nextButton.png"];
+            [noUsePlayer play];
             [prevButton setEnabled:NO];
             [nextButton setEnabled:YES];
             // helpImageIndex=0;
         }
         else{
+            [slipPlayer play];
             helpImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"helpImageView%d.png",helpImageIndex]];
             [prevButton setEnabled:YES];
             [nextButton setEnabled:YES];
@@ -64,9 +68,10 @@
 }
 -(IBAction)clickPrevButton:(id)sender{
     helpImageIndex--;
-    if (helpImageIndex>4) {
+    if (helpImageIndex>25) {
         //  nextButton.imageView.image = [UIImage imageNamed:@"beforeButton.png"];
         //   helpImageIndex=0;
+        [noUsePlayer play];
         [nextButton setEnabled:NO];
         [prevButton setEnabled:YES];
         
@@ -75,11 +80,13 @@
         if (helpImageIndex<1) {
             //     prevButton.imageView.image = [UIImage imageNamed:@"nextButton.png"];
             //    helpImageIndex=0;
+            [noUsePlayer play];
             [prevButton setEnabled:NO];
             [nextButton setEnabled:YES];
         }
         else{
             helpImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"helpImageView%d.png",helpImageIndex]];
+            [slipPlayer play];
             [prevButton setEnabled:YES];
             [nextButton setEnabled:YES];
         }
@@ -95,19 +102,45 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL  *url = [NSURL fileURLWithPath:[NSString  
+                                          stringWithFormat:@"%@/sound_slip.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    NSError  *error;
+    slipPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载tap音效
+    slipPlayer.numberOfLoops  = 0;
+    if  (slipPlayer == nil)      //文件不存在
+        printf("音频加载失败");
+    url = [NSURL fileURLWithPath:[NSString  
+                                  stringWithFormat:@"%@/sound_returnButton.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    returnPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载return音效
+    returnPlayer.numberOfLoops  = 0;
+    if  (returnPlayer == nil)      //文件不存在
+        printf("音频加载失败");
+    url = [NSURL fileURLWithPath:[NSString  
+                                  stringWithFormat:@"%@/sound_noUse.wav",  [[NSBundle mainBundle]  resourcePath]]];
+    noUsePlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载return音效
+    noUsePlayer.numberOfLoops  = 0;
+    if  (noUsePlayer == nil)      //文件不存在
+        printf("音频加载失败");
 }
-*/
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)dealloc{
+    [returnPlayer release];
+    [noUsePlayer release];
+    [slipPlayer release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
