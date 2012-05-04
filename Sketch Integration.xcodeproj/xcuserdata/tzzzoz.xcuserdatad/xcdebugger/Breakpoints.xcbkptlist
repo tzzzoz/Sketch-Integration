@@ -50,20 +50,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
-         timestampString = "357481728.471941"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "-returnBack:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "Sketch Integration/Models/DrawKit/DKPen.m"
          timestampString = "357494022.207525"
          startingColumnNumber = "9223372036854775807"

@@ -103,11 +103,6 @@
 		0AF3B5DD154E0FC6000191CA /* PKPasterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3B5D4154E0FC6000191CA /* PKPasterTemplate.m */; };
 		0AF3B5DE154E0FC6000191CA /* PKPasterTemplateLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3B5D6154E0FC6000191CA /* PKPasterTemplateLibrary.m */; };
 		0AF3B5DF154E0FC6000191CA /* PKPasterWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3B5D8154E0FC6000191CA /* PKPasterWork.m */; };
-		0AF3B5ED154E1091000191CA /* SWDrawAlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E0154E1091000191CA /* SWDrawAlbumView.xib */; };
-		0AF3B5EE154E1091000191CA /* SWDrawView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E1154E1091000191CA /* SWDrawView.xib */; };
-		0AF3B5EF154E1091000191CA /* SWHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E2154E1091000191CA /* SWHelpView.xib */; };
-		0AF3B5F0154E1091000191CA /* SWNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E3154E1091000191CA /* SWNavigationView.xib */; };
-		0AF3B5F1154E1091000191CA /* SWPasterWonderlandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E4154E1091000191CA /* SWPasterWonderlandView.xib */; };
 		0AF3B5F2154E1091000191CA /* UIColor+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E6154E1091000191CA /* UIColor+DeepCopy.m */; };
 		0AF3B5F3154E1091000191CA /* UIImage+NSCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3B5E8154E1091000191CA /* UIImage+NSCoder.m */; };
 		0AF3B5F4154E1091000191CA /* UIImageView+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3B5EA154E1091000191CA /* UIImageView+DeepCopy.m */; };
@@ -174,6 +169,12 @@
 		0AFE43F015515F45006F99B3 /* colorButton16.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE43DD15515F45006F99B3 /* colorButton16.png */; };
 		0AFE43F115515F45006F99B3 /* colorButton17.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE43DE15515F45006F99B3 /* colorButton17.png */; };
 		0AFE43F215515F45006F99B3 /* colorButton18.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE43DF15515F45006F99B3 /* colorButton18.png */; };
+		A324E74615516E370012A0B8 /* SWDrawAlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A324E74115516E370012A0B8 /* SWDrawAlbumView.xib */; };
+		A324E74715516E370012A0B8 /* SWDrawView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A324E74215516E370012A0B8 /* SWDrawView.xib */; };
+		A324E74815516E370012A0B8 /* SWHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A324E74315516E370012A0B8 /* SWHelpView.xib */; };
+		A324E74915516E370012A0B8 /* SWNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A324E74415516E370012A0B8 /* SWNavigationView.xib */; };
+		A324E74A15516E370012A0B8 /* SWPasterWonderlandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A324E74515516E370012A0B8 /* SWPasterWonderlandView.xib */; };
+		A324E75B15518B6A0012A0B8 /* UIFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = A324E75A15518B6A0012A0B8 /* UIFrameView.m */; };
 		A9816A5B1531C96D0068B369 /* basicBackgroundImageView.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A571531C96D0068B369 /* basicBackgroundImageView.png */; };
 		A9816A5C1531C96D0068B369 /* cancleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A581531C96D0068B369 /* cancleButton.png */; };
 		A9816A5D1531C96D0068B369 /* confirmButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9816A591531C96D0068B369 /* confirmButton.png */; };
@@ -318,11 +319,6 @@
 		0AF3B5D6154E0FC6000191CA /* PKPasterTemplateLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPasterTemplateLibrary.m; sourceTree = "<group>"; };
 		0AF3B5D7154E0FC6000191CA /* PKPasterWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPasterWork.h; sourceTree = "<group>"; };
 		0AF3B5D8154E0FC6000191CA /* PKPasterWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPasterWork.m; sourceTree = "<group>"; };
-		0AF3B5E0154E1091000191CA /* SWDrawAlbumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawAlbumView.xib; sourceTree = "<group>"; };
-		0AF3B5E1154E1091000191CA /* SWDrawView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawView.xib; sourceTree = "<group>"; };
-		0AF3B5E2154E1091000191CA /* SWHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHelpView.xib; sourceTree = "<group>"; };
-		0AF3B5E3154E1091000191CA /* SWNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWNavigationView.xib; sourceTree = "<group>"; };
-		0AF3B5E4154E1091000191CA /* SWPasterWonderlandView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWPasterWonderlandView.xib; sourceTree = "<group>"; };
 		0AF3B5E5154E1091000191CA /* UIColor+DeepCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DeepCopy.h"; sourceTree = "<group>"; };
 		0AF3B5E6154E1091000191CA /* UIColor+DeepCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DeepCopy.m"; sourceTree = "<group>"; };
 		0AF3B5E7154E1091000191CA /* UIImage+NSCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NSCoder.h"; sourceTree = "<group>"; };
@@ -396,6 +392,13 @@
 		0AFE43DD15515F45006F99B3 /* colorButton16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorButton16.png; sourceTree = "<group>"; };
 		0AFE43DE15515F45006F99B3 /* colorButton17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorButton17.png; sourceTree = "<group>"; };
 		0AFE43DF15515F45006F99B3 /* colorButton18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorButton18.png; sourceTree = "<group>"; };
+		A324E74115516E370012A0B8 /* SWDrawAlbumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawAlbumView.xib; sourceTree = "<group>"; };
+		A324E74215516E370012A0B8 /* SWDrawView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWDrawView.xib; sourceTree = "<group>"; };
+		A324E74315516E370012A0B8 /* SWHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWHelpView.xib; sourceTree = "<group>"; };
+		A324E74415516E370012A0B8 /* SWNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWNavigationView.xib; sourceTree = "<group>"; };
+		A324E74515516E370012A0B8 /* SWPasterWonderlandView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWPasterWonderlandView.xib; sourceTree = "<group>"; };
+		A324E75915518B6A0012A0B8 /* UIFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFrameView.h; sourceTree = "<group>"; };
+		A324E75A15518B6A0012A0B8 /* UIFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFrameView.m; sourceTree = "<group>"; };
 		A9816A571531C96D0068B369 /* basicBackgroundImageView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBackgroundImageView.png; sourceTree = "<group>"; };
 		A9816A581531C96D0068B369 /* cancleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancleButton.png; sourceTree = "<group>"; };
 		A9816A591531C96D0068B369 /* confirmButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirmButton.png; sourceTree = "<group>"; };
@@ -596,11 +599,11 @@
 		0A3CBC1B152EF65300B29756 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0AF3B5E0154E1091000191CA /* SWDrawAlbumView.xib */,
-				0AF3B5E1154E1091000191CA /* SWDrawView.xib */,
-				0AF3B5E2154E1091000191CA /* SWHelpView.xib */,
-				0AF3B5E3154E1091000191CA /* SWNavigationView.xib */,
-				0AF3B5E4154E1091000191CA /* SWPasterWonderlandView.xib */,
+				A324E74115516E370012A0B8 /* SWDrawAlbumView.xib */,
+				A324E74215516E370012A0B8 /* SWDrawView.xib */,
+				A324E74315516E370012A0B8 /* SWHelpView.xib */,
+				A324E74415516E370012A0B8 /* SWNavigationView.xib */,
+				A324E74515516E370012A0B8 /* SWPasterWonderlandView.xib */,
 				0AF3B5E5154E1091000191CA /* UIColor+DeepCopy.h */,
 				0AF3B5E6154E1091000191CA /* UIColor+DeepCopy.m */,
 				0AF3B5E7154E1091000191CA /* UIImage+NSCoder.h */,
@@ -609,6 +612,8 @@
 				0AF3B5EA154E1091000191CA /* UIImageView+DeepCopy.m */,
 				0AF3B5EB154E1091000191CA /* UIPasterView.h */,
 				0AF3B5EC154E1091000191CA /* UIPasterView.m */,
+				A324E75915518B6A0012A0B8 /* UIFrameView.h */,
+				A324E75A15518B6A0012A0B8 /* UIFrameView.m */,
 				0AF3B632154EE32C000191CA /* FillImage.h */,
 				0AF3B633154EE32F000191CA /* FillImage.m */,
 			);
@@ -866,6 +871,7 @@
 				0A3CBBBE152EF55E00B29756 /* Sources */,
 				0A3CBBBF152EF55E00B29756 /* Frameworks */,
 				0A3CBBC0152EF55E00B29756 /* Resources */,
+				A324E75815518A2A0012A0B8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -959,11 +965,6 @@
 				0A191E91154A911700EFC73D /* star_6.png in Resources */,
 				0A191E92154A911700EFC73D /* star_7.png in Resources */,
 				0A191E93154A911700EFC73D /* star_8.png in Resources */,
-				0AF3B5ED154E1091000191CA /* SWDrawAlbumView.xib in Resources */,
-				0AF3B5EE154E1091000191CA /* SWDrawView.xib in Resources */,
-				0AF3B5EF154E1091000191CA /* SWHelpView.xib in Resources */,
-				0AF3B5F0154E1091000191CA /* SWNavigationView.xib in Resources */,
-				0AF3B5F1154E1091000191CA /* SWPasterWonderlandView.xib in Resources */,
 				0AF3B6C0154EE7B3000191CA /* createGeometryPasterButton.png in Resources */,
 				0AF3B6C8154EE7FF000191CA /* createdCirclePaster.png in Resources */,
 				0AF3B6C9154EE7FF000191CA /* createdEllipsePaster.png in Resources */,
@@ -1063,10 +1064,31 @@
 				0AFE43F015515F45006F99B3 /* colorButton16.png in Resources */,
 				0AFE43F115515F45006F99B3 /* colorButton17.png in Resources */,
 				0AFE43F215515F45006F99B3 /* colorButton18.png in Resources */,
+				A324E74615516E370012A0B8 /* SWDrawAlbumView.xib in Resources */,
+				A324E74715516E370012A0B8 /* SWDrawView.xib in Resources */,
+				A324E74815516E370012A0B8 /* SWHelpView.xib in Resources */,
+				A324E74915516E370012A0B8 /* SWNavigationView.xib in Resources */,
+				A324E74A15516E370012A0B8 /* SWPasterWonderlandView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A324E75815518A2A0012A0B8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Developer/iphoneentitlements401/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A3CBBBE152EF55E00B29756 /* Sources */ = {
@@ -1100,6 +1122,7 @@
 				0A082ECB154EEDC500305102 /* DKDrawCanvas.m in Sources */,
 				0A082ECC154EEDC500305102 /* DKPen.m in Sources */,
 				0A082ECD154EEDC500305102 /* DKWaterColorPen.m in Sources */,
+				A324E75B15518B6A0012A0B8 /* UIFrameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1122,8 +1145,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: yiyu xu (SSW662A66D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yiyu xu (SSW662A66D)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1138,8 +1161,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PROVISIONING_PROFILE = "5A07F2F4-76F7-4947-93E6-C8B7D2600955";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A07F2F4-76F7-4947-93E6-C8B7D2600955";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1150,8 +1171,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: yiyu xu (SSW662A66D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yiyu xu (SSW662A66D)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -1160,8 +1181,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "5A07F2F4-76F7-4947-93E6-C8B7D2600955";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A07F2F4-76F7-4947-93E6-C8B7D2600955";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

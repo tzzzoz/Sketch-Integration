@@ -30,8 +30,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) 
     {
-        pasterView = [[UIPasterView alloc]initWithFrame:CGRectMake(108, 36, 865, 630)];
-        pasterView.contentMode = UIViewContentModeScaleToFill;
         // Custom initialization
         geoPasterLibrary = [[PKGeometryPasterLibrary alloc] initWithDataOfPlist];
         geoPasters = [[NSMutableArray alloc] initWithCapacity:geoPasterLibrary.geometryPasters.count];
@@ -53,14 +51,13 @@
     self.pasterWork = tmpPasterWork;
     
     //pasterView加入贴纸作品
-    UIImageView* subView = [[UIImageView alloc]initWithImage:tmpPasterWork.pasterView.image];
-    subView.hidden = YES;
-    [self.pasterView addSubview:subView];
-    [subView release];
     
-    pasterImageView = [[UIImageView alloc]initWithFrame:pasterView.frame];
-    pasterImageView.image = subView.image;
-    [self.view addSubview:pasterImageView];
+    pasterView = [[UIPasterView alloc]initWithFrame:CGRectMake(108, 36, 865, 630)];
+    pasterView.contentMode = UIViewContentModeScaleToFill;
+    
+    UIImageView* subView = [[UIImageView alloc]initWithImage:tmpPasterWork.pasterView.image];
+    [pasterView addSubview:subView];
+    [subView release];
     
     for(PKGeometryImageView* geoImageView in tmpPasterWork.pasterView.subviews)
     {
@@ -94,10 +91,12 @@
             subImageView.transform = CGAffineTransformConcat(subImageView.transform, subImageView.geometryTransfrom);
             
             [skipImageView addSubview:subImageView];
-        
+            
         }
-        else
+        else if([imageView isKindOfClass:[UIImageView class]])
+        {
             skipImageView.image = imageView.image;
+        }
     }
     
     //清除pasterWork的内容，由当前视图进行更新
@@ -110,12 +109,12 @@
     [self updateGeoPasterToPaster];
     
     [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
-    [tonePlayer[10] play];
-
+    
     [skipImageView release];
     [pasterImageView removeFromSuperview];
-    
     [self cleanPasterView];
+    
+//    [tonePlayer[10] play];
 }
 
 -(void)updateGeoPasterToPaster {
@@ -125,7 +124,7 @@
         {
             geoImageView.transform = CGAffineTransformIdentity;
             PKGeometryImageView *newGeoImageView = [geoImageView deepCopy];
-//            newGeoImageView.transform = CGAffineTransformConcat(geoImageView.transform, geoImageView.geometryTransfrom);
+            //            newGeoImageView.transform = CGAffineTransformConcat(geoImageView.transform, geoImageView.geometryTransfrom);
             
             PKGeometryPaster *geoPaster = [[PKGeometryPaster alloc] initWithGeometryImageView:newGeoImageView];
             [self.pasterWork.geoPasters addObject:geoPaster];
@@ -230,6 +229,7 @@
         [view removeFromSuperview];
     }
     [pasterView removeFromSuperview];
+    [pasterView release];
 }
 
 -(void)initPen{
@@ -506,7 +506,7 @@
         index++;
     }
     //加入画板,参数YES则加入画纸功能，否则只有笔的功能
-    drawBoard = [[DKDrawBoard alloc] initWithBoardState:NO];
+    drawBoard = [[DKDrawBoard alloc] initWithBoardState:YES];
     penArray = [[NSMutableArray alloc] initWithCapacity:18];
     //    加入画笔和画板
     [self initPen];

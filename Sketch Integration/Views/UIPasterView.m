@@ -13,6 +13,7 @@
 @implementation UIPasterView
 
 @synthesize beginPoint;
+@synthesize frameView;
 @synthesize rotationTransform,translationTransform,scaleTransform;
 @synthesize selectedGeoImageView,pasterTemplateImageView;
 
@@ -22,6 +23,9 @@
     if (self) 
     {
         // Initialization code
+        frameView = [[UIFrameView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        [frameView setBackgroundColor:[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
+        [self addSubview:frameView];
         [self becomeFirstResponder];
         [self setBackgroundColor:[[UIColor alloc]initWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
     }
@@ -49,6 +53,10 @@
                 if(CGRectContainsPoint(imageView.frame, beginPoint))
                 {
                     selectedGeoImageView = (PKGeometryImageView*)imageView;
+                    frameView.currentPasterView = selectedGeoImageView;
+                    
+                    [self bringSubviewToFront:selectedGeoImageView];
+                    [self bringSubviewToFront:frameView];
                     
                     self.rotationTransform = selectedGeoImageView.transform;
                     self.translationTransform = selectedGeoImageView.transform;
@@ -86,10 +94,10 @@
     {
         CGRect rotationSelectRect = CGRectMake(selectedGeoImageView.rotationPoint.x-9, selectedGeoImageView.rotationPoint.y-9, 18, 18);
         CGRect scaleSelectRect[4];
-        scaleSelectRect[0] = CGRectMake(selectedGeoImageView.leftTopPoint.x-6, selectedGeoImageView.leftTopPoint.y-6, 12, 12);
-        scaleSelectRect[1] = CGRectMake(selectedGeoImageView.rightTopPoint.x-6, selectedGeoImageView.rightTopPoint.y-6, 12, 12);
-        scaleSelectRect[2] = CGRectMake(selectedGeoImageView.rightBottomPoint.x-6, selectedGeoImageView.rightBottomPoint.y-6, 12, 12);
-        scaleSelectRect[3] = CGRectMake(selectedGeoImageView.leftBottomPoint.x-6, selectedGeoImageView.leftBottomPoint.y-6, 12, 12);
+        scaleSelectRect[0] = CGRectMake(selectedGeoImageView.leftTopPoint.x-9, selectedGeoImageView.leftTopPoint.y-9, 18, 18);
+        scaleSelectRect[1] = CGRectMake(selectedGeoImageView.rightTopPoint.x-9, selectedGeoImageView.rightTopPoint.y-9, 18, 18);
+        scaleSelectRect[2] = CGRectMake(selectedGeoImageView.rightBottomPoint.x-9, selectedGeoImageView.rightBottomPoint.y-9, 18, 18);
+        scaleSelectRect[3] = CGRectMake(selectedGeoImageView.leftBottomPoint.x-9, selectedGeoImageView.leftBottomPoint.y-9, 18, 18);
         if(CGRectContainsPoint(rotationSelectRect, beginPoint))
         {
             selectedGeoImageView.operationType = Rotation;
@@ -116,7 +124,7 @@
         
     }
     
-    [self setNeedsDisplay];
+    [frameView setNeedsDisplay];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -136,7 +144,7 @@
         selectedGeoImageView.geometryTransfrom = self.rotationTransform;
         [selectedGeoImageView calulateFourCorners];
         
-        [self setNeedsDisplay];
+        [frameView setNeedsDisplay];
         return;
     }
     if(selectedGeoImageView.isGeometrySelected && selectedGeoImageView.operationType == Translation)
@@ -147,7 +155,7 @@
         selectedGeoImageView.geometryTransfrom = self.translationTransform;
         [selectedGeoImageView calulateFourCorners];
         
-        [self setNeedsDisplay];
+        [frameView setNeedsDisplay];
         return;
     }
     if(selectedGeoImageView.isGeometrySelected && selectedGeoImageView.operationType == Scale)
@@ -162,7 +170,7 @@
         selectedGeoImageView.geometryTransfrom = self.scaleTransform;
         [selectedGeoImageView calulateFourCorners];
         
-        [self setNeedsDisplay];
+        [frameView setNeedsDisplay];
         return;
     }
 }
@@ -182,7 +190,7 @@
     }
     if(!CGRectContainsPoint(self.bounds, point) && selectedGeoImageView.operationType == Translation)
     {
-        isFoul = YES;
+        frameView.isFoul = YES;
         CGPoint vector = CGPointMake(beginPoint.x-point.x, beginPoint.y-point.y);
         self.translationTransform = CGAffineTransformConcat(self.translationTransform, CGAffineTransformMakeTranslation(vector.x, vector.y));
         
@@ -192,7 +200,7 @@
             selectedGeoImageView.geometryTransfrom = self.translationTransform;
 
             [selectedGeoImageView calulateFourCorners];
-            isFoul = NO;
+            frameView.isFoul = NO;
         }];
         
     }
@@ -201,14 +209,14 @@
     self.translationTransform = selectedGeoImageView.transform;
     self.scaleTransform = selectedGeoImageView.transform;
     
-    [self setNeedsDisplay];
+    [frameView setNeedsDisplay];
 }
 
--(void)drawRect:(CGRect)rect
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    if(selectedGeoImageView.isGeometrySelected && !isFoul)
-        [selectedGeoImageView drawFrameWithContext:context];
-}
+//-(void)drawRect:(CGRect)rect
+//{
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    if(selectedGeoImageView.isGeometrySelected && !isFoul)
+//        [selectedGeoImageView drawFrameWithContext:context];
+//}
 
 @end

@@ -117,20 +117,22 @@
         fileName = [path stringByAppendingPathComponent:@"PasterLibrary_Pasters"];
         [NSKeyedArchiver archiveRootObject:self.pasterWorks toFile:fileName];
     } else {
-        //如果不是第一次保存，只保存贴纸对象不再保存模板对象
+        //如果被修改，才进行保存，否则不进行保存
         if (isModified) {
             fileName = [path stringByAppendingPathComponent:@"PasterLibrary_Pasters"];
             [NSKeyedArchiver archiveRootObject:self.pasterWorks toFile:fileName];
-        } else
-            return YES;
+            isModified = NO;
+        }
     }
+    
+    return YES;
     //判断是否成功存储到Documents
-    NSMutableArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];
-    if (testArray) {
-        return NO;
-    } else {
-        return YES;
-    }
+//    NSMutableArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];
+//    if (testArray) {
+//        return NO;
+//    } else {
+//        return YES;
+//    }
 }
 
 -(void) readDataFromDoc {

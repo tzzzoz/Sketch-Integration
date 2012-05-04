@@ -74,16 +74,18 @@
         if (isModified) {
             fileName = [path stringByAppendingPathComponent:@"GeoPasterLibrary_GeoPasters"];
             [NSKeyedArchiver archiveRootObject:self.geometryPasters toFile:fileName];
-        } else
-            return YES;
+            isModified = NO;
+        }
     }
+    
+    return YES;
     //判断是否成功存储到Documents
-    NSMutableArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];
-    if (testArray) {
-        return NO;
-    } else {
-        return YES;
-    }
+//    NSMutableArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];
+//    if (testArray) {
+//        return NO;
+//    } else {
+//        return YES;
+//    }
 }
 
 -(void) readDataFromDoc {
