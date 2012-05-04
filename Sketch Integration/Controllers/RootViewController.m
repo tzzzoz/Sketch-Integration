@@ -166,6 +166,7 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
              starImageView.center = destinationPoint;
              [self.view addSubview:starImageView];
              [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(showStarAnimation:) userInfo:nil repeats:YES];
+             [drawViewController savePasterWork];
          }
          else if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])
          {

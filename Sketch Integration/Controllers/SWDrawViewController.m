@@ -114,7 +114,7 @@
 
     [skipImageView release];
     [pasterImageView removeFromSuperview];
-    [self savePasterWork];
+    
     [self cleanPasterView];
 }
 

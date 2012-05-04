@@ -50,6 +50,7 @@
     CGPoint xy;
     
     //音频对象
+    @public
     AVAudioPlayer  *tonePlayer[13];
     AVAudioPlayer *colorPlayer[18];
     AVAudioPlayer  *geoPlayer[7];
