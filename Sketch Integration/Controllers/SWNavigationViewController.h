@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "RootViewController.h"
+#import "UnarchiveAlbumThread.h"
 
 @interface SWNavigationViewController : UIViewController {
     //音频

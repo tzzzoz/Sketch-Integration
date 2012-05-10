@@ -10,13 +10,15 @@
 #import "BroadView.h"
 
 
-@interface DKDrawCanvas : NSObject{
-//    UIImageView *drawCanvasView;
-//    NSMutableArray *strokes;
-//    NSMutableArray *points;
+@interface DKDrawCanvas : NSObject
+{
     BroadView *drawCanvasView;
 }
 
 @property (retain, nonatomic) BroadView *drawCanvasView;
+
+-(void)undo;
+-(void)redo;
+-(void)deleteCanvas;
 
 @end

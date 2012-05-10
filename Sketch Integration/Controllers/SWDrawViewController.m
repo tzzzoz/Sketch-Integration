@@ -11,7 +11,8 @@
 #define degreesToRadians(x) (M_PI*(x)/180.0)
 
 @implementation SWDrawViewController
-@synthesize pasterImageView;
+
+@synthesize drawViewState;
 @synthesize pasterView;
 @synthesize geoPasterBox;
 @synthesize geoPasters;
@@ -22,8 +23,10 @@
 @synthesize geoPasterLibrary;
 @synthesize selectedGeoImageView;
 @synthesize promptDialogView;
-@synthesize penArray;
-@synthesize selectedImageView;
+@synthesize undoButton;
+@synthesize redoButton;
+@synthesize colorImageViewArray;
+@synthesize selectedColorImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,13 +48,23 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)setViewStateFromNavigationView
+{
+    undoButton.hidden = NO;
+    redoButton.hidden = NO;
+    drawViewState = DrawState;
+    [drawBoard.drawCanvas.drawCanvasView setHidden:NO];
+    [self.view bringSubviewToFront:drawBoard.drawCanvas.drawCanvasView];
+    [self hideGeoPasterBox];
+    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
+}
+
 -(void)setPasterTemplate:(PKPasterTemplate *)tmpPasterTemplate PasterWork:(PKPasterWork *)tmpPasterWork Frame:(CGRect)frame
 {
     self.pasterTemplate = tmpPasterTemplate;
     self.pasterWork = tmpPasterWork;
     
     //pasterView加入贴纸作品
-    
     pasterView = [[UIPasterView alloc]initWithFrame:CGRectMake(108, 36, 865, 630)];
     pasterView.contentMode = UIViewContentModeScaleToFill;
     
@@ -72,6 +85,48 @@
     
     ////////////////////////////////////////////////////
     [self.view addSubview:pasterView];
+    
+    if(drawViewState == PasterState)
+    {
+        undoButton.hidden = YES;
+        redoButton.hidden = YES;
+        [drawBoard.drawCanvas.drawCanvasView setHidden:YES];
+        [self displayGeoPasterBox];
+    }
+    else if(drawViewState == DrawState)
+    {
+        undoButton.hidden = NO;
+        redoButton.hidden = NO;
+        [drawBoard.drawCanvas.drawCanvasView setHidden:NO];
+        [self.view bringSubviewToFront:drawBoard.drawCanvas.drawCanvasView];
+        [self hideGeoPasterBox];
+    }
+}
+
+//获得屏幕图像  
+- (UIImage *)imageFromView: (UIView *) theView    
+{  
+    
+    UIGraphicsBeginImageContext(theView.frame.size);  
+    CGContextRef context = UIGraphicsGetCurrentContext();  
+    [theView.layer renderInContext:context];  
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();  
+    UIGraphicsEndImageContext();  
+    
+    return theImage;  
+} 
+
+- (UIImage *)imageFromView: (UIView *) theView   atFrame:(CGRect)r  
+{  
+    UIGraphicsBeginImageContext(theView.frame.size);  
+    CGContextRef context = UIGraphicsGetCurrentContext();  
+    CGContextSaveGState(context);  
+    UIRectClip(r);  
+    [theView.layer renderInContext:context];  
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();  
+    UIGraphicsEndImageContext();  
+    
+    return  theImage;//[self getImageAreaFromImage:theImage atFrame:r];  
 }
 
 -(void)returnBack:(id)sender 
@@ -79,52 +134,84 @@
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController popViewController];
     
-    [geoPasterLibrary saveDataToDoc:NO];
     
-    UIImageView* skipImageView = [[UIImageView alloc]initWithFrame:pasterView.frame];
-    for(PKGeometryImageView* imageView in pasterView.subviews)
+    if([rootViewController.nextViewController isKindOfClass:[SWPasterWonderlandViewController class]])
     {
-        if([imageView isKindOfClass:[PKGeometryImageView class]])
+        [geoPasterLibrary saveDataToDoc:NO];
+        
+        UIImageView* skipImageView = [[UIImageView alloc]initWithFrame:pasterView.frame];
+        for(PKGeometryImageView* imageView in pasterView.subviews)
         {
-            imageView.transform = CGAffineTransformIdentity;
-            PKGeometryImageView *subImageView = [imageView deepCopy];
-            subImageView.transform = CGAffineTransformConcat(subImageView.transform, subImageView.geometryTransfrom);
-            
-            [skipImageView addSubview:subImageView];
-            
+            if([imageView isKindOfClass:[PKGeometryImageView class]])
+            {
+                imageView.transform = CGAffineTransformIdentity;
+                PKGeometryImageView *subImageView = [imageView deepCopy];
+                subImageView.transform = CGAffineTransformConcat(subImageView.transform, subImageView.geometryTransfrom);
+                
+                [skipImageView addSubview:subImageView];
+                
+            }
+            else if([imageView isKindOfClass:[UIImageView class]])
+            {
+                skipImageView.image = imageView.image;
+            }
         }
-        else if([imageView isKindOfClass:[UIImageView class]])
+        
+        //清除pasterWork的内容，由当前视图进行更新
+        [self.pasterWork.geoPasters removeAllObjects];
+        for (UIView *view in pasterWork.pasterView.subviews) 
         {
-            skipImageView.image = imageView.image;
+            [view removeFromSuperview];
         }
+        
+        [self updateGeoPasterToPaster];
+        
+//        [self cleanPasterView];
+//        UIImageView* subView = [[UIImageView alloc]initWithImage:pasterWork.pasterView.image];
+//        [pasterView addSubview:subView];
+//        [subView release];
+//        for(PKGeometryImageView* geoImageView in pasterWork.pasterView.subviews)
+//        {
+//            if([geoImageView isKindOfClass:[PKGeometryImageView class]])
+//            {
+//                geoImageView.transform = CGAffineTransformIdentity;
+//                PKGeometryImageView* subImageView = [geoImageView deepCopy];
+//                subImageView.transform = CGAffineTransformConcat(subImageView.transform, subImageView.geometryTransfrom);
+//                [self.pasterView addSubview:subImageView];
+//            }
+//        }
+//        [self.view addSubview:pasterView];
+        
+        [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
+        
+        [skipImageView release];
+        
+        //清楚选中颜色
+        if(drawViewState == FillState)
+        {
+            [self displayGeoPasterBox];
+            drawViewState = PasterState;
+        }
+        //清楚pasterview
+        [self cleanPasterView];
     }
-    
-    //清除pasterWork的内容，由当前视图进行更新
-    [self.pasterWork.geoPasters removeAllObjects];
-    for (UIView *view in pasterWork.pasterView.subviews) 
+    else if([rootViewController.nextViewController isKindOfClass:[SWNavigationViewController class]])
     {
-        [view removeFromSuperview];
+        [drawBoard.drawCanvas.drawCanvasView removeFromSuperview];
+        [drawBoard.drawCanvas deleteCanvas];
+        [rootViewController skipWithAnimation:EaseOut];
     }
-    
-    [self updateGeoPasterToPaster];
-    
-    [rootViewController skipWithImageView:skipImageView Destination:rootViewController.pasterWonderlandViewController.selectedPosition Animation:EaseOut];
-    
-    [skipImageView release];
-    [pasterImageView removeFromSuperview];
-    [self cleanPasterView];
-    
-//    [tonePlayer[10] play];
 }
 
--(void)updateGeoPasterToPaster {
+-(void)updateGeoPasterToPaster 
+{
     for(PKGeometryImageView* geoImageView in pasterView.subviews)
     {
         if([geoImageView isKindOfClass:[PKGeometryImageView class]])
         {
             geoImageView.transform = CGAffineTransformIdentity;
             PKGeometryImageView *newGeoImageView = [geoImageView deepCopy];
-            //            newGeoImageView.transform = CGAffineTransformConcat(geoImageView.transform, geoImageView.geometryTransfrom);
+            geoImageView.transform = CGAffineTransformConcat(geoImageView.transform, geoImageView.geometryTransfrom);
             
             PKGeometryPaster *geoPaster = [[PKGeometryPaster alloc] initWithGeometryImageView:newGeoImageView];
             [self.pasterWork.geoPasters addObject:geoPaster];
@@ -135,185 +222,237 @@
     }
 }
 
--(void)savePasterWork {
+-(void)savePasterWork 
+{
     [self.geoPasterLibrary saveDataToDoc:NO];
-    PKPasterTemplateLibrary *tmpPasterTemplateLibrary =  [[[RootViewController sharedRootViewController] pasterWonderlandViewController] pasterTemplateLibrary];
+    PKPasterTemplateLibrary *tmpPasterTemplateLibrary = [[[RootViewController sharedRootViewController] pasterWonderlandViewController] pasterTemplateLibrary];
     tmpPasterTemplateLibrary.isModified = YES;
     [tmpPasterTemplateLibrary saveDataToDoc:NO];
 }
 
--(void)pressDrawAlbumButton:(id)sender {
-    RootViewController *rootViewController = [RootViewController sharedRootViewController];
-    [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
-    [tonePlayer[8] play];
-    [self cleanPasterView];
-}
-
-
--(IBAction)pressCleanButton:(id)sender{
-    promptDialogView = [[UIImageView alloc]initWithFrame:CGRectMake(62.0f, 180.0f, 225.0f, 175.0f)];
-    comfirmButton = [[UIButton alloc]initWithFrame:CGRectMake(62.0, 90.0, 50.0, 50.0)];
-    cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(120.0, 90.0, 50.0, 50.0)];
-    promptText = [[UILabel alloc] initWithFrame:CGRectMake(61.0, 31.0, 126.0, 64.0)];
-    promptText.numberOfLines = 2;
-    promptText.text = @"是否清空所有操作？";
-    promptText.font = [UIFont systemFontOfSize:22.0f];
-    promptText.textColor = [UIColor purpleColor];
-    promptText.backgroundColor = [UIColor clearColor];
-    [promptText sizeToFit];
-    [promptDialogView addSubview:promptText];
-    [tonePlayer[9] play];
-    //    promptDialogView.frame = CGRectMake(62.0f, 180.0f, 225.0f, 175.0f);
-    promptDialogView.image = [UIImage imageNamed:@"basicBackgroundImageView.png"];
-    
-    //    UIButton *comfirmButton;
-    //    UIButton *cancelButton;
-    UIImage *confirmImage = [UIImage imageNamed:@"confirmButton.png"];
-    UIImage *cancelImage = [UIImage imageNamed:@"cancleButton.png"];
-    
-    //    comfirmButton.frame = CGRectMake(62.0, 90.0, 50.0, 50.0);
-    //    cancelButton.frame = CGRectMake( 120.0, 90.0, 50.0, 50.0);
-    
-    //    comfirmButton.imageView = [UIImage imageNamed:@"confirmButton.png"];
-    [comfirmButton setBackgroundImage:confirmImage forState:UIControlStateNormal];
-    [comfirmButton addTarget:self action:@selector(pressComfirmButton) forControlEvents:UIControlEventTouchUpInside];
-    [cancelButton setBackgroundImage:cancelImage forState:UIControlStateNormal];
-    [cancelButton addTarget:self action:@selector(pressCancelButton) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [promptDialogView addSubview:comfirmButton];
-    [promptDialogView addSubview:cancelButton];
-    
-    [self.view addSubview:promptDialogView];
-    //提示框上的按钮都按不到？？
-    [self.view bringSubviewToFront:promptDialogView];
-    
-    [confirmImage release];
-    [cancelImage release];
-}
--(IBAction)pressComfirmButton:(id)sender{
-    [tonePlayer[0] play];
-    //    promptDialogView.hidden = YES;
-    //    drawBoard.drawCanvasView.view = nil;
-    //    self.drawBoard.drawCanvas.drawCanvasView.image = nil;
-}
--(IBAction)pressCancelButton:(id)sender{
-    //    promptDialogView.hidden = YES;
-}
-
--(IBAction)pressSaveButton:(id)sender{
-    ColorRGBA tc={255,0,0,255};
-    [pasterView setTC:tc];
-    [tonePlayer[11] play];
-    UIImageView *savedWork = [[UIImageView alloc] initWithFrame:CGRectMake(180.0f, 100.0f, 512.0f, 512.0f)];
-    //    [savedWork setImage:[UIImage imageNamed:@"backgroundImageViewDAV.png"]];
-    //    savedWork.image = pasterView.image;
-    //    [savedWork setImage:];
-    
-    [UIImageView beginAnimations:nil context:NULL];
-    [UIImageView setAnimationDuration:3];
-    [UIImageView setAnimationBeginsFromCurrentState:YES];
-    savedWork.frame = CGRectMake(0.0, 504.0, 0.0, 0.0);
-    [UIImageView commitAnimations];
-    [self.view addSubview:savedWork];
-    
-    [savedWork release];
-}
-
-
 -(void)cleanPasterView 
 {
+    pasterView.selectedGeoImageView.operationType = Nothing;
+    pasterView.selectedGeoImageView.isGeometrySelected = NO;
     pasterView.selectedGeoImageView = nil;
     for (UIView *view in pasterView.subviews) 
     {
         [view removeFromSuperview];
     }
     [pasterView removeFromSuperview];
-    [pasterView release];
 }
 
--(void)initPen{
-    for (int i = 0; i < 18; i++) {
-        [[drawBoard.colorPenArray objectAtIndex: i] initWithColorNumber:i];
-        [self.view addSubview:[[drawBoard.colorPenArray objectAtIndex: i] colorPen]];
-        [[drawBoard.colorPenArray objectAtIndex:i] colorPen].hidden = YES;
-        [penArray addObject:[drawBoard.colorPenArray objectAtIndex: i]];
-    }
-}
-
--(void)hiddenGeoPasterBox{
-    geoPasterBox.hidden=YES;
-    for (int i = 0; i < 18; i++) {
-        [[drawBoard.colorPenArray objectAtIndex:i] colorPen].hidden = NO;
-    }
-    //[self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
-}
-
--(void)displayGeoPasterBox{
-    geoPasterBox.hidden=NO;
-    for (int i = 0; i < 18; i++) {
-        [[drawBoard.colorPenArray objectAtIndex:i] colorPen].hidden = YES;
-        [[drawBoard.colorPenArray objectAtIndex:i] setPenState:NO];
-        [[drawBoard.colorPenArray objectAtIndex:i] changePenStateWith:NO];
-        ColorRGBA color={0,0,0,0};
-        [pasterView setTC:color];
-    }
-}
--(void)tapGeoImageView:(UIGestureRecognizer *)gestureRecognizer
+-(void)pressDrawAlbumButton:(id)sender 
 {
-    UIImageView* imageView = (PKGeometryImageView*)gestureRecognizer.view;
-    int index = 0;
-    for(UIImageView* tmpImageView in geoPasterBox.subviews)
+    RootViewController *rootViewController = [RootViewController sharedRootViewController];
+    [rootViewController pushViewController:[rootViewController drawAlbumViewController]];
+    [tonePlayer[8] play];
+    
+    [rootViewController skipWithAnimation:EaseIn];
+        
+    [self updateGeoPasterToPaster];
+    
+    
+    
+    [[rootViewController drawAlbumViewController] loadFlowView];
+}
+
+-(IBAction)pressCleanButton:(id)sender
+{
+    //禁用pasterView的手势识别
+    [pasterView setUserInteractionEnabled:NO];
+    
+    UIImageView *promptBackground;
+    UIButton *comfirmButton;
+    UIButton *cancelButton;
+    UILabel *promptText;
+    promptDialogView = [[UIView alloc]initWithFrame:CGRectMake(62.0f, 180.0f, 225.0f, 175.0f)];
+    promptBackground = [[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 225.0f, 175.0f)];
+    comfirmButton = [[UIButton alloc]initWithFrame:CGRectMake(30.0, 90.0, 50.0, 50.0)];
+    cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(150.0, 90.0, 50.0, 50.0)];
+    promptText = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 60.0, 126.0, 30.0)];
+    promptText.numberOfLines = 2;
+    
+    promptBackground.image = [UIImage imageNamed:@"basicBackgroundImageView.png"];
+    [promptDialogView addSubview:promptBackground];
+    
+    promptText.text = @"是否清空所有操作？";
+    promptText.font = [UIFont systemFontOfSize:22.0f];
+    promptText.textColor = [UIColor purpleColor];
+    promptText.backgroundColor = [UIColor clearColor];
+    [promptText sizeToFit];
+    [promptDialogView addSubview:promptText];
+    
+    
+    UIImage *confirmImage = [UIImage imageNamed:@"confirmButton.png"];
+    UIImage *cancelImage = [UIImage imageNamed:@"cancleButton.png"];
+    [comfirmButton setBackgroundImage:confirmImage forState:UIControlStateNormal];
+    [comfirmButton addTarget:self action:@selector(pressComfirmButton:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton setBackgroundImage:cancelImage forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(pressCancelButton:) forControlEvents:UIControlEventTouchUpInside];
+    [promptDialogView addSubview:comfirmButton];
+    [promptDialogView addSubview:cancelButton];
+    
+    [self.view addSubview:promptDialogView];
+    [tonePlayer[9] play];
+    
+    [promptBackground release];
+    [confirmImage release];
+    [cancelImage release];
+}
+-(void)pressComfirmButton:(id)sender
+{
+    [tonePlayer[0] play];
+    
+    if(drawViewState == DrawState)
     {
-        if([tmpImageView isEqual:imageView])
-        {
-            break;
-        }
-        index++;
+        [drawBoard.drawCanvas.drawCanvasView removeFromSuperview];
+        [drawBoard.drawCanvas deleteCanvas];
+        [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
     }
-    NSLog(@"tap!");
-    PKGeometryPaster* geoPaster = [geoPasterLibrary.geometryPasters objectAtIndex:index];
-    PKGeometryImageView* geoPasterView = (PKGeometryImageView*)[geoPaster.geoPasterImageView deepCopy];
-    [self.view addSubview:geoPasterView];
-    [geoPasterView release];
+    
+    if(drawViewState != DrawState)
+    {
+        //添加清空操作
+        pasterView.selectedGeoImageView.isGeometrySelected = NO;
+        pasterView.selectedGeoImageView.operationType = Nothing;
+        pasterView.selectedGeoImageView = nil;
+        pasterView.frameView.currentPasterView = nil;
+        for(UIView *view in pasterView.subviews)
+        {
+            if([view isKindOfClass:[UIFrameView class]])
+            {
+                [pasterView.frameView setNeedsDisplay];
+            }
+            else
+            {
+                [view removeFromSuperview];
+            }
+        }
+        //启用pasterView手势识别
+        [pasterView addSubview:pasterTemplate.pasterView];
+        [pasterView setUserInteractionEnabled:YES];
+        if(drawViewState == FillState)
+        {
+            [self displayGeoPasterBox];
+        }
+    }
+    
+    promptDialogView.hidden = YES;
+}
+-(void)pressCancelButton:(id)sender{
+    [tonePlayer[6] play];
+    promptDialogView.hidden = YES;
+    //启用pasterView手势识别
+    [pasterView setUserInteractionEnabled:YES];
+}
+
+-(IBAction)pressSaveButton:(id)sender
+{
+    [tonePlayer[11] play];
+    
+    if (drawViewState != 2) {
+        UIImageView *showImageView;
+        UIImageView *showImageView2;
+        int i = arc4random()%5;
+        showImageView = [[[UIImageView alloc]initWithFrame:CGRectMake(140.0, 80.0, 760.0, 560.0) ]autorelease];
+        showImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"drawWorkBackgroundImageView%d", i]];
+        
+        
+        RootViewController *rootViewController = [RootViewController sharedRootViewController];
+        NSDate *dateToDay = [NSDate date];
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+        [df setLocale:locale];
+        NSString *date = [df stringFromDate:dateToDay];
+        ///////////加入文字////////////////////////////
+//        UILabel *dateText;
+//        dateText = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 100, 30)];
+//        dateText.text = [NSString stringWithFormat:@"%@", date];
+//        dateText.font = [UIFont systemFontOfSize:22.0f];
+//        dateText.textColor = [UIColor blackColor];
+//        dateText.backgroundColor = [UIColor clearColor];
+//        [dateText sizeToFit];
+//        [pasterView addSubview:dateText];
+    
+    	NSLog(@"%@", date);
+        UIImage *image = [self imageFromView:pasterView atFrame:CGRectMake(30.0, 20.0, 760.0, 560.0)];
+        showImageView2 = [[UIImageView alloc] initWithImage:image];
+        [showImageView addSubview:showImageView2];
+        
+    
+        [rootViewController.drawAlbumViewController setDrawWorkWithPasterWork:pasterWork PasterWorkName:date pasterImageWork:[self imageFromView:showImageView atFrame:CGRectMake(0.0, 0.0, 760.0, 560.0)]];
+
+    }
+}
+
+
+-(void)hideGeoPasterBox
+{
+    geoPasterBox.hidden=YES;
+    [self displayColorImageViewArray];
+}
+
+-(void)displayGeoPasterBox
+{
+    geoPasterBox.hidden=NO;
+    [self hideColorImageViewArray];
+    ColorRGBA colorRGBA = {0,0,0,0};
+    [pasterView setTC:colorRGBA];
+}
+
+-(void)hideColorImageViewArray
+{
+    if(selectedColorImageView != nil)
+    {
+        [selectedColorImageView setFrame:CGRectMake(selectedColorImageView.frame.origin.x, selectedColorImageView.frame.origin.y+20, selectedColorImageView.frame.size.width, selectedColorImageView.frame.size.height)];
+        selectedColorImageView = nil;
+    } 
+    for(UIImageView* colorImageView in colorImageViewArray)
+    {
+        colorImageView.hidden = YES;
+    }
+}
+
+-(void)displayColorImageViewArray
+{
+    if(selectedColorImageView != nil)
+    {
+        [selectedColorImageView setFrame:CGRectMake(selectedColorImageView.frame.origin.x, selectedColorImageView.frame.origin.y+20, selectedColorImageView.frame.size.width, selectedColorImageView.frame.size.height)];
+        selectedColorImageView = nil;
+    }
+    for(UIImageView* colorImageView in colorImageViewArray)
+    {
+        colorImageView.hidden = NO;
+    }
 }
 
 //点击画笔事件
 -(void)tapColorImageView:(UIGestureRecognizer *) gestureRecognizer 
 {
-    UIImageView *imageView = (UIImageView*)gestureRecognizer.view;
-    selectedImageView = imageView;
-    
-    //    selectedImageView.frame = CGRectMake(122, 600, 42, 130);
-    //    [self.view addSubview:selectedImageView];
-    
-    NSUInteger index = 0;
-    for (DKWaterColorPen *colorPens in penArray) 
-        //    for (DKWaterColorPen *colorPens in drawBoard.colorPenArray) 
+    if(selectedColorImageView != nil)
     {
-        if ([selectedImageView isEqual:colorPens.colorPen]) 
-        {
-            NSLog(@"%d", index);
-            [colorPlayer[index]play];
-            break;
-        }   
-        index++;
+        [selectedColorImageView setFrame:CGRectMake(selectedColorImageView.frame.origin.x, selectedColorImageView.frame.origin.y+20, selectedColorImageView.frame.size.width, selectedColorImageView.frame.size.height)];
     }
     
+    UIImageView *imageView = (UIImageView*)gestureRecognizer.view;
+    selectedColorImageView = imageView;
+    int index = [colorImageViewArray indexOfObject:imageView];
+    drawBoard.colorPalette.selectedColorIndex = index;
+    [selectedColorImageView setFrame:CGRectMake(selectedColorImageView.frame.origin.x, selectedColorImageView.frame.origin.y-20, selectedColorImageView.frame.size.width, selectedColorImageView.frame.size.height)];
     
-    for (int i = 0; i < 18; i++) {
-        if (index != i ) {
-            [[penArray objectAtIndex:i] setPenState:NO];
-            [[penArray objectAtIndex:i] changePenStateWith:NO];
-        }
-        
-    }
-    [[penArray objectAtIndex:index] changeState];
-    [[penArray objectAtIndex:index] changePenStateWith:[[penArray objectAtIndex:index] penState]];
-    DKWaterColorPen *colorPen = [penArray objectAtIndex:index];
-    if ([[penArray objectAtIndex:index] penState]) {
-        drawBoard.drawCanvas.drawCanvasView.currentColor = [colorPen changeColorWith:index];
-        UIColor *uicolor = [colorPen changeColorWith:index];
+    int indexOfColor = drawBoard.colorPalette.selectedColorIndex;
+    [colorPlayer[indexOfColor] play];
+
+    DKColor* colorTemp = [drawBoard.colorPalette.colorArray objectAtIndex:indexOfColor];
+    drawBoard.waterColorPen.color.colorType = colorTemp.colorType;
+    drawBoard.waterColorPen.color.color     = [DKColorPalette changeColorWith:indexOfColor];
+    
+    if (selectedColorImageView != nil) 
+    {
+        drawBoard.drawCanvas.drawCanvasView.currentColor = colorTemp.color;
+        UIColor *uicolor = colorTemp.color;
         CGColorRef color = [uicolor  CGColor]; 
         int numComponents = CGColorGetNumberOfComponents(color);
         ColorRGBA tc;
@@ -327,9 +466,10 @@
         }
         [pasterView setTC:tc];
     }
-    else{
-        drawBoard.drawCanvas.drawCanvasView.currentColor = [colorPen changeColorWith:18];
-        UIColor *uicolor = [colorPen changeColorWith:18];
+    else
+    {
+        drawBoard.drawCanvas.drawCanvasView.currentColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+        UIColor *uicolor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         CGColorRef color = [uicolor  CGColor]; 
         int numComponents = CGColorGetNumberOfComponents(color);
         ColorRGBA tc;
@@ -495,9 +635,13 @@
 {  
     [super viewDidLoad];
     
+    ////////////////////////初始化画板的界面//////////////////////////////
+    drawBoard = [[DKDrawBoard alloc]initWithBoardState:YES];
+    
     //在视图加入几何贴纸
     NSUInteger index = 0;
-    for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) {
+    for (PKGeometryPaster *geoPaster in geoPasterLibrary.geometryPasters) 
+    {
         PKGeometryImageView *imageView = [geoPaster.geoPasterImageView deepCopy];
         
         [geoPasters insertObject:imageView atIndex:index];
@@ -505,38 +649,36 @@
         [geoPasterBox addSubview:[geoPasters objectAtIndex:index]];
         index++;
     }
-    //加入画板,参数YES则加入画纸功能，否则只有笔的功能
-    drawBoard = [[DKDrawBoard alloc] initWithBoardState:YES];
-    penArray = [[NSMutableArray alloc] initWithCapacity:18];
-    //    加入画笔和画板
-    [self initPen];
-    [self.view addSubview:drawBoard.drawCanvas.drawCanvasView];
-    //    添加点击画笔响应
-    UIImageView *imageView;
-    index = 0;
-    for (DKWaterColorPen *waterPen in penArray) 
+    
+    colorImageViewArray = [[NSMutableArray alloc]initWithCapacity:18];
+    for(DKColor* colorData in drawBoard.colorPalette.colorArray)
+    {
+        UIImageView* colorImageView = [colorData.colorImageView deepCopy];
+        [colorImageViewArray addObject:colorImageView];
+        [self.view addSubview:colorImageView];
+        [colorImageView release];
+    }
+    
+    //添加点击画笔响应
+    for (UIImageView *colorImageView in colorImageViewArray) 
     {
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapColorImageView:)];
-        imageView = [[penArray objectAtIndex:index] colorPen] ;
-        [imageView setUserInteractionEnabled:YES];
-        [imageView addGestureRecognizer:singleTap];
-        index++;
+        [colorImageView setUserInteractionEnabled:YES];
+        [colorImageView addGestureRecognizer:singleTap];
         [singleTap release];
     }
+    
+    [self hideGeoPasterBox];
+    [self hideColorImageViewArray];
+    
     //载入音频文件
     [self loadSound];
-    //对每个几何贴纸视图加入手势识别
-    //    NSLog(@"count of subviews: %d",[geoPasterBox.subviews count]);
-    //    for(UIImageView* imageView in geoPasters)
-    //    {
-    //        UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGeoImageView:)];
-    //        [imageView addGestureRecognizer:singleTap];
-    //        [singleTap release];
-    //    }
 }
 
 - (void)viewDidUnload
 {
+    [self setUndoButton:nil];
+    [self setRedoButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -564,7 +706,7 @@
 
 -(void)dealloc {
     
-    //    [drawBoard.waterColorPen removeObserver:self forKeyPath:@"state"];
+    //[drawBoard.waterColorPen removeObserver:self forKeyPath:@"state"];
     for(int i=0;i<7;i++){
         [geoPlayer[i] release];
     }
@@ -577,49 +719,12 @@
     [pasterView release];
     [geoPasterLibrary release];
     [geoPasters release];
+    [promptDialogView release];
     [geoPasterBox release];
+    [undoButton release];
+    [redoButton release];
     [super dealloc];
 }
-
-
-//-(IBAction)buttonPressed:(id)sender{
-//    UIImage *image=pasterView.image;
-//    fillImage *fill=[[fillImage alloc]initWithImage:image];
-//    struct ColorRGBAStruct tc={255,0,0,255};
-//    struct ColorRGBAStruct bc={254,254,255,255};
-//    int x=(int)xy.x;
-//    int y=(int)xy.y;
-//    if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
-//        [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
-//        image=[fill getImage];
-//        pasterView.image=image;
-//        [fill release];
-//    }
-//}
-
-
-
-
-//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-//    [super touchesBegan:touches withEvent:event];
-//    UITouch* touch = [touches anyObject];
-//    //UIImageView* subImageView = [pasterView.subviews lastObject];
-//    xy = [touch locationInView:self.pasterView];
-//    printf("the click location is %f,%f",xy.x,xy.y);
-//    UIImage *image= pasterView.image;
-//    fillImage *fill=[[fillImage alloc]initWithImage:image];
-//    struct ColorRGBAStruct tc={255,0,0,255};
-//    struct ColorRGBAStruct bc={255,255,255,255};
-//    int x=(int)xy.x*image.size.width/pasterView.frame.size.width;
-//    int y=(int)xy.y*image.size.height/pasterView.frame.size.height;
-//    printf("the x is %d,the y is %d,the width is %f,the height is %f",x,y,image.size.width,image.size.height);
-//    if(x>=0&&y>=0&&x<image.size.width&&y<image.size.height){
-//        [fill ScanLineSeedFill:x andY:y withTC:tc andBC:bc];
-//        image=[fill getImage];
-//        pasterView.image=image;
-//        [fill release];
-//    }
-//}
 
 //-(void)penStateChange{
 //    [drawBoard.waterColorPen setValue:NO forKey:@"state"];
@@ -630,4 +735,21 @@
 //}
 
 
+- (IBAction)pressUndo:(id)sender 
+{
+    [tonePlayer[6]play];
+    if(drawViewState == DrawState)
+    {
+        [drawBoard.drawCanvas undo];
+    }
+}
+
+- (IBAction)pressRedo:(id)sender 
+{
+    [tonePlayer[6]play];
+    if(drawViewState == DrawState)
+    {
+        [drawBoard.drawCanvas redo];
+    }
+}
 @end

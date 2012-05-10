@@ -9,26 +9,54 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
-         timestampString = "357016105.96627"
+         timestampString = "357969284.506348"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "151"
+         endingLineNumber = "151"
+         landmarkName = "-openFlowView:selectionDidChange:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357969288.968934"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
+         landmarkName = "-pressComfirmButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357969625.024231"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
+         landmarkName = "-pressCancelButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357969545.885051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "51"
          endingLineNumber = "51"
-         landmarkName = "@implementation SWDrawAlbumViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Sketch Integration/AppDelegate.m"
-         timestampString = "357295021.528902"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-dealloc"
+         landmarkName = "-loadFlowView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -36,13 +64,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/AppDelegate.m"
-         timestampString = "357295021.528902"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357969672.632219"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
-         landmarkName = "-dealloc"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-loadFlowView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -50,13 +78,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKPen.m"
-         timestampString = "357494022.207525"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "16"
-         endingLineNumber = "16"
-         landmarkName = "-initWithColorNumber:"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
+         landmarkName = "-pressSaveButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -64,13 +92,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKPen.m"
-         timestampString = "357494025.735078"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "17"
-         endingLineNumber = "17"
-         landmarkName = "-initWithColorNumber:"
+         startingLineNumber = "368"
+         endingLineNumber = "368"
+         landmarkName = "-pressSaveButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -78,13 +106,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKPen.m"
-         timestampString = "357494027.311263"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357970633.202303"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
-         landmarkName = "-initWithColorNumber:"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
+         landmarkName = "-setDrawWorkWithPasterWork:PasterWorkName:pasterImageWork:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -92,13 +120,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKDrawBoard.m"
-         timestampString = "357494549.398722"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357970634.983854"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "17"
-         endingLineNumber = "17"
-         landmarkName = "-initWithBoardState:"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-setDrawWorkWithPasterWork:PasterWorkName:pasterImageWork:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -106,13 +134,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKDrawBoard.m"
-         timestampString = "357494572.831071"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357970637.068496"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "18"
-         endingLineNumber = "18"
-         landmarkName = "-initWithBoardState:"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-setDrawWorkWithPasterWork:PasterWorkName:pasterImageWork:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -120,13 +148,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKDrawBoard.m"
-         timestampString = "357494579.739034"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357970639.832203"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "-initWithBoardState:"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "-setDrawWorkWithPasterWork:PasterWorkName:pasterImageWork:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -134,13 +162,125 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Sketch Integration/Models/DrawKit/DKPen.m"
-         timestampString = "357494630.449871"
+         filePath = "Sketch Integration/Controllers/SWDrawAlbumViewController.m"
+         timestampString = "357970641.255378"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "15"
-         endingLineNumber = "15"
-         landmarkName = "-initWithColorNumber:"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
+         landmarkName = "-setDrawWorkWithPasterWork:PasterWorkName:pasterImageWork:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-imageFromView:atFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Sketch Integration/Controllers/SWDrawViewController.m"
+         timestampString = "358350751.714125"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
+         landmarkName = "-imageFromView:atFrame:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -77,7 +77,12 @@
     jumpPlayer  = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];   //加载tap音效
     jumpPlayer.numberOfLoops  = 0;
     if  (jumpPlayer == nil)      //文件不存在
-        printf("音频加载失败");  
+        printf("音频加载失败");
+    
+    //开了一个线程负责加载数据
+    NSOperationQueue *operationQueue = [[[NSOperationQueue alloc] init] autorelease];
+    UnarchiveAlbumThread *unarchiveAlbumThread = [[[UnarchiveAlbumThread alloc] init] autorelease];
+    [operationQueue addOperation:unarchiveAlbumThread];
 }
 
 

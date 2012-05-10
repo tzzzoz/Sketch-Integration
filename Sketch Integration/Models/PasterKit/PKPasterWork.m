@@ -41,4 +41,13 @@
     [aCoder encodeObject:pasterView forKey:@"pasterView"];
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    PKPasterWork *copy = [[[self class] allocWithZone:zone] init];
+    copy.pasterView = [self.pasterView deepCopy];
+    copy.geoPasters = [self.geoPasters copy];
+    
+    return copy;
+}
+
 @end

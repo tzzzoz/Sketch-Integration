@@ -8,7 +8,8 @@
 
 #import "DKPen.h"
 
-@interface DKWaterColorPen : DKPen{
+@interface DKWaterColorPen : DKPen
+{
    // BOOL state;
 }
 

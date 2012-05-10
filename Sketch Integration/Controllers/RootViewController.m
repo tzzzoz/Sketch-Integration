@@ -120,6 +120,14 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
          nextViewController.view.layer.opacity = 1.0f;
      }completion:^(BOOL finished)
      {
+         if([nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWNavigationViewController class]])
+         {
+             [drawViewController setViewStateFromNavigationView];
+         } 
+//         else if ([nextViewController isKindOfClass:[SWDrawAlbumViewController class]]) {
+//             [drawViewController updateGeoPasterToPaster];
+//         } 
+//         
          [currentViewController.view removeFromSuperview];
          currentViewController = nextViewController;
          nextViewController = nil;
@@ -166,7 +174,6 @@ const CGPoint ScreenRightPoint  = {1024+1024/2,768/2};
              starImageView.center = destinationPoint;
              [self.view addSubview:starImageView];
              [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(showStarAnimation:) userInfo:nil repeats:YES];
-             [drawViewController savePasterWork];
              [drawViewController->tonePlayer[10] play];
          }
          else if(animation == EaseIn && [nextViewController isKindOfClass:[SWDrawViewController class]] && [currentViewController isKindOfClass:[SWPasterWonderlandViewController class]])

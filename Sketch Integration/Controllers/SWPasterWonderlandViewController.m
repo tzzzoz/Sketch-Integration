@@ -79,6 +79,7 @@
     
     RootViewController *rootViewController = [RootViewController sharedRootViewController];
     [rootViewController pushViewController:rootViewController.drawViewController];
+    rootViewController.drawViewController.drawViewState = PasterState;
     
     UIImageView* subView = [imageView.subviews objectAtIndex:0];
     subView.frame = imageView.frame;

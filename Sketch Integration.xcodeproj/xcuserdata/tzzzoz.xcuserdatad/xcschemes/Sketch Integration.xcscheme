@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A3CBBC1152EF55E00B29756"
-               BuildableName = "Sketch Integration.app"
+               BuildableName = "&#36148;&#32440;&#20048;&#22253;.app"
                BlueprintName = "Sketch Integration"
                ReferencedContainer = "container:Sketch Integration.xcodeproj">
             </BuildableReference>
@@ -39,7 +39,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A3CBBC1152EF55E00B29756"
-            BuildableName = "Sketch Integration.app"
+            BuildableName = "&#36148;&#32440;&#20048;&#22253;.app"
             BlueprintName = "Sketch Integration"
             ReferencedContainer = "container:Sketch Integration.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A3CBBC1152EF55E00B29756"
-            BuildableName = "Sketch Integration.app"
+            BuildableName = "&#36148;&#32440;&#20048;&#22253;.app"
             BlueprintName = "Sketch Integration"
             ReferencedContainer = "container:Sketch Integration.xcodeproj">
          </BuildableReference>

@@ -53,9 +53,10 @@
     else
         if (helpImageIndex<1) {
             //   prevButton.imageView.image = [UIImage imageNamed:@"nextButton.png"];
-            [noUsePlayer play];
+            
             [prevButton setEnabled:NO];
             [nextButton setEnabled:YES];
+            [noUsePlayer play];
             // helpImageIndex=0;
         }
         else{
@@ -71,24 +72,26 @@
     if (helpImageIndex>25) {
         //  nextButton.imageView.image = [UIImage imageNamed:@"beforeButton.png"];
         //   helpImageIndex=0;
-        [noUsePlayer play];
+        
         [nextButton setEnabled:NO];
         [prevButton setEnabled:YES];
-        
+        [noUsePlayer play];
     }
     else
         if (helpImageIndex<1) {
             //     prevButton.imageView.image = [UIImage imageNamed:@"nextButton.png"];
             //    helpImageIndex=0;
-            [noUsePlayer play];
+            
             [prevButton setEnabled:NO];
             [nextButton setEnabled:YES];
+            [noUsePlayer play];
         }
         else{
             helpImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"helpImageView%d.png",helpImageIndex]];
-            [slipPlayer play];
+            
             [prevButton setEnabled:YES];
             [nextButton setEnabled:YES];
+            [slipPlayer play];
         }
     
 }

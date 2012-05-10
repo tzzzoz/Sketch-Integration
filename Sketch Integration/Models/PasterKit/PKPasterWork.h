@@ -23,4 +23,7 @@
 //将几何贴纸对象添加到贴纸画作中，包括它的view
 -(void)insertGeoPaster:(PKGeometryPaster *)geoPaster atIndex:(NSUInteger)index;
 //判断贴纸作品完成，符合模板要求
+
+
+- (id)copyWithZone:(NSZone *)zone;
 @end

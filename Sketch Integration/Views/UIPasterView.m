@@ -32,7 +32,8 @@
     return self;
 }
 
--(void)setTC:(ColorRGBA)c{
+-(void)setTC:(ColorRGBA)c
+{
     tc=c;
 }
 
@@ -74,7 +75,8 @@
         {
             selectedGeoImageView.isGeometrySelected = YES;
             RootViewController *rootViewController = [RootViewController sharedRootViewController];
-            [[rootViewController drawViewController]hiddenGeoPasterBox];
+            [[rootViewController drawViewController]hideGeoPasterBox];
+            rootViewController.drawViewController.drawViewState = FillState;
             selectedGeoImageView.operationType = Translation;
             
             self.rotationTransform = selectedGeoImageView.transform;
@@ -86,6 +88,7 @@
             selectedGeoImageView.isGeometrySelected = NO;
             RootViewController *rootViewController = [RootViewController sharedRootViewController];
             [[rootViewController drawViewController]displayGeoPasterBox];
+            rootViewController.drawViewController.drawViewState = PasterState;
             selectedGeoImageView.operationType = Nothing;
             selectedGeoImageView = nil;
         }
@@ -118,6 +121,7 @@
             selectedGeoImageView.isGeometrySelected = NO;
             RootViewController *rootViewController = [RootViewController sharedRootViewController];
             [[rootViewController drawViewController]displayGeoPasterBox];
+            rootViewController.drawViewController.drawViewState = PasterState;
             selectedGeoImageView.operationType = Nothing;
             selectedGeoImageView = nil;
         }
@@ -195,11 +199,16 @@
         self.translationTransform = CGAffineTransformConcat(self.translationTransform, CGAffineTransformMakeTranslation(vector.x, vector.y));
         
         [UIView animateWithDuration:0.5f animations:^(void) {
-            selectedGeoImageView.transform = self.translationTransform;
+            selectedGeoImageView.frame = CGRectMake(point.x, point.y, 0, 0);
+            selectedGeoImageView.layer.opaque = 0.0f;
         } completion:^(BOOL finished) {
-            selectedGeoImageView.geometryTransfrom = self.translationTransform;
-
-            [selectedGeoImageView calulateFourCorners];
+            [selectedGeoImageView removeFromSuperview];
+            [selectedGeoImageView release];
+            selectedGeoImageView = nil;
+            
+            RootViewController *rootViewController = [RootViewController sharedRootViewController];
+            [[rootViewController drawViewController]displayGeoPasterBox];
+            rootViewController.drawViewController.drawViewState = PasterState;
             frameView.isFoul = NO;
         }];
         

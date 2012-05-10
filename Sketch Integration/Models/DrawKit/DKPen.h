@@ -7,24 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DKColor.h"
 #import "EnumClass.h"
 
-@interface DKPen : NSObject{
-//    id <changePenState> delegate;
-    NSInteger color;
+@interface DKPen : NSObject
+{
     //for define pen's state, YES for draw and NO for filling 
-    BOOL penState;
-    UIImageView *colorPen;
-//    NSInteger colorState;
+    BOOL penDrawState;
+    BOOL penSelectedState;
+    
+    DKColor* color;
 }
 
-@property (readwrite) NSInteger color;
-@property (readwrite) BOOL penState;
-@property (retain, nonatomic) UIImageView *colorPen;
-//@property (readwrite) NSInteger colorState;
+@property (retain,nonatomic) DKColor* color;
+@property (assign) BOOL penDrawState;
+@property (assign) BOOL penSelectedState;
 
--(id)initWithColorNumber:(NSInteger) colorNumber;
--(UIColor *)changeColorWith:(NSInteger)colorButtonNumber;
--(void)changePenStateWith:(BOOL)penState;
--(void)changeState;
+-(void)setColorWithColor:(UIColor *)colorForUI;
+
 @end

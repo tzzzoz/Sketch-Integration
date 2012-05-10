@@ -29,25 +29,26 @@ typedef enum
 }OperationType;
 
 
-typedef enum {
-    black, 
-    red, 
-    yellow, 
-    lightBlue, 
-    grassGreen, 
-    purple, 
-    brown, 
-    lightOrange, 
-    lightPurple, 
-    roseRed, 
-    lightGreen, 
-    darkPurple, 
-    grey, 
-    green, 
-    blue, 
-    darkBlue, 
-    darkGreen, 
-    pink
+typedef enum 
+{
+    black           = 0, 
+    red             = 1, 
+    yellow          = 2, 
+    lightBlue       = 3, 
+    grassGreen      = 4, 
+    purple          = 5, 
+    brown           = 6, 
+    lightOrange     = 7, 
+    lightPurple     = 8, 
+    roseRed         = 9, 
+    lightGreen      = 10, 
+    darkPurple      = 11, 
+    grey            = 12, 
+    green           = 13, 
+    blue            = 14, 
+    darkBlue        = 15, 
+    darkGreen       = 16, 
+    pink            = 17
 }ColorType;
 
 typedef enum
@@ -55,6 +56,13 @@ typedef enum
     EaseIn = 0,
     EaseOut = 1
 }SkipAnimationType;
+
+typedef enum 
+{
+    PasterState = 0,
+    FillState   = 1,
+    DrawState   = 2
+}DrawViewState;
 
 static const int sizeOfGeoPasterTemplate = 85;
 

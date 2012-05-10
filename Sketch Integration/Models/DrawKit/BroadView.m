@@ -6,22 +6,20 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-//#import "SmartGeometryViewController.h"
 #import "BroadView.h"
-//#import "SCPoint.h"
-//#import "PenInfo.h"
-//#import "Threshold.h"
-//#import "UnitFactory.h"
+#import "SCPoint.h"
+#import "PenInfo.h"
+#import "Threshold.h"
+#import "UnitFactory.h"
 
 @implementation BroadView
 
 @synthesize arrayAbandonedStrokes,arrayStrokes;
 @synthesize currentColor,currentSize;
-//@synthesize undoButton,redoButton,deleteButton;
 @synthesize owner;
 @synthesize unitList,graphList,newGraphList,pointGraphList,saveGraphList;
 @synthesize context;
-//@synthesize factory;
+@synthesize factory;
 @synthesize hasDrawed;
 @synthesize graphImageView;
 @synthesize graphListSize;
@@ -40,22 +38,24 @@
         // Initialization code
         [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0]];
         
-        self.arrayStrokes = [[NSMutableArray alloc]init];
-        self.arrayAbandonedStrokes = [[NSMutableArray alloc]init];
+        arrayStrokes = [[NSMutableArray alloc]init];
+        arrayAbandonedStrokes = [[NSMutableArray alloc]init];
         
         self.currentSize = 5.0f;
         self.currentColor= [UIColor blackColor];
         
         graphListSize = 0;
         
-//        factory = [[UnitFactory alloc]init];
+        factory = [[UnitFactory alloc]init];
         hasDrawed = NO;
         
-        self.unitList = [[NSMutableArray alloc]init];
-        self.graphList = [[NSMutableArray alloc]init];
-        self.newGraphList = [[NSMutableArray alloc]init];
-        self.pointGraphList = [[NSMutableArray alloc]init];
-        self.saveGraphList = [[NSMutableArray alloc]init];
+        undoRedoSolver = [[UndoRedoSolver alloc]init];
+        
+        unitList = [[NSMutableArray alloc]init];
+        graphList = [[NSMutableArray alloc]init];
+        newGraphList = [[NSMutableArray alloc]init];
+        pointGraphList = [[NSMutableArray alloc]init];
+        saveGraphList = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -63,8 +63,7 @@
 -(void) viewJustLoaded 
 {
     //NSLog(@"%d",111);
-  //  [self setFrame:CGRectMake(0, 0, 1024, 768)];
-    [self setFrame:CGRectMake(110.0, 60.0, 860.0, 600.0)];
+    [self setFrame:CGRectMake(0, 0, 1024, 768)];
     
 //    UIImage* undoImg = [UIImage imageNamed:@"undo.png"];
 //    undoButton = [[UIButton alloc]initWithFrame:CGRectMake(0.0f, 648.0f, 100.0f, 100.0f)];
@@ -97,12 +96,10 @@
 		[self setNeedsDisplay];
     }
     
-    if([graphList count] != 0)
-    {
-        [saveGraphList addObject:[graphList lastObject]];
-        [graphList removeLastObject];
-        [newGraphList removeLastObject];
-    }
+    self.currentImage = nil;
+    hasDrawed = YES;
+    [undoRedoSolver undoWithGraphList:graphList];
+    
     [self setNeedsDisplay];
     
 }
@@ -117,32 +114,11 @@
 		[self setNeedsDisplay];
 	}
     
-    if([saveGraphList count] != 0)
-    {
-        [graphList addObject:[saveGraphList lastObject]];
-        [newGraphList addObject:[saveGraphList lastObject]];
-        [saveGraphList removeLastObject];
-    }
-    [self setNeedsDisplay];
-    
-    
-}
-//-(void)deleteFunc:(id)sender
--(void)deleteFunc
-{
-    [self.arrayStrokes removeAllObjects];
-    [self.arrayAbandonedStrokes removeAllObjects];
-    ////////?????
-    UIGraphicsBeginImageContext(self.bounds.size);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [graphImageView setImage:image];
-    [self addSubview:graphImageView];
+    self.currentImage = nil;
+    hasDrawed = YES;
+    [undoRedoSolver redoWithGraphList:graphList];
     
     [self setNeedsDisplay];
-    
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -156,8 +132,8 @@
     previousPoint2 = [touch previousLocationInView:self];
     currentPoint = [touch locationInView:self];
     
-//    SCPoint* scpoint = [[SCPoint alloc]initWithX:currentPoint.x andY:currentPoint.y];
-//    [arrayPointsInStroke addObject:scpoint];
+    SCPoint* scpoint = [[SCPoint alloc]initWithX:currentPoint.x andY:currentPoint.y];
+    [arrayPointsInStroke addObject:scpoint];
     [self.arrayStrokes addObject:dictStroke];
     
     UIGraphicsBeginImageContext(self.bounds.size);
@@ -196,10 +172,10 @@
     self.currentImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
     
-//    SCPoint* scpoint = [[SCPoint alloc]initWithX:currentPoint.x andY:currentPoint.y];
+    SCPoint* scpoint = [[SCPoint alloc]initWithX:currentPoint.x andY:currentPoint.y];
     
     NSMutableArray* arrayPointsInStroke = [[self.arrayStrokes lastObject]objectForKey:@"points"];
-//    [arrayPointsInStroke addObject:scpoint];
+    [arrayPointsInStroke addObject:scpoint];
     
     [self setNeedsDisplayInRect:drawBox];
     
@@ -207,9 +183,6 @@
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    graphListSize = graphList.count;
-    
-//    lastImage = self.currentImage;
     
     self.currentImage = nil;
     
@@ -218,20 +191,54 @@
     NSDictionary* dictStroke = [arrayStrokes lastObject];
     NSMutableArray* arrayPointsInStroke = [dictStroke objectForKey:@"points"];
     
-    graphImageView.image = currentImage;
+    //获取图形数
+    graphListSize = newGraphList.count;
+    //识别
+    [factory createWithPoint:arrayPointsInStroke Unit:unitList Graph:graphList PointGraph:pointGraphList NewGraph:newGraphList];
+    [unitList removeAllObjects];
+    //约束
+    Constraint* constructor = [[Constraint alloc]initWithPointList:pointGraphList GraphList:graphList SeletedList:newGraphList];
+    [constructor setLastGraphSize:graphListSize];
+    //构建约束
+    [constructor recognizeConstraint];
     
-//    [factory createWithPoint:arrayPointsInStroke Unit:unitList Graph:graphList PointGraph:pointGraphList NewGraph:newGraphList];
-//    Constraint* constructor = [[Constraint alloc]initWithPointList:pointGraphList GraphList:graphList SeletedList:newGraphList];
-//    [constructor setLastGraphSize:graphListSize];
-//    [constructor recognizeConstraint];
-//    NSMutableArray* deleteGraph = constructor.delete_graph;
-//    if(deleteGraph.count != 0)
-//    {
-//        graphListSize -= deleteGraph.count;
-//    }
-//    
-//    [arrayStrokes removeLastObject];
-//    hasDrawed = YES;
+    NSLog(@"delete graph list count: %d",constructor.delete_graph.count);
+    
+    if(graphListSize >= graphList.count)
+    {
+        SCGraph* lastGraph = [graphList lastObject];
+        lastGraph.strokeSize = currentSize;
+        [lastGraph setGraphColorWithColorRef:self.currentColor.CGColor];
+    }
+    
+    for(int i=graphListSize; i<graphList.count; i++)
+    {
+        SCGraph* graphTemp = [graphList objectAtIndex:i];
+        graphTemp.strokeSize = currentSize;
+        [graphTemp setGraphColorWithColorRef:self.currentColor.CGColor];
+    }
+    
+    for(SCGraph* graphDel in constructor.delete_graph)
+    {
+        [newGraphList removeObject:graphDel];
+    }
+    NSMutableArray* deleteGraph = constructor.delete_graph;
+    [constructor.delete_graph removeAllObjects];
+    if(deleteGraph.count != 0)
+    {
+        //更新图形数
+        graphListSize -= deleteGraph.count;
+    }
+    
+    SCGraph* lastGraph = [graphList lastObject];
+    lastGraph.strokeSize = currentSize;
+    [lastGraph setGraphColorWithColorRef:self.currentColor.CGColor];
+    
+    NSLog(@"graph list count: %d", graphList.count);
+    NSLog(@"new graph list count: %d", newGraphList.count);
+    
+    [arrayStrokes removeLastObject];
+    hasDrawed = YES;
     
     [self setNeedsDisplay];
 }
@@ -266,8 +273,13 @@
     
     for(int i=0; i<graphList.count; i++)
     {
-//        SCGraph* graph = [graphList objectAtIndex:i];
-//        [graph drawWithContext:context];
+        SCGraph* graph = [graphList objectAtIndex:i];
+        if(graph.isDraw)
+        {
+//            CGContextSetLineWidth(context, graph.strokeSize);
+//            CGContextSetStrokeColorWithColor(context, graph.graphColor);
+            [graph drawWithContext:context];
+        }
     }
     
     [super drawRect:rect];
@@ -275,13 +287,19 @@
 
 -(void)dealloc
 {
-    
+    [super dealloc];
     
     [arrayStrokes release];
     [arrayAbandonedStrokes release];
-    
+    [unitList release];
+    [graphList release];
+    [pointGraphList release];
+    [saveGraphList release];
+    [factory release];
+    [undoRedoSolver release];
+    [currentImage release];
+    [lastImage release];
     [currentColor release];
-    [super dealloc];
 }
 
 @end

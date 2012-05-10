@@ -9,44 +9,53 @@
 #import "DKDrawBoard.h"
 
 @implementation DKDrawBoard
-@synthesize colorPenArray, drawCanvas, isLikely, boardState, geoPasterTemplate;
 
--(id)initWithBoardState:(BOOL)toDraw{
+@synthesize colorPalette,waterColorPen,drawCanvas,geoPasterTemplate;
+@synthesize isLikely,isBoardShow;
+
+-(id)initWithBoardState:(BOOL)toDraw
+{
     self = [super init];
-    if (self) {
-        colorPenArray = [[NSMutableArray alloc]init];
-        for (int i = 0; i < 18; i++) {
-            DKWaterColorPen *waterColorPen = [[DKWaterColorPen alloc] initWithColorNumber:i];
-            [colorPenArray addObject:waterColorPen];
-        }
+    if (self) 
+    {
+        colorPalette = [[DKColorPalette alloc]init];
+        waterColorPen = [[DKWaterColorPen alloc]init];
         
-        //     state = YES;
+        ///////////!!!!还没进行判断，先置为yes!!!!////////
         isLikely = YES;
+        
         //YES means board is in the draw state and NO for edit
-//        boardState = NO;
-        if (toDraw) {
+        if (toDraw) 
+        {
+            isBoardShow = YES;
             drawCanvas = [[DKDrawCanvas alloc]init];
         }
     }
     return self;
 }
 
+//
+//
+////当画作完成是，判断识别出来的跟模板是否匹配，是的话就给予鼓励，并提示填充颜色，否则清空画纸，并提醒重画
+//-(void)drawComplete:(BOOL)isLike{
+//    if (!isLike) {
+//        //清空
+//        [self clearDrawWork];
+//    }
+//    else{
+//        
+//    }
+//}
+//
+////清空画纸
+//-(void)clearDrawWork{
+//    [drawCanvas.drawCanvasView deleteFunc];
+//    [drawCanvas.drawCanvasView setNeedsDisplay];
+//}
 
-//当画作完成是，判断识别出来的跟模板是否匹配，是的话就给予鼓励，并提示填充颜色，否则清空画纸，并提醒重画
--(void)drawComplete:(BOOL)isLike{
-    if (!isLike) {
-        //清空
-        [self clearDrawWork];
-    }
-    else{
-        
-    }
-}
-
-//清空画纸
--(void)clearDrawWork{
-    [drawCanvas.drawCanvasView deleteFunc];
-    [drawCanvas.drawCanvasView setNeedsDisplay];
+-(void)dealloc
+{
+    [super dealloc];
 }
 
 @end

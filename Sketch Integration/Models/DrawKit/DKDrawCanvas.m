@@ -14,14 +14,35 @@
 - (id)init
 {
     self = [super init];
-    if (self) {
+    if (self) 
+    {
         // Initialization code here.
-//        strokes = [[NSMutableArray alloc]init];
-//        points = [[NSMutableArray alloc]init];
         drawCanvasView =[[BroadView alloc] initWithFrame:CGRectMake(110.0, 60.0, 860.0, 600.0)];
     }
     
     return self;
+}
+
+-(void)redo
+{
+    [drawCanvasView redoFunc];
+}
+
+-(void)undo
+{
+    [drawCanvasView undoFunc];
+}
+
+-(void)deleteCanvas
+{
+    [drawCanvasView release];
+    drawCanvasView =[[BroadView alloc] initWithFrame:CGRectMake(110.0, 60.0, 860.0, 600.0)];
+}
+
+-(void)dealloc
+{
+    [super dealloc];
+    [drawCanvasView release];
 }
 
 @end
